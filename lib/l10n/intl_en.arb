@@ -1,0 +1,102 @@
+{
+  "@@locale": "en",
+
+  "navHome": "Home",
+  "navWeigh": "Weigh",
+  "navHistory": "History",
+  "navItems": "Items",
+  "navSettings": "Settings",
+
+  "scaleNoScaleConnected": "No scale connected",
+  "scalePairHint": "Pair a Bluetooth scale to start",
+  "scaleConnecting": "Connecting...",
+  "scaleBluetoothProfile": "Bluetooth · {profile}",
+  "@scaleBluetoothProfile": {
+    "placeholders": {
+      "profile": { "type": "String" }
+    }
+  },
+  "scaleConnectionLostReconnecting": "Connection lost · reconnecting...",
+
+  "statusNotConnected": "Not connected",
+  "statusConnecting": "Connecting",
+  "statusConnected": "Connected",
+  "statusDisconnected": "Disconnected",
+
+  "readingStable": "STABLE",
+  "readingUnstable": "UNSTABLE",
+  "readingNoSignal": "NO SIGNAL",
+  "readingLastReading": "LAST READING",
+
+  "actionTare": "Tare",
+  "actionZero": "Zero",
+  "actionConnectScale": "Connect Scale",
+  "actionConnecting": "Connecting...",
+  "actionStartWeighing": "Start Weighing",
+  "actionReconnectNow": "Reconnect Now",
+
+  "connectionLostTitle": "Scale connection lost",
+  "connectionLostBody": "Reconnecting (attempt {attempt} of {maxAttempts}).\nConfirmed lines are saved.",
+  "@connectionLostBody": {
+    "placeholders": {
+      "attempt": { "type": "int" },
+      "maxAttempts": { "type": "int" }
+    }
+  },
+  "actionManualEntry": "Manual entry",
+
+  "quickBuyTitle": "Buy",
+  "quickBuySubtitle": "Weigh & pay",
+  "quickSellTitle": "Sell",
+  "quickSellSubtitle": "Weigh & invoice",
+  "quickPriceListTitle": "Price List",
+  "quickPriceListSubtitle": "Items & rates",
+  "quickReportsTitle": "Reports",
+  "quickReportsSubtitle": "Daily & monthly",
+
+  "todayTitle": "Today",
+  "todayFullReport": "Full report",
+  "todayTransactions": "Transactions",
+  "todayWeightKg": "Weight (kg)",
+  "todayAmountKs": "Amount (Ks)",
+
+  "getStartedTitle": "Get started",
+  "getStartedProgress": "{done} of {total} done",
+  "@getStartedProgress": {
+    "placeholders": {
+      "done": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "stepConnectScaleTitle": "Connect your scale",
+  "stepConnectScaleSubtitle": "Bluetooth scale, or enter weights manually",
+  "stepAddItemsTitle": "Add items & prices",
+  "stepAddItemsSubtitle": "Set the price per kg for each material",
+  "stepFirstWeighingTitle": "Make your first weighing",
+  "stepFirstWeighingSubtitle": "Buy or sell, then print a receipt",
+
+  "recentTitle": "Recent transactions",
+  "recentSeeAll": "See all",
+  "recentEmptyTitle": "No transactions yet",
+  "recentEmptyBody": "Your weighings will appear here after your first\npurchase or sale.",
+
+  "transactionBuy": "Buy",
+  "transactionSell": "Sell",
+
+  "moneyKs": "{amount} Ks",
+  "@moneyKs": {
+    "placeholders": {
+      "amount": { "type": "String" }
+    }
+  },
+  "weightKgValue": "{weight} kg",
+  "@weightKgValue": {
+    "placeholders": {
+      "weight": { "type": "String" }
+    }
+  },
+
+  "settingsLanguage": "Language",
+  "languageEnglish": "English",
+  "languageMyanmar": "မြန်မာ"
+}

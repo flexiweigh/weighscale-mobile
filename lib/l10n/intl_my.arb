@@ -1,0 +1,75 @@
+{
+  "@@locale": "my",
+
+  "navHome": "ပင်မ",
+  "navWeigh": "ချိန်",
+  "navHistory": "မှတ်တမ်း",
+  "navItems": "ပစ္စည်းများ",
+  "navSettings": "ဆက်တင်",
+
+  "scaleNoScaleConnected": "ချိန်ခွင် မချိတ်ဆက်ရသေးပါ",
+  "scalePairHint": "စတင်ရန် Bluetooth ချိန်ခွင်ကို တွဲချိတ်ပါ",
+  "scaleConnecting": "ချိတ်ဆက်နေသည်...",
+  "scaleBluetoothProfile": "Bluetooth · {profile}",
+  "scaleConnectionLostReconnecting": "ချိတ်ဆက်မှု ပြတ်သွားသည် · ပြန်ချိတ်နေသည်...",
+
+  "statusNotConnected": "မချိတ်ရသေး",
+  "statusConnecting": "ချိတ်နေသည်",
+  "statusConnected": "ချိတ်ဆက်ပြီး",
+  "statusDisconnected": "ပြတ်တောက်",
+
+  "readingStable": "တည်ငြိမ်",
+  "readingUnstable": "မငြိမ်",
+  "readingNoSignal": "အချက်ပြမရှိ",
+  "readingLastReading": "နောက်ဆုံးဖတ်ချက်",
+
+  "actionTare": "အလေးနုတ်",
+  "actionZero": "သုည",
+  "actionConnectScale": "ချိန်ခွင်ချိတ်ရန်",
+  "actionConnecting": "ချိတ်နေသည်...",
+  "actionStartWeighing": "ချိန်တွယ်စတင်",
+  "actionReconnectNow": "ယခုပြန်ချိတ်",
+
+  "connectionLostTitle": "ချိန်ခွင်ချိတ်ဆက်မှု ပြတ်သွားသည်",
+  "connectionLostBody": "ပြန်ချိတ်နေသည် ({maxAttempts} ကြိမ်အနက် {attempt} ကြိမ်မြောက်)။\nအတည်ပြုပြီးသော စာရင်းများကို သိမ်းဆည်းပြီးဖြစ်သည်။",
+  "actionManualEntry": "လက်ဖြင့်ထည့်ရန်",
+
+  "quickBuyTitle": "ဝယ်ယူ",
+  "quickBuySubtitle": "ချိန်ပြီး ပေးချေ",
+  "quickSellTitle": "ရောင်းချ",
+  "quickSellSubtitle": "ချိန်ပြီး ပြေစာထုတ်",
+  "quickPriceListTitle": "စျေးနှုန်းစာရင်း",
+  "quickPriceListSubtitle": "ပစ္စည်းနှင့် နှုန်းထား",
+  "quickReportsTitle": "အစီရင်ခံစာ",
+  "quickReportsSubtitle": "နေ့စဉ်နှင့် လစဉ်",
+
+  "todayTitle": "ယနေ့",
+  "todayFullReport": "အပြည့်အစုံကြည့်ရန်",
+  "todayTransactions": "ရောင်းဝယ်မှု",
+  "todayWeightKg": "အလေးချိန် (ကီလို)",
+  "todayAmountKs": "ငွေပမာဏ (ကျပ်)",
+
+  "getStartedTitle": "စတင်အသုံးပြုရန်",
+  "getStartedProgress": "{total} ခုအနက် {done} ခု ပြီးပြီ",
+  "stepConnectScaleTitle": "ချိန်ခွင်ချိတ်ဆက်ပါ",
+  "stepConnectScaleSubtitle": "Bluetooth ချိန်ခွင် သို့မဟုတ် အလေးချိန်ကို လက်ဖြင့်ထည့်ပါ",
+  "stepAddItemsTitle": "ပစ္စည်းနှင့် စျေးနှုန်းထည့်ပါ",
+  "stepAddItemsSubtitle": "ပစ္စည်းတစ်မျိုးချင်းစီ၏ တစ်ကီလိုစျေးကို သတ်မှတ်ပါ",
+  "stepFirstWeighingTitle": "ပထမဆုံးအကြိမ် ချိန်တွယ်ပါ",
+  "stepFirstWeighingSubtitle": "ဝယ် သို့မဟုတ် ရောင်းပြီး ပြေစာထုတ်ပါ",
+
+  "recentTitle": "မကြာသေးမီ ရောင်းဝယ်မှုများ",
+  "recentSeeAll": "အားလုံးကြည့်ရန်",
+  "recentEmptyTitle": "ရောင်းဝယ်မှု မရှိသေးပါ",
+  "recentEmptyBody": "ပထမဆုံး ဝယ်ယူမှု သို့မဟုတ် ရောင်းချမှု ပြီးသည့်အခါ\nဤနေရာတွင် ပေါ်လာပါမည်။",
+
+  "transactionBuy": "ဝယ်",
+  "transactionSell": "ရောင်း",
+
+  "moneyKs": "{amount} ကျပ်",
+  "weightKgValue": "{weight} ကီလို",
+
+  "settingsLanguage": "ဘာသာစကား",
+  "languageEnglish": "English",
+  "languageMyanmar": "မြန်မာ"
+}
