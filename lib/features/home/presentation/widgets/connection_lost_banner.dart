@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_tone.dart';
 import '../state/home_card_states.dart';
@@ -16,6 +17,7 @@ class ConnectionLostBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     final colors = AppTone.red.colors;
     return Container(
       padding: const EdgeInsets.all(12),
@@ -33,7 +35,7 @@ class ConnectionLostBanner extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Scale connection lost',
+                  l10n.connectionLostTitle,
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w700,
@@ -42,7 +44,7 @@ class ConnectionLostBanner extends StatelessWidget {
                 ),
                 const SizedBox(height: 2),
                 Text(
-                  'Reconnecting (attempt ${state.attempt} of ${state.maxAttempts}).\nConfirmed lines are saved.',
+                  l10n.connectionLostBody(state.attempt, state.maxAttempts),
                   style: TextStyle(
                     fontSize: 12,
                     height: 1.3,
@@ -63,7 +65,7 @@ class ConnectionLostBanner extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
               ),
             ),
-            child: const Text('Manual entry'),
+            child: Text(l10n.actionManualEntry),
           ),
         ],
       ),

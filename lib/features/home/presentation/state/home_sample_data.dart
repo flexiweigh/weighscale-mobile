@@ -6,44 +6,17 @@ class HomeSampleData {
 
   static const _stepsPending = GetStartedState(
     steps: [
-      GetStartedStep(
-        id: GetStartedStepId.connectScale,
-        title: 'Connect your scale',
-        subtitle: 'Bluetooth scale, or enter weights manually',
-      ),
-      GetStartedStep(
-        id: GetStartedStepId.addItems,
-        title: 'Add items & prices',
-        subtitle: 'Set the price per kg for each material',
-      ),
-      GetStartedStep(
-        id: GetStartedStepId.firstWeighing,
-        title: 'Make your first weighing',
-        subtitle: 'Buy or sell, then print a receipt',
-      ),
+      GetStartedStep(id: GetStartedStepId.connectScale),
+      GetStartedStep(id: GetStartedStepId.addItems),
+      GetStartedStep(id: GetStartedStepId.firstWeighing),
     ],
   );
 
   static const _stepsDone = GetStartedState(
     steps: [
-      GetStartedStep(
-        id: GetStartedStepId.connectScale,
-        title: 'Connect your scale',
-        subtitle: 'Bluetooth scale, or enter weights manually',
-        done: true,
-      ),
-      GetStartedStep(
-        id: GetStartedStepId.addItems,
-        title: 'Add items & prices',
-        subtitle: 'Set the price per kg for each material',
-        done: true,
-      ),
-      GetStartedStep(
-        id: GetStartedStepId.firstWeighing,
-        title: 'Make your first weighing',
-        subtitle: 'Buy or sell, then print a receipt',
-        done: true,
-      ),
+      GetStartedStep(id: GetStartedStepId.connectScale, done: true),
+      GetStartedStep(id: GetStartedStepId.addItems, done: true),
+      GetStartedStep(id: GetStartedStepId.firstWeighing, done: true),
     ],
   );
 

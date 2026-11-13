@@ -7,6 +7,12 @@
   "navItems": "Items",
   "navSettings": "Settings",
 
+  "commonComingSoon": "Coming soon",
+  "devicesTitle": "Connect Scale",
+  "reportsTitle": "Reports",
+  "manualEntryTitle": "Manual entry",
+  "transactionDetailTitle": "Transaction",
+
   "scaleNoScaleConnected": "No scale connected",
   "scalePairHint": "Pair a Bluetooth scale to start",
   "scaleConnecting": "Connecting...",
@@ -95,6 +101,159 @@
       "weight": { "type": "String" }
     }
   },
+
+  "connectTitle": "Connect a scale",
+  "connectSubtitle": "Turn on the scale's Bluetooth and keep it nearby.",
+  "connectRescan": "Rescan",
+  "connectScanning": "Scanning... {count} devices found",
+  "@connectScanning": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "connectFinished": "{count} devices found",
+  "@connectFinished": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "connectNoDevices": "No devices found",
+  "connectNoDevicesHint": "Check that the scale is on and nearby, then rescan.",
+  "connectProfileLabel": "Scale profile",
+  "connectCantFind": "Can't find your scale?",
+  "connectEnterManually": "Enter weights manually",
+  "actionConnect": "Connect",
+  "deviceUnnamed": "Unnamed device",
+  "deviceSignal": "Signal: {signal}",
+  "@deviceSignal": {
+    "placeholders": { "signal": { "type": "String" } }
+  },
+  "deviceService": "Service {service}",
+  "@deviceService": {
+    "placeholders": { "service": { "type": "String" } }
+  },
+  "signalStrong": "Strong",
+  "signalGood": "Good",
+  "signalWeak": "Weak",
+  "signalUnknown": "Unknown",
+  "transportBluetooth": "Bluetooth",
+  "transportWifi": "Wi-Fi",
+  "transportUsb": "USB",
+  "unavailableAdapterOff": "{transport} is off. Turn it on to find scales.",
+  "@unavailableAdapterOff": {
+    "placeholders": { "transport": { "type": "String" } }
+  },
+  "unavailablePermission": "Permission needed to scan with {transport}.",
+  "@unavailablePermission": {
+    "placeholders": { "transport": { "type": "String" } }
+  },
+  "unavailableUnsupported": "{transport} scanning isn't supported on this device.",
+  "@unavailableUnsupported": {
+    "placeholders": { "transport": { "type": "String" } }
+  },
+  "connectFailedTimeout": "Connection timed out. Please try again.",
+  "connectFailedRejected": "The scale rejected the connection.",
+  "connectFailedUnsupported": "This scale is not supported by the selected profile.",
+  "connectFailedUnknown": "Could not connect. Please try again.",
+
+  "accessAllow": "Allow",
+  "accessTurnOn": "Turn on",
+  "accessOpenSettings": "Open settings",
+
+  "settingsGeneralSection": "General",
+  "settingsScaleSection": "Scale",
+  "settingsShopName": "Shop name",
+  "settingsScaleConnection": "Scale connection",
+  "commonSave": "Save",
+  "commonCancel": "Cancel",
+
+  "categoryMetal": "Metal",
+  "categoryPlastic": "Plastic",
+  "categoryPaper": "Paper",
+  "categoryRubber": "Rubber",
+  "categoryOther": "Other",
+
+  "itemsCount": "{count, plural, =1{1 item} other{{count} items}}",
+  "@itemsCount": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "itemsAddTooltip": "Add item",
+  "itemsSearchHint": "Search items",
+  "itemsEmptyTitle": "No items yet",
+  "itemsEmptyBody": "Add the materials you buy or sell, with a price per kg. You can change prices any time.",
+  "itemsAddFirst": "Add first item",
+  "itemsQuickAdd": "Quick add common items",
+  "itemsNoResultsTitle": "No items found",
+  "itemsNoResultsBody": "Nothing matches “{query}”. Try a different name or code.",
+  "@itemsNoResultsBody": {
+    "placeholders": { "query": { "type": "String" } }
+  },
+  "itemsLoadError": "Could not load items.",
+  "commonRetry": "Try again",
+  "itemPriceLine": "Buy {buy} · Sell {sell} Ks/{unit}",
+  "@itemPriceLine": {
+    "placeholders": {
+      "buy": { "type": "String" },
+      "sell": { "type": "String" },
+      "unit": { "type": "String" }
+    }
+  },
+  "statusActive": "Active",
+  "statusInactive": "Inactive",
+  "presetCopper": "Copper",
+  "presetAluminium": "Aluminium",
+  "presetIronScrap": "Iron scrap",
+  "presetPlastic": "Plastic",
+  "presetPaper": "Paper",
+  "presetBrass": "Brass",
+  "presetRubber": "Rubber",
+  "unitKg": "kg",
+  "unitG": "g",
+  "unitLb": "lb",
+  "unitViss": "viss",
+  "priceSuffix": "Ks/{unit}",
+  "@priceSuffix": {
+    "placeholders": { "unit": { "type": "String" } }
+  },
+  "itemFormAddTitle": "Add Item",
+  "itemFormEditTitle": "Edit Item",
+  "itemFormSubtitleNew": "Price List · New material",
+  "itemFormSubtitleEdit": "Price List · Edit material",
+  "sectionBasicInfo": "Basic info",
+  "sectionPricing": "Pricing",
+  "sectionDefaults": "Defaults",
+  "fieldItemName": "Item name",
+  "fieldShortCode": "Short code",
+  "fieldCategory": "Category",
+  "fieldCategoryHint": "Choose or type",
+  "fieldWeighingUnit": "Weighing unit",
+  "fieldBuyPrice": "Buy price",
+  "fieldSellPrice": "Sell price",
+  "desiredWeightTitle": "Desired weight · OK check",
+  "desiredWeightHint": "Live Weighing shows OK, Under or Over for this item.",
+  "fieldTargetWeight": "Target weight",
+  "fieldTolerance": "Tolerance ±",
+  "checkUnder": "Under",
+  "checkOk": "OK",
+  "checkOver": "Over",
+  "toggleShowCheck": "Show OK / Under / Over",
+  "toggleAutoCapture": "Auto-capture when OK and stable",
+  "fieldDefaultDeduction": "Default deduction",
+  "fieldStatus": "Status",
+  "fieldNotes": "Notes (optional)",
+  "fieldNotesHint": "e.g. clean bright copper only",
+  "itemSave": "Save Item",
+  "errorRequired": "This field is required",
+  "errorInvalidNumber": "Enter a valid number",
+  "errorTooLong": "Too long",
+  "errorDuplicateName": "An item with this name already exists",
+  "errorDuplicateCode": "This short code is already used",
+  "errorSaveFailed": "Could not save. Please try again.",
+  "errorItemNotFound": "This item no longer exists.",
+  "discardTitle": "Discard changes?",
+  "discardBody": "Your changes have not been saved.",
+  "discardKeep": "Keep editing",
+  "discardConfirm": "Discard",
+  "itemDeleteTooltip": "Delete item",
+  "itemDeleteTitle": "Delete this item?",
+  "itemDeleteBody": "It will be removed from your price list. Past transactions keep their records.",
+  "itemDelete": "Delete",
 
   "settingsLanguage": "Language",
   "languageEnglish": "English",

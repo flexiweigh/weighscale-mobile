@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_tone.dart';
 import '../state/home_card_states.dart';
@@ -22,6 +23,7 @@ class ScaleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final connected = state.status == ScaleConnectionStatus.connected;
+    final l10n = context.l10n;
     return AppCard(
       child: Column(
         children: [
@@ -32,12 +34,12 @@ class ScaleCard extends StatelessWidget {
           Row(
             children: [
               _SecondaryButton(
-                label: 'Tare',
+                label: l10n.actionTare,
                 onPressed: connected ? onTare : null,
               ),
               const SizedBox(width: 8),
               _SecondaryButton(
-                label: 'Zero',
+                label: l10n.actionZero,
                 onPressed: connected ? onZero : null,
               ),
               const SizedBox(width: 8),
@@ -62,30 +64,36 @@ class _Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+    final deviceName = state.deviceName ?? 'Scale';
+
     final (title, subtitle) = switch (state.status) {
       ScaleConnectionStatus.notConnected => (
-      'No scale connected',
-      'Pair a Bluetooth scale to start'
+      l10n.scaleNoScaleConnected,
+      l10n.scalePairHint
       ),
-      ScaleConnectionStatus.connecting => (
-      state.deviceName ?? 'Scale',
-      'Connecting...'
-      ),
+      ScaleConnectionStatus.connecting => (deviceName, l10n.scaleConnecting),
       ScaleConnectionStatus.connected => (
-      state.deviceName ?? 'Scale',
-      'Bluetooth · ${state.profileName ?? ''}'
+      deviceName,
+      l10n.scaleBluetoothProfile(state.profileName ?? '')
       ),
       ScaleConnectionStatus.disconnected => (
-      state.deviceName ?? 'Scale',
-      'Connection lost · reconnecting...'
+      deviceName,
+      l10n.scaleConnectionLostReconnecting
       ),
     };
 
     final (chipLabel, chipTone) = switch (state.status) {
-      ScaleConnectionStatus.notConnected => ('Not connected', AppTone.orange),
-      ScaleConnectionStatus.connecting => ('Connecting', AppTone.blue),
-      ScaleConnectionStatus.connected => ('Connected', AppTone.green),
-      ScaleConnectionStatus.disconnected => ('Disconnected', AppTone.red),
+      ScaleConnectionStatus.notConnected => (
+      l10n.statusNotConnected,
+      AppTone.orange
+      ),
+      ScaleConnectionStatus.connecting => (l10n.statusConnecting, AppTone.blue),
+      ScaleConnectionStatus.connected => (l10n.statusConnected, AppTone.green),
+      ScaleConnectionStatus.disconnected => (
+      l10n.statusDisconnected,
+      AppTone.red
+      ),
     };
 
     final iconTone = switch (state.status) {
@@ -209,12 +217,25 @@ class _QualityBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     final (label, background, foreground) = switch (quality) {
-      ReadingQuality.stable => ('STABLE', AppColors.success, Colors.white),
-      ReadingQuality.unstable => ('UNSTABLE', AppColors.warning, Colors.white),
-      ReadingQuality.noSignal => ('NO SIGNAL', Colors.white12, Colors.white54),
+      ReadingQuality.stable => (
+      l10n.readingStable,
+      AppColors.success,
+      Colors.white
+      ),
+      ReadingQuality.unstable => (
+      l10n.readingUnstable,
+      AppColors.warning,
+      Colors.white
+      ),
+      ReadingQuality.noSignal => (
+      l10n.readingNoSignal,
+      Colors.white12,
+      Colors.white54
+      ),
       ReadingQuality.lastReading => (
-      'LAST READING',
+      l10n.readingLastReading,
       Colors.white12,
       Colors.white60
       ),
@@ -269,24 +290,25 @@ class _PrimaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     final (label, icon, enabled) = switch (status) {
       ScaleConnectionStatus.notConnected => (
-      'Connect Scale',
+      l10n.actionConnectScale,
       Icons.bluetooth,
       true
       ),
       ScaleConnectionStatus.connecting => (
-      'Connecting...',
+      l10n.actionConnecting,
       Icons.bluetooth_searching,
       false
       ),
       ScaleConnectionStatus.connected => (
-      'Start Weighing',
+      l10n.actionStartWeighing,
       Icons.balance,
       true
       ),
       ScaleConnectionStatus.disconnected => (
-      'Reconnect Now',
+      l10n.actionReconnectNow,
       Icons.refresh,
       true
       ),
@@ -295,7 +317,7 @@ class _PrimaryButton extends StatelessWidget {
     return FilledButton.icon(
       onPressed: enabled ? onPressed : null,
       icon: Icon(icon, size: 18),
-      label: Text(label),
+      label: Text(label, maxLines: 1, overflow: TextOverflow.ellipsis),
       style: FilledButton.styleFrom(
         minimumSize: const Size(0, 44),
         backgroundColor: AppColors.primary,

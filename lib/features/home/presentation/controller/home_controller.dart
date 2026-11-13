@@ -87,4 +87,28 @@ class HomeController extends Notifier<HomeState> {
   }
 
   void zero() => tare();
+
+  void scaleConnected({
+    required String deviceName,
+    required String profileName,
+  }) {
+    state = state.copyWith(
+      scale: ScaleCardState.connected(
+        deviceName: deviceName,
+        profileName: profileName,
+        weight: 0,
+        isStable: true,
+      ),
+      clearConnectionLost: true,
+      getStarted: GetStartedState(
+        steps: [
+          for (final step in state.getStarted.steps)
+            step.id == GetStartedStepId.connectScale
+                ? GetStartedStep(id: step.id, done: true)
+                : step,
+        ],
+      ),
+    );
+  }
+
 }

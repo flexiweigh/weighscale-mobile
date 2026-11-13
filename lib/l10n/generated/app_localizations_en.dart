@@ -25,6 +25,21 @@ class AppL10nEn extends AppL10n {
   String get navSettings => 'Settings';
 
   @override
+  String get commonComingSoon => 'Coming soon';
+
+  @override
+  String get devicesTitle => 'Connect Scale';
+
+  @override
+  String get reportsTitle => 'Reports';
+
+  @override
+  String get manualEntryTitle => 'Manual entry';
+
+  @override
+  String get transactionDetailTitle => 'Transaction';
+
+  @override
   String get scaleNoScaleConnected => 'No scale connected';
 
   @override
@@ -189,6 +204,373 @@ class AppL10nEn extends AppL10n {
   String weightKgValue(String weight) {
     return '$weight kg';
   }
+
+  @override
+  String get connectTitle => 'Connect a scale';
+
+  @override
+  String get connectSubtitle =>
+      'Turn on the scale\'s Bluetooth and keep it nearby.';
+
+  @override
+  String get connectRescan => 'Rescan';
+
+  @override
+  String connectScanning(int count) {
+    return 'Scanning... $count devices found';
+  }
+
+  @override
+  String connectFinished(int count) {
+    return '$count devices found';
+  }
+
+  @override
+  String get connectNoDevices => 'No devices found';
+
+  @override
+  String get connectNoDevicesHint =>
+      'Check that the scale is on and nearby, then rescan.';
+
+  @override
+  String get connectProfileLabel => 'Scale profile';
+
+  @override
+  String get connectCantFind => 'Can\'t find your scale?';
+
+  @override
+  String get connectEnterManually => 'Enter weights manually';
+
+  @override
+  String get actionConnect => 'Connect';
+
+  @override
+  String get deviceUnnamed => 'Unnamed device';
+
+  @override
+  String deviceSignal(String signal) {
+    return 'Signal: $signal';
+  }
+
+  @override
+  String deviceService(String service) {
+    return 'Service $service';
+  }
+
+  @override
+  String get signalStrong => 'Strong';
+
+  @override
+  String get signalGood => 'Good';
+
+  @override
+  String get signalWeak => 'Weak';
+
+  @override
+  String get signalUnknown => 'Unknown';
+
+  @override
+  String get transportBluetooth => 'Bluetooth';
+
+  @override
+  String get transportWifi => 'Wi-Fi';
+
+  @override
+  String get transportUsb => 'USB';
+
+  @override
+  String unavailableAdapterOff(String transport) {
+    return '$transport is off. Turn it on to find scales.';
+  }
+
+  @override
+  String unavailablePermission(String transport) {
+    return 'Permission needed to scan with $transport.';
+  }
+
+  @override
+  String unavailableUnsupported(String transport) {
+    return '$transport scanning isn\'t supported on this device.';
+  }
+
+  @override
+  String get connectFailedTimeout => 'Connection timed out. Please try again.';
+
+  @override
+  String get connectFailedRejected => 'The scale rejected the connection.';
+
+  @override
+  String get connectFailedUnsupported =>
+      'This scale is not supported by the selected profile.';
+
+  @override
+  String get connectFailedUnknown => 'Could not connect. Please try again.';
+
+  @override
+  String get accessAllow => 'Allow';
+
+  @override
+  String get accessTurnOn => 'Turn on';
+
+  @override
+  String get accessOpenSettings => 'Open settings';
+
+  @override
+  String get settingsGeneralSection => 'General';
+
+  @override
+  String get settingsScaleSection => 'Scale';
+
+  @override
+  String get settingsShopName => 'Shop name';
+
+  @override
+  String get settingsScaleConnection => 'Scale connection';
+
+  @override
+  String get commonSave => 'Save';
+
+  @override
+  String get commonCancel => 'Cancel';
+
+  @override
+  String get categoryMetal => 'Metal';
+
+  @override
+  String get categoryPlastic => 'Plastic';
+
+  @override
+  String get categoryPaper => 'Paper';
+
+  @override
+  String get categoryRubber => 'Rubber';
+
+  @override
+  String get categoryOther => 'Other';
+
+  @override
+  String itemsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count items',
+      one: '1 item',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get itemsAddTooltip => 'Add item';
+
+  @override
+  String get itemsSearchHint => 'Search items';
+
+  @override
+  String get itemsEmptyTitle => 'No items yet';
+
+  @override
+  String get itemsEmptyBody =>
+      'Add the materials you buy or sell, with a price per kg. You can change prices any time.';
+
+  @override
+  String get itemsAddFirst => 'Add first item';
+
+  @override
+  String get itemsQuickAdd => 'Quick add common items';
+
+  @override
+  String get itemsNoResultsTitle => 'No items found';
+
+  @override
+  String itemsNoResultsBody(String query) {
+    return 'Nothing matches “$query”. Try a different name or code.';
+  }
+
+  @override
+  String get itemsLoadError => 'Could not load items.';
+
+  @override
+  String get commonRetry => 'Try again';
+
+  @override
+  String itemPriceLine(String buy, String sell, String unit) {
+    return 'Buy $buy · Sell $sell Ks/$unit';
+  }
+
+  @override
+  String get statusActive => 'Active';
+
+  @override
+  String get statusInactive => 'Inactive';
+
+  @override
+  String get presetCopper => 'Copper';
+
+  @override
+  String get presetAluminium => 'Aluminium';
+
+  @override
+  String get presetIronScrap => 'Iron scrap';
+
+  @override
+  String get presetPlastic => 'Plastic';
+
+  @override
+  String get presetPaper => 'Paper';
+
+  @override
+  String get presetBrass => 'Brass';
+
+  @override
+  String get presetRubber => 'Rubber';
+
+  @override
+  String get unitKg => 'kg';
+
+  @override
+  String get unitG => 'g';
+
+  @override
+  String get unitLb => 'lb';
+
+  @override
+  String get unitViss => 'viss';
+
+  @override
+  String priceSuffix(String unit) {
+    return 'Ks/$unit';
+  }
+
+  @override
+  String get itemFormAddTitle => 'Add Item';
+
+  @override
+  String get itemFormEditTitle => 'Edit Item';
+
+  @override
+  String get itemFormSubtitleNew => 'Price List · New material';
+
+  @override
+  String get itemFormSubtitleEdit => 'Price List · Edit material';
+
+  @override
+  String get sectionBasicInfo => 'Basic info';
+
+  @override
+  String get sectionPricing => 'Pricing';
+
+  @override
+  String get sectionDefaults => 'Defaults';
+
+  @override
+  String get fieldItemName => 'Item name';
+
+  @override
+  String get fieldShortCode => 'Short code';
+
+  @override
+  String get fieldCategory => 'Category';
+
+  @override
+  String get fieldCategoryHint => 'Choose or type';
+
+  @override
+  String get fieldWeighingUnit => 'Weighing unit';
+
+  @override
+  String get fieldBuyPrice => 'Buy price';
+
+  @override
+  String get fieldSellPrice => 'Sell price';
+
+  @override
+  String get desiredWeightTitle => 'Desired weight · OK check';
+
+  @override
+  String get desiredWeightHint =>
+      'Live Weighing shows OK, Under or Over for this item.';
+
+  @override
+  String get fieldTargetWeight => 'Target weight';
+
+  @override
+  String get fieldTolerance => 'Tolerance ±';
+
+  @override
+  String get checkUnder => 'Under';
+
+  @override
+  String get checkOk => 'OK';
+
+  @override
+  String get checkOver => 'Over';
+
+  @override
+  String get toggleShowCheck => 'Show OK / Under / Over';
+
+  @override
+  String get toggleAutoCapture => 'Auto-capture when OK and stable';
+
+  @override
+  String get fieldDefaultDeduction => 'Default deduction';
+
+  @override
+  String get fieldStatus => 'Status';
+
+  @override
+  String get fieldNotes => 'Notes (optional)';
+
+  @override
+  String get fieldNotesHint => 'e.g. clean bright copper only';
+
+  @override
+  String get itemSave => 'Save Item';
+
+  @override
+  String get errorRequired => 'This field is required';
+
+  @override
+  String get errorInvalidNumber => 'Enter a valid number';
+
+  @override
+  String get errorTooLong => 'Too long';
+
+  @override
+  String get errorDuplicateName => 'An item with this name already exists';
+
+  @override
+  String get errorDuplicateCode => 'This short code is already used';
+
+  @override
+  String get errorSaveFailed => 'Could not save. Please try again.';
+
+  @override
+  String get errorItemNotFound => 'This item no longer exists.';
+
+  @override
+  String get discardTitle => 'Discard changes?';
+
+  @override
+  String get discardBody => 'Your changes have not been saved.';
+
+  @override
+  String get discardKeep => 'Keep editing';
+
+  @override
+  String get discardConfirm => 'Discard';
+
+  @override
+  String get itemDeleteTooltip => 'Delete item';
+
+  @override
+  String get itemDeleteTitle => 'Delete this item?';
+
+  @override
+  String get itemDeleteBody =>
+      'It will be removed from your price list. Past transactions keep their records.';
+
+  @override
+  String get itemDelete => 'Delete';
 
   @override
   String get settingsLanguage => 'Language';

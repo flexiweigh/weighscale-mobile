@@ -80,6 +80,51 @@ class S {
     return Intl.message('Settings', name: 'navSettings', desc: '', args: []);
   }
 
+  /// `Coming soon`
+  String get commonComingSoon {
+    return Intl.message(
+      'Coming soon',
+      name: 'commonComingSoon',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Connect Scale`
+  String get devicesTitle {
+    return Intl.message(
+      'Connect Scale',
+      name: 'devicesTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reports`
+  String get reportsTitle {
+    return Intl.message('Reports', name: 'reportsTitle', desc: '', args: []);
+  }
+
+  /// `Manual entry`
+  String get manualEntryTitle {
+    return Intl.message(
+      'Manual entry',
+      name: 'manualEntryTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Transaction`
+  String get transactionDetailTitle {
+    return Intl.message(
+      'Transaction',
+      name: 'transactionDetailTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `No scale connected`
   String get scaleNoScaleConnected {
     return Intl.message(
@@ -543,6 +588,913 @@ class S {
       desc: '',
       args: [weight],
     );
+  }
+
+  /// `Connect a scale`
+  String get connectTitle {
+    return Intl.message(
+      'Connect a scale',
+      name: 'connectTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Turn on the scale's Bluetooth and keep it nearby.`
+  String get connectSubtitle {
+    return Intl.message(
+      'Turn on the scale\'s Bluetooth and keep it nearby.',
+      name: 'connectSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rescan`
+  String get connectRescan {
+    return Intl.message('Rescan', name: 'connectRescan', desc: '', args: []);
+  }
+
+  /// `Scanning... {count} devices found`
+  String connectScanning(int count) {
+    return Intl.message(
+      'Scanning... $count devices found',
+      name: 'connectScanning',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `{count} devices found`
+  String connectFinished(int count) {
+    return Intl.message(
+      '$count devices found',
+      name: 'connectFinished',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `No devices found`
+  String get connectNoDevices {
+    return Intl.message(
+      'No devices found',
+      name: 'connectNoDevices',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check that the scale is on and nearby, then rescan.`
+  String get connectNoDevicesHint {
+    return Intl.message(
+      'Check that the scale is on and nearby, then rescan.',
+      name: 'connectNoDevicesHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Scale profile`
+  String get connectProfileLabel {
+    return Intl.message(
+      'Scale profile',
+      name: 'connectProfileLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Can't find your scale?`
+  String get connectCantFind {
+    return Intl.message(
+      'Can\'t find your scale?',
+      name: 'connectCantFind',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter weights manually`
+  String get connectEnterManually {
+    return Intl.message(
+      'Enter weights manually',
+      name: 'connectEnterManually',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Connect`
+  String get actionConnect {
+    return Intl.message('Connect', name: 'actionConnect', desc: '', args: []);
+  }
+
+  /// `Unnamed device`
+  String get deviceUnnamed {
+    return Intl.message(
+      'Unnamed device',
+      name: 'deviceUnnamed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Signal: {signal}`
+  String deviceSignal(String signal) {
+    return Intl.message(
+      'Signal: $signal',
+      name: 'deviceSignal',
+      desc: '',
+      args: [signal],
+    );
+  }
+
+  /// `Service {service}`
+  String deviceService(String service) {
+    return Intl.message(
+      'Service $service',
+      name: 'deviceService',
+      desc: '',
+      args: [service],
+    );
+  }
+
+  /// `Strong`
+  String get signalStrong {
+    return Intl.message('Strong', name: 'signalStrong', desc: '', args: []);
+  }
+
+  /// `Good`
+  String get signalGood {
+    return Intl.message('Good', name: 'signalGood', desc: '', args: []);
+  }
+
+  /// `Weak`
+  String get signalWeak {
+    return Intl.message('Weak', name: 'signalWeak', desc: '', args: []);
+  }
+
+  /// `Unknown`
+  String get signalUnknown {
+    return Intl.message('Unknown', name: 'signalUnknown', desc: '', args: []);
+  }
+
+  /// `Bluetooth`
+  String get transportBluetooth {
+    return Intl.message(
+      'Bluetooth',
+      name: 'transportBluetooth',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wi-Fi`
+  String get transportWifi {
+    return Intl.message('Wi-Fi', name: 'transportWifi', desc: '', args: []);
+  }
+
+  /// `USB`
+  String get transportUsb {
+    return Intl.message('USB', name: 'transportUsb', desc: '', args: []);
+  }
+
+  /// `{transport} is off. Turn it on to find scales.`
+  String unavailableAdapterOff(String transport) {
+    return Intl.message(
+      '$transport is off. Turn it on to find scales.',
+      name: 'unavailableAdapterOff',
+      desc: '',
+      args: [transport],
+    );
+  }
+
+  /// `Permission needed to scan with {transport}.`
+  String unavailablePermission(String transport) {
+    return Intl.message(
+      'Permission needed to scan with $transport.',
+      name: 'unavailablePermission',
+      desc: '',
+      args: [transport],
+    );
+  }
+
+  /// `{transport} scanning isn't supported on this device.`
+  String unavailableUnsupported(String transport) {
+    return Intl.message(
+      '$transport scanning isn\'t supported on this device.',
+      name: 'unavailableUnsupported',
+      desc: '',
+      args: [transport],
+    );
+  }
+
+  /// `Connection timed out. Please try again.`
+  String get connectFailedTimeout {
+    return Intl.message(
+      'Connection timed out. Please try again.',
+      name: 'connectFailedTimeout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The scale rejected the connection.`
+  String get connectFailedRejected {
+    return Intl.message(
+      'The scale rejected the connection.',
+      name: 'connectFailedRejected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This scale is not supported by the selected profile.`
+  String get connectFailedUnsupported {
+    return Intl.message(
+      'This scale is not supported by the selected profile.',
+      name: 'connectFailedUnsupported',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Could not connect. Please try again.`
+  String get connectFailedUnknown {
+    return Intl.message(
+      'Could not connect. Please try again.',
+      name: 'connectFailedUnknown',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Allow`
+  String get accessAllow {
+    return Intl.message('Allow', name: 'accessAllow', desc: '', args: []);
+  }
+
+  /// `Turn on`
+  String get accessTurnOn {
+    return Intl.message('Turn on', name: 'accessTurnOn', desc: '', args: []);
+  }
+
+  /// `Open settings`
+  String get accessOpenSettings {
+    return Intl.message(
+      'Open settings',
+      name: 'accessOpenSettings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `General`
+  String get settingsGeneralSection {
+    return Intl.message(
+      'General',
+      name: 'settingsGeneralSection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Scale`
+  String get settingsScaleSection {
+    return Intl.message(
+      'Scale',
+      name: 'settingsScaleSection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shop name`
+  String get settingsShopName {
+    return Intl.message(
+      'Shop name',
+      name: 'settingsShopName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Scale connection`
+  String get settingsScaleConnection {
+    return Intl.message(
+      'Scale connection',
+      name: 'settingsScaleConnection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save`
+  String get commonSave {
+    return Intl.message('Save', name: 'commonSave', desc: '', args: []);
+  }
+
+  /// `Cancel`
+  String get commonCancel {
+    return Intl.message('Cancel', name: 'commonCancel', desc: '', args: []);
+  }
+
+  /// `Metal`
+  String get categoryMetal {
+    return Intl.message('Metal', name: 'categoryMetal', desc: '', args: []);
+  }
+
+  /// `Plastic`
+  String get categoryPlastic {
+    return Intl.message('Plastic', name: 'categoryPlastic', desc: '', args: []);
+  }
+
+  /// `Paper`
+  String get categoryPaper {
+    return Intl.message('Paper', name: 'categoryPaper', desc: '', args: []);
+  }
+
+  /// `Rubber`
+  String get categoryRubber {
+    return Intl.message('Rubber', name: 'categoryRubber', desc: '', args: []);
+  }
+
+  /// `Other`
+  String get categoryOther {
+    return Intl.message('Other', name: 'categoryOther', desc: '', args: []);
+  }
+
+  /// `{count, plural, =1{1 item} other{{count} items}}`
+  String itemsCount(int count) {
+    return Intl.plural(
+      count,
+      one: '1 item',
+      other: '$count items',
+      name: 'itemsCount',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `Add item`
+  String get itemsAddTooltip {
+    return Intl.message(
+      'Add item',
+      name: 'itemsAddTooltip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search items`
+  String get itemsSearchHint {
+    return Intl.message(
+      'Search items',
+      name: 'itemsSearchHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No items yet`
+  String get itemsEmptyTitle {
+    return Intl.message(
+      'No items yet',
+      name: 'itemsEmptyTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add the materials you buy or sell, with a price per kg. You can change prices any time.`
+  String get itemsEmptyBody {
+    return Intl.message(
+      'Add the materials you buy or sell, with a price per kg. You can change prices any time.',
+      name: 'itemsEmptyBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add first item`
+  String get itemsAddFirst {
+    return Intl.message(
+      'Add first item',
+      name: 'itemsAddFirst',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quick add common items`
+  String get itemsQuickAdd {
+    return Intl.message(
+      'Quick add common items',
+      name: 'itemsQuickAdd',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No items found`
+  String get itemsNoResultsTitle {
+    return Intl.message(
+      'No items found',
+      name: 'itemsNoResultsTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nothing matches “{query}”. Try a different name or code.`
+  String itemsNoResultsBody(String query) {
+    return Intl.message(
+      'Nothing matches “$query”. Try a different name or code.',
+      name: 'itemsNoResultsBody',
+      desc: '',
+      args: [query],
+    );
+  }
+
+  /// `Could not load items.`
+  String get itemsLoadError {
+    return Intl.message(
+      'Could not load items.',
+      name: 'itemsLoadError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Try again`
+  String get commonRetry {
+    return Intl.message('Try again', name: 'commonRetry', desc: '', args: []);
+  }
+
+  /// `Buy {buy} · Sell {sell} Ks/{unit}`
+  String itemPriceLine(String buy, String sell, String unit) {
+    return Intl.message(
+      'Buy $buy · Sell $sell Ks/$unit',
+      name: 'itemPriceLine',
+      desc: '',
+      args: [buy, sell, unit],
+    );
+  }
+
+  /// `Active`
+  String get statusActive {
+    return Intl.message('Active', name: 'statusActive', desc: '', args: []);
+  }
+
+  /// `Inactive`
+  String get statusInactive {
+    return Intl.message('Inactive', name: 'statusInactive', desc: '', args: []);
+  }
+
+  /// `Copper`
+  String get presetCopper {
+    return Intl.message('Copper', name: 'presetCopper', desc: '', args: []);
+  }
+
+  /// `Aluminium`
+  String get presetAluminium {
+    return Intl.message(
+      'Aluminium',
+      name: 'presetAluminium',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Iron scrap`
+  String get presetIronScrap {
+    return Intl.message(
+      'Iron scrap',
+      name: 'presetIronScrap',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Plastic`
+  String get presetPlastic {
+    return Intl.message('Plastic', name: 'presetPlastic', desc: '', args: []);
+  }
+
+  /// `Paper`
+  String get presetPaper {
+    return Intl.message('Paper', name: 'presetPaper', desc: '', args: []);
+  }
+
+  /// `Brass`
+  String get presetBrass {
+    return Intl.message('Brass', name: 'presetBrass', desc: '', args: []);
+  }
+
+  /// `Rubber`
+  String get presetRubber {
+    return Intl.message('Rubber', name: 'presetRubber', desc: '', args: []);
+  }
+
+  /// `kg`
+  String get unitKg {
+    return Intl.message('kg', name: 'unitKg', desc: '', args: []);
+  }
+
+  /// `g`
+  String get unitG {
+    return Intl.message('g', name: 'unitG', desc: '', args: []);
+  }
+
+  /// `lb`
+  String get unitLb {
+    return Intl.message('lb', name: 'unitLb', desc: '', args: []);
+  }
+
+  /// `viss`
+  String get unitViss {
+    return Intl.message('viss', name: 'unitViss', desc: '', args: []);
+  }
+
+  /// `Ks/{unit}`
+  String priceSuffix(String unit) {
+    return Intl.message(
+      'Ks/$unit',
+      name: 'priceSuffix',
+      desc: '',
+      args: [unit],
+    );
+  }
+
+  /// `Add Item`
+  String get itemFormAddTitle {
+    return Intl.message(
+      'Add Item',
+      name: 'itemFormAddTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Item`
+  String get itemFormEditTitle {
+    return Intl.message(
+      'Edit Item',
+      name: 'itemFormEditTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Price List · New material`
+  String get itemFormSubtitleNew {
+    return Intl.message(
+      'Price List · New material',
+      name: 'itemFormSubtitleNew',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Price List · Edit material`
+  String get itemFormSubtitleEdit {
+    return Intl.message(
+      'Price List · Edit material',
+      name: 'itemFormSubtitleEdit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Basic info`
+  String get sectionBasicInfo {
+    return Intl.message(
+      'Basic info',
+      name: 'sectionBasicInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pricing`
+  String get sectionPricing {
+    return Intl.message('Pricing', name: 'sectionPricing', desc: '', args: []);
+  }
+
+  /// `Defaults`
+  String get sectionDefaults {
+    return Intl.message(
+      'Defaults',
+      name: 'sectionDefaults',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Item name`
+  String get fieldItemName {
+    return Intl.message('Item name', name: 'fieldItemName', desc: '', args: []);
+  }
+
+  /// `Short code`
+  String get fieldShortCode {
+    return Intl.message(
+      'Short code',
+      name: 'fieldShortCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Category`
+  String get fieldCategory {
+    return Intl.message('Category', name: 'fieldCategory', desc: '', args: []);
+  }
+
+  /// `Choose or type`
+  String get fieldCategoryHint {
+    return Intl.message(
+      'Choose or type',
+      name: 'fieldCategoryHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Weighing unit`
+  String get fieldWeighingUnit {
+    return Intl.message(
+      'Weighing unit',
+      name: 'fieldWeighingUnit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Buy price`
+  String get fieldBuyPrice {
+    return Intl.message('Buy price', name: 'fieldBuyPrice', desc: '', args: []);
+  }
+
+  /// `Sell price`
+  String get fieldSellPrice {
+    return Intl.message(
+      'Sell price',
+      name: 'fieldSellPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Desired weight · OK check`
+  String get desiredWeightTitle {
+    return Intl.message(
+      'Desired weight · OK check',
+      name: 'desiredWeightTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Live Weighing shows OK, Under or Over for this item.`
+  String get desiredWeightHint {
+    return Intl.message(
+      'Live Weighing shows OK, Under or Over for this item.',
+      name: 'desiredWeightHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Target weight`
+  String get fieldTargetWeight {
+    return Intl.message(
+      'Target weight',
+      name: 'fieldTargetWeight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tolerance ±`
+  String get fieldTolerance {
+    return Intl.message(
+      'Tolerance ±',
+      name: 'fieldTolerance',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Under`
+  String get checkUnder {
+    return Intl.message('Under', name: 'checkUnder', desc: '', args: []);
+  }
+
+  /// `OK`
+  String get checkOk {
+    return Intl.message('OK', name: 'checkOk', desc: '', args: []);
+  }
+
+  /// `Over`
+  String get checkOver {
+    return Intl.message('Over', name: 'checkOver', desc: '', args: []);
+  }
+
+  /// `Show OK / Under / Over`
+  String get toggleShowCheck {
+    return Intl.message(
+      'Show OK / Under / Over',
+      name: 'toggleShowCheck',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Auto-capture when OK and stable`
+  String get toggleAutoCapture {
+    return Intl.message(
+      'Auto-capture when OK and stable',
+      name: 'toggleAutoCapture',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Default deduction`
+  String get fieldDefaultDeduction {
+    return Intl.message(
+      'Default deduction',
+      name: 'fieldDefaultDeduction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Status`
+  String get fieldStatus {
+    return Intl.message('Status', name: 'fieldStatus', desc: '', args: []);
+  }
+
+  /// `Notes (optional)`
+  String get fieldNotes {
+    return Intl.message(
+      'Notes (optional)',
+      name: 'fieldNotes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `e.g. clean bright copper only`
+  String get fieldNotesHint {
+    return Intl.message(
+      'e.g. clean bright copper only',
+      name: 'fieldNotesHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save Item`
+  String get itemSave {
+    return Intl.message('Save Item', name: 'itemSave', desc: '', args: []);
+  }
+
+  /// `This field is required`
+  String get errorRequired {
+    return Intl.message(
+      'This field is required',
+      name: 'errorRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter a valid number`
+  String get errorInvalidNumber {
+    return Intl.message(
+      'Enter a valid number',
+      name: 'errorInvalidNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Too long`
+  String get errorTooLong {
+    return Intl.message('Too long', name: 'errorTooLong', desc: '', args: []);
+  }
+
+  /// `An item with this name already exists`
+  String get errorDuplicateName {
+    return Intl.message(
+      'An item with this name already exists',
+      name: 'errorDuplicateName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This short code is already used`
+  String get errorDuplicateCode {
+    return Intl.message(
+      'This short code is already used',
+      name: 'errorDuplicateCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Could not save. Please try again.`
+  String get errorSaveFailed {
+    return Intl.message(
+      'Could not save. Please try again.',
+      name: 'errorSaveFailed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This item no longer exists.`
+  String get errorItemNotFound {
+    return Intl.message(
+      'This item no longer exists.',
+      name: 'errorItemNotFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Discard changes?`
+  String get discardTitle {
+    return Intl.message(
+      'Discard changes?',
+      name: 'discardTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your changes have not been saved.`
+  String get discardBody {
+    return Intl.message(
+      'Your changes have not been saved.',
+      name: 'discardBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Keep editing`
+  String get discardKeep {
+    return Intl.message(
+      'Keep editing',
+      name: 'discardKeep',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Discard`
+  String get discardConfirm {
+    return Intl.message('Discard', name: 'discardConfirm', desc: '', args: []);
+  }
+
+  /// `Delete item`
+  String get itemDeleteTooltip {
+    return Intl.message(
+      'Delete item',
+      name: 'itemDeleteTooltip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete this item?`
+  String get itemDeleteTitle {
+    return Intl.message(
+      'Delete this item?',
+      name: 'itemDeleteTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `It will be removed from your price list. Past transactions keep their records.`
+  String get itemDeleteBody {
+    return Intl.message(
+      'It will be removed from your price list. Past transactions keep their records.',
+      name: 'itemDeleteBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get itemDelete {
+    return Intl.message('Delete', name: 'itemDelete', desc: '', args: []);
   }
 
   /// `Language`

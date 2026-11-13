@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/utils/number_format.dart';
 import '../state/home_card_states.dart';
@@ -17,12 +18,13 @@ class TodaySummaryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SectionHeader(
-          title: 'Today',
-          actionLabel: 'Full report',
+          title: l10n.todayTitle,
+          actionLabel: l10n.todayFullReport,
           onAction: onFullReport,
         ),
         const SizedBox(height: 8),
@@ -32,19 +34,19 @@ class TodaySummaryCard extends StatelessWidget {
             child: Row(
               children: [
                 _Cell(
-                  label: 'Transactions',
+                  label: l10n.todayTransactions,
                   value: formatThousands(state.transactions),
                   color: AppColors.primary,
                 ),
                 const VerticalDivider(width: 1, color: AppColors.border),
                 _Cell(
-                  label: 'Weight (kg)',
+                  label: l10n.todayWeightKg,
                   value: formatThousands(state.weight, decimals: 1),
                   color: const Color(0xFF128A9B),
                 ),
                 const VerticalDivider(width: 1, color: AppColors.border),
                 _Cell(
-                  label: 'Amount (Ks)',
+                  label: l10n.todayAmountKs,
                   value: formatThousands(state.amount),
                   color: AppColors.success,
                 ),
@@ -74,6 +76,8 @@ class _Cell extends StatelessWidget {
           children: [
             Text(
               label,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
               style: const TextStyle(
                 fontSize: 12,
                 color: AppColors.textSecondary,

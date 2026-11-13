@@ -90,14 +90,10 @@ enum GetStartedStepId { connectScale, addItems, firstWeighing }
 class GetStartedStep {
   const GetStartedStep({
     required this.id,
-    required this.title,
-    required this.subtitle,
     this.done = false,
   });
 
   final GetStartedStepId id;
-  final String title;
-  final String subtitle;
   final bool done;
 }
 

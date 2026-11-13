@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/theme/app_colors.dart';
+import '../l10n/l10n_extension.dart';
+import '../theme/app_colors.dart';
 
 class AppBottomNav extends StatelessWidget {
   const AppBottomNav({
@@ -14,6 +15,7 @@ class AppBottomNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Container(
       decoration: const BoxDecoration(
         color: AppColors.surface,
@@ -29,27 +31,27 @@ class AppBottomNav extends StatelessWidget {
         unselectedItemColor: AppColors.textSecondary,
         selectedFontSize: 11,
         unselectedFontSize: 11,
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            activeIcon: Icon(Icons.home),
-            label: 'Home',
+            icon: const Icon(Icons.home_outlined),
+            activeIcon: const Icon(Icons.home),
+            label: l10n.navHome,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.balance),
-            label: 'Weigh',
+            icon: const Icon(Icons.balance),
+            label: l10n.navWeigh,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.history),
-            label: 'History',
+            icon: const Icon(Icons.history),
+            label: l10n.navHistory,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.format_list_bulleted),
-            label: 'Items',
+            icon: const Icon(Icons.format_list_bulleted),
+            label: l10n.navItems,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.tune),
-            label: 'Settings',
+            icon: const Icon(Icons.tune),
+            label: l10n.navSettings,
           ),
         ],
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_tone.dart';
 import '../../../../core/utils/number_format.dart';
@@ -20,12 +21,13 @@ class RecentTransactionsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SectionHeader(
-          title: 'Recent transactions',
-          actionLabel: state.isEmpty ? null : 'See all',
+          title: l10n.recentTitle,
+          actionLabel: state.isEmpty ? null : l10n.recentSeeAll,
           onAction: onSeeAll,
         ),
         const SizedBox(height: 8),
@@ -65,8 +67,10 @@ class _TransactionTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     final isBuy = item.type == TransactionType.buy;
     final colors = (isBuy ? AppTone.green : AppTone.orange).colors;
+    final weightText = l10n.weightKgValue(formatThousands(item.weight, decimals: 1));
 
     return InkWell(
       onTap: onTap,
@@ -103,7 +107,7 @@ class _TransactionTile extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '#${item.number} · ${item.time} · ${formatThousands(item.weight, decimals: 1)} kg',
+                    '#${item.number} · ${item.time} · $weightText',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
@@ -119,7 +123,7 @@ class _TransactionTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  '${formatThousands(item.amount)} Ks',
+                  l10n.moneyKs(formatThousands(item.amount)),
                   style: const TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w700,
@@ -127,7 +131,7 @@ class _TransactionTile extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  isBuy ? 'Buy' : 'Sell',
+                  isBuy ? l10n.transactionBuy : l10n.transactionSell,
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
@@ -148,6 +152,7 @@ class _EmptyTransactions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return CustomPaint(
       painter: _DashedBorderPainter(color: AppColors.border, radius: 14),
       child: Container(
@@ -168,21 +173,21 @@ class _EmptyTransactions extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
-            const Text(
-              'No transactions yet',
-              style: TextStyle(
+            Text(
+              l10n.recentEmptyTitle,
+              style: const TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w700,
                 color: AppColors.textPrimary,
               ),
             ),
             const SizedBox(height: 4),
-            const Text(
-              'Your weighings will appear here after your first\npurchase or sale.',
+            Text(
+              l10n.recentEmptyBody,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 12,
-                height: 1.35,
+                height: 1.5,
                 color: AppColors.textSecondary,
               ),
             ),

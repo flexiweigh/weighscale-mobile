@@ -1,9 +1,28 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_tone.dart';
+import '../../../../l10n/generated/app_localizations.dart';
 import '../state/home_card_states.dart';
 import 'app_card.dart';
+
+(String, String) _stepText(AppL10n l10n, GetStartedStepId id) {
+  return switch (id) {
+    GetStartedStepId.connectScale => (
+    l10n.stepConnectScaleTitle,
+    l10n.stepConnectScaleSubtitle
+    ),
+    GetStartedStepId.addItems => (
+    l10n.stepAddItemsTitle,
+    l10n.stepAddItemsSubtitle
+    ),
+    GetStartedStepId.firstWeighing => (
+    l10n.stepFirstWeighingTitle,
+    l10n.stepFirstWeighingSubtitle
+    ),
+  };
+}
 
 class GetStartedCard extends StatelessWidget {
   const GetStartedCard({
@@ -19,13 +38,15 @@ class GetStartedCard extends StatelessWidget {
   Widget build(BuildContext context) {
     if (state.allDone) return const SizedBox.shrink();
 
+    final l10n = context.l10n;
     final currentId = state.currentStepId;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SectionHeader(
-          title: 'Get started',
-          trailingText: '${state.doneCount} of ${state.steps.length} done',
+          title: l10n.getStartedTitle,
+          trailingText:
+          l10n.getStartedProgress(state.doneCount, state.steps.length),
         ),
         const SizedBox(height: 8),
         AppCard(
@@ -70,6 +91,7 @@ class _StepTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final blue = AppTone.blue.colors;
+    final (title, subtitle) = _stepText(context.l10n, step.id);
     return Material(
       color: isCurrent ? blue.background : Colors.transparent,
       child: InkWell(
@@ -85,7 +107,7 @@ class _StepTile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      step.title,
+                      title,
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
@@ -95,7 +117,7 @@ class _StepTile extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      step.subtitle,
+                      subtitle,
                       style: const TextStyle(
                         fontSize: 12,
                         color: AppColors.textSecondary,
