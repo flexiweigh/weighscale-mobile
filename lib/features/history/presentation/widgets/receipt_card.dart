@@ -5,7 +5,6 @@ import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_tone.dart';
 import '../../../../core/utils/number_format.dart';
 import '../../../../core/widgets/app_card.dart';
-import '../../../../l10n/generated/app_localizations.dart';
 import '../../../items/presentation/item_l10n.dart';
 import '../../../weighing/domain/receipt_enums.dart';
 import '../../../weighing/domain/receipt_line.dart';

@@ -143,7 +143,7 @@ class _ItemPickerSheet extends ConsumerWidget {
                 padding: EdgeInsets.all(24),
                 child: Center(child: CircularProgressIndicator()),
               ),
-              error: (_, __) => Padding(
+              error: (_, _) => Padding(
                 padding: const EdgeInsets.all(24),
                 child: Text(
                   l10n.weighingErrLoad,

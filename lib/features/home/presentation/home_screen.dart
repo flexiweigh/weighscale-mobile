@@ -147,7 +147,7 @@ class HomeScreen extends ConsumerWidget {
               child: ListView.separated(
                 padding: const EdgeInsets.all(16),
                 itemCount: sections.length,
-                separatorBuilder: (_, __) => const SizedBox(height: 14),
+                separatorBuilder: (_, _) => const SizedBox(height: 14),
                 itemBuilder: (_, index) => sections[index],
               ),
             ),

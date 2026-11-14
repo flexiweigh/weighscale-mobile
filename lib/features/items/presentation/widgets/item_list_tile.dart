@@ -25,8 +25,8 @@ class ItemListTile extends StatelessWidget {
     final l10n = context.l10n;
     final colors = (item.isActive ? AppTone.blue : AppTone.grey).colors;
     final meta = [
-      if (item.shortCode != null) item.shortCode!,
-      if (categoryLabel != null) categoryLabel!,
+      ?item.shortCode,
+      ?categoryLabel,
     ].join(' · ');
     final priceLine = l10n.itemPriceLine(
       formatThousands(item.buyPrice),

@@ -60,6 +60,3 @@ flutter:
         - asset: assets/fonts/NotoSansMyanmar-Regular.ttf
         - asset: assets/fonts/NotoSansMyanmar-SemiBold.ttf
           weight: 700
-
-flutter_intl:
-  enabled: true

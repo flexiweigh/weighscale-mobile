@@ -32,9 +32,9 @@ class AppRoutes {
     return Uri(
       path: itemNew,
       queryParameters: {
-        if (name != null) 'name': name,
-        if (code != null) 'code': code,
-        if (category != null) 'category': category,
+        'name': ?name,
+        'code': ?code,
+        'category': ?category,
       },
     ).toString();
   }

@@ -102,7 +102,7 @@ class ItemsScreen extends ConsumerWidget {
                 keyboardDismissBehavior:
                 ScrollViewKeyboardDismissBehavior.onDrag,
                 itemCount: sections.length,
-                separatorBuilder: (_, __) => const SizedBox(height: 14),
+                separatorBuilder: (_, _) => const SizedBox(height: 14),
                 itemBuilder: (_, index) => sections[index],
               ),
             ),

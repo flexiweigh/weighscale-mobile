@@ -6,8 +6,6 @@ import 'package:go_router/go_router.dart';
 import '../../../core/l10n/l10n_extension.dart';
 import '../../../core/router/app_routes.dart';
 import '../../../core/theme/app_colors.dart';
-import '../../../core/widgets/app_header.dart';
-import '../../../l10n/generated/app_localizations.dart';
 import '../../items/presentation/item_l10n.dart';
 import '../application/weighing_controller.dart';
 import '../application/weighing_providers.dart';

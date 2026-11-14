@@ -66,7 +66,7 @@ class ReceiptScreen extends ConsumerWidget {
             Expanded(
               child: async.when(
                 loading: () => const Center(child: CircularProgressIndicator()),
-                error: (_, __) => _Message(
+                error: (_, _) => _Message(
                   text: l10n.receiptLoadError,
                   actionLabel: l10n.commonRetry,
                   onAction: () =>
