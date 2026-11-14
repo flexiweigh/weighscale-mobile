@@ -33,51 +33,63 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m5(done, total) => "${total} ခုအနက် ${done} ခု ပြီးပါပြီ";
 
-  static String m6(buy, sell, unit) =>
+  static String m6(count) =>
+      "${Intl.plural(count, other: 'ယနေ့ · ရောင်းဝယ်မှု ${count} ခု')}";
+
+  static String m7(buy, sell, unit) =>
       "ဝယ် ${buy} · ရောင်း ${sell} ကျပ်/${unit}";
 
-  static String m7(count) =>
+  static String m8(count) =>
       "${Intl.plural(count, other: 'ပစ္စည်း ${count} မျိုး')}";
 
-  static String m8(query) =>
+  static String m9(query) =>
       "“${query}” နဲ့ ကိုက်တာ မရှိပါ။ တခြားနာမည် ဒါမှမဟုတ် ကုဒ်နဲ့ ရှာကြည့်ပါ။";
 
-  static String m9(amount) => "${amount} ကျပ်";
+  static String m10(amount) => "${amount} ကျပ်";
 
-  static String m10(unit) => "ကျပ်/${unit}";
+  static String m11(unit) => "ကျပ်/${unit}";
 
-  static String m11(profile) => "ဘလူးတုသ် · ${profile}";
+  static String m12(unit) => "အသားတင် ${unit}";
 
-  static String m12(transport) =>
+  static String m13(count) =>
+      "${Intl.plural(count, other: '${count} ကြောင်း')}";
+
+  static String m14(type, date, time) => "${type} · ${date} · ${time}";
+
+  static String m15(number) => "ဘောက်ချာ #${number}";
+
+  static String m16(profile) => "ဘလူးတုသ် · ${profile}";
+
+  static String m17(transport) =>
       "${transport} ပိတ်ထားပါတယ်။ ချိန်ခွင်ရှာဖို့ ဖွင့်ပေးပါ။";
 
-  static String m13(transport) =>
+  static String m18(transport) =>
       "${transport} နဲ့ ရှာဖို့ ခွင့်ပြုချက် လိုပါတယ်။";
 
-  static String m14(transport) => "ဒီဖုန်းမှာ ${transport} နဲ့ ရှာလို့ မရပါ။";
+  static String m19(transport) => "ဒီဖုန်းမှာ ${transport} နဲ့ ရှာလို့ မရပါ။";
 
-  static String m15(unit) => "နှုတ် (${unit})";
+  static String m20(unit) => "နှုတ် (${unit})";
 
-  static String m16(number) => "ဘောက်ချာ #${number} သိမ်းပြီးပါပြီ";
+  static String m21(number) => "ဘောက်ချာ #${number} သိမ်းပြီးပါပြီ";
 
-  static String m17(unit) => "စုစုပေါင်း အလေးချိန် (${unit})";
+  static String m22(unit) => "စုစုပေါင်း အလေးချိန် (${unit})";
 
-  static String m18(gross, deduction, net, unit) =>
+  static String m23(gross, deduction, net, unit) =>
       "စုစုပေါင်း ${gross} − ${deduction} = ${net} ${unit}";
 
-  static String m19(weight, unit, price) => "${weight} ${unit} × ${price}";
+  static String m24(weight, unit, price) => "${weight} ${unit} × ${price}";
 
-  static String m20(unit) => "အသားတင် (${unit})";
+  static String m25(unit) => "အသားတင် (${unit})";
 
-  static String m21(unit) => "စျေးနှုန်း (ကျပ်/${unit})";
+  static String m26(unit) => "စျေးနှုန်း (ကျပ်/${unit})";
 
-  static String m22(count) => "ဘောက်ချာ စာကြောင်းများ (${count})";
+  static String m27(count) => "ဘောက်ချာ စာကြောင်းများ (${count})";
 
-  static String m23(type, number) => "${type} · ဘောက်ချာ #${number}";
+  static String m28(type, number) => "${type} · ဘောက်ချာ #${number}";
 
-  static String m24(count) => "စုစုပေါင်း · ${count} ကြောင်း";
+  static String m29(count) => "စုစုပေါင်း · ${count} ကြောင်း";
 
-  static String m25(weight) => "${weight} ကီလို";
+  static String m30(weight) => "${weight} ကီလို";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -151,10 +163,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "deductionCrate": MessageLookupByLibrary.simpleMessage("သေတ္တာ"),
     "deductionSack": MessageLookupByLibrary.simpleMessage("အိတ်"),
     "desiredWeightHint": MessageLookupByLibrary.simpleMessage(
-      "ချိန်နေတုန်း ဒီပစ္စည်းအတွက် OK၊ လိုနေ၊ ပိုနေ ဆိုပြီး ပြပေးပါတယ်။",
+      "ချိန်နေတုန်း ဒီပစ္စည်းအတွက် လိုနေ၊ ပိုနေ ဆိုပြီး ပြပေးပါတယ်။",
     ),
     "desiredWeightTitle": MessageLookupByLibrary.simpleMessage(
-      "လိုချင်တဲ့ အလေးချိန် · OK စစ်ရန်",
+      "လိုချင်တဲ့ အလေးချိန် စစ်ရန်",
     ),
     "deviceService": m3,
     "deviceSignal": m4,
@@ -212,6 +224,34 @@ class MessageLookup extends MessageLookupByLibrary {
     "fieldWeighingUnit": MessageLookupByLibrary.simpleMessage("ချိန်တဲ့ ယူနစ်"),
     "getStartedProgress": m5,
     "getStartedTitle": MessageLookupByLibrary.simpleMessage("စတင်အသုံးပြုရန်"),
+    "historyClearFilters": MessageLookupByLibrary.simpleMessage(
+      "စစ်ထုတ်မှု ရှင်းမယ်",
+    ),
+    "historyEmptyBody": MessageLookupByLibrary.simpleMessage(
+      "ဝယ်သမျှ၊ ရောင်းသမျှ ဤနေရာတွင် ရက်အလိုက် ပေါ်ပါမည်။",
+    ),
+    "historyFilterAll": MessageLookupByLibrary.simpleMessage("အားလုံး"),
+    "historyLoadError": MessageLookupByLibrary.simpleMessage(
+      "မှတ်တမ်း ဖွင့်မရပါ။",
+    ),
+    "historyNoResultsBody": MessageLookupByLibrary.simpleMessage(
+      "ရှာဖွေမှုကို ပြောင်းကြည့်ပါ (သို့) စစ်ထုတ်မှုများကို ရှင်းပါ။",
+    ),
+    "historyNoResultsTitle": MessageLookupByLibrary.simpleMessage("ရှာမတွေ့ပါ"),
+    "historyRangeAll": MessageLookupByLibrary.simpleMessage("အချိန်အားလုံး"),
+    "historyRangeCustom": MessageLookupByLibrary.simpleMessage(
+      "ကိုယ်တိုင်ရွေးမယ်…",
+    ),
+    "historyRangeLast7": MessageLookupByLibrary.simpleMessage(
+      "လွန်ခဲ့သော ၇ ရက်",
+    ),
+    "historyRangeMonth": MessageLookupByLibrary.simpleMessage("ဤလ"),
+    "historyRangeTitle": MessageLookupByLibrary.simpleMessage("ရက်စွဲ ရွေးရန်"),
+    "historySearchHint": MessageLookupByLibrary.simpleMessage(
+      "အမည် (သို့) ပစ္စည်း ရှာရန်",
+    ),
+    "historySubtitle": m6,
+    "historyYesterday": MessageLookupByLibrary.simpleMessage("မနေ့က"),
     "itemDelete": MessageLookupByLibrary.simpleMessage("ဖျက်မယ်"),
     "itemDeleteBody": MessageLookupByLibrary.simpleMessage(
       "စျေးနှုန်းစာရင်းထဲက ထွက်သွားပါမယ်။ အရင်ဝယ်/ရောင်းထားတဲ့ မှတ်တမ်းတွေမှာတော့ ဆက်ရှိနေပါမယ်။",
@@ -228,13 +268,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "itemFormSubtitleNew": MessageLookupByLibrary.simpleMessage(
       "စျေးနှုန်းစာရင်း · ပစ္စည်းအသစ်",
     ),
-    "itemPriceLine": m6,
+    "itemPriceLine": m7,
     "itemSave": MessageLookupByLibrary.simpleMessage("ပစ္စည်းသိမ်းမယ်"),
     "itemsAddFirst": MessageLookupByLibrary.simpleMessage(
       "ပထမဆုံး ပစ္စည်းထည့်မယ်",
     ),
     "itemsAddTooltip": MessageLookupByLibrary.simpleMessage("ပစ္စည်းထည့်ရန်"),
-    "itemsCount": m7,
+    "itemsCount": m8,
     "itemsEmptyBody": MessageLookupByLibrary.simpleMessage(
       "ဝယ်/ရောင်းတဲ့ ပစ္စည်းတွေကို တစ်ကီလို စျေးနဲ့အတူ ထည့်ပါ။ စျေးကို ဘယ်အချိန်မဆို ပြောင်းလို့ရပါတယ်။",
     ),
@@ -244,7 +284,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "itemsLoadError": MessageLookupByLibrary.simpleMessage(
       "ပစ္စည်းစာရင်း ဖွင့်လို့ မရပါ။",
     ),
-    "itemsNoResultsBody": m8,
+    "itemsNoResultsBody": m9,
     "itemsNoResultsTitle": MessageLookupByLibrary.simpleMessage(
       "ပစ္စည်း မတွေ့ပါ",
     ),
@@ -260,7 +300,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "manualWeightTitle": MessageLookupByLibrary.simpleMessage(
       "အလေးချိန် ကိုယ်တိုင်ထည့်မယ်",
     ),
-    "moneyKs": m9,
+    "moneyKs": m10,
     "navHistory": MessageLookupByLibrary.simpleMessage("မှတ်တမ်း"),
     "navHome": MessageLookupByLibrary.simpleMessage("ပင်မ"),
     "navItems": MessageLookupByLibrary.simpleMessage("ပစ္စည်းများ"),
@@ -273,7 +313,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "presetPaper": MessageLookupByLibrary.simpleMessage("စက္ကူ"),
     "presetPlastic": MessageLookupByLibrary.simpleMessage("ပလတ်စတစ်"),
     "presetRubber": MessageLookupByLibrary.simpleMessage("ရော်ဘာ"),
-    "priceSuffix": m10,
+    "priceSuffix": m11,
     "quickBuySubtitle": MessageLookupByLibrary.simpleMessage(
       "ချိန်ပြီး ငွေရှင်း",
     ),
@@ -300,6 +340,36 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "readingStable": MessageLookupByLibrary.simpleMessage("ငြိမ်ပါပြီ"),
     "readingUnstable": MessageLookupByLibrary.simpleMessage("မငြိမ်သေးပါ"),
+    "receiptColAmount": MessageLookupByLibrary.simpleMessage("ကျသင့်ငွေ"),
+    "receiptColItem": MessageLookupByLibrary.simpleMessage("ပစ္စည်း"),
+    "receiptColNet": m12,
+    "receiptColNetPlain": MessageLookupByLibrary.simpleMessage("အသားတင်"),
+    "receiptColPrice": MessageLookupByLibrary.simpleMessage("စျေး"),
+    "receiptDone": MessageLookupByLibrary.simpleMessage("ပြီးပြီ"),
+    "receiptHeading": MessageLookupByLibrary.simpleMessage("ဘောက်ချာ"),
+    "receiptLinesCount": m13,
+    "receiptLoadError": MessageLookupByLibrary.simpleMessage(
+      "ဘောက်ချာ ဖွင့်မရပါ။",
+    ),
+    "receiptManualLegend": MessageLookupByLibrary.simpleMessage(
+      "ကိုယ်တိုင် = ချိန်ခွင်မှ မဖတ်ဘဲ လက်ဖြင့်ရိုက်ထည့်သော အလေးချိန်။",
+    ),
+    "receiptNotFound": MessageLookupByLibrary.simpleMessage(
+      "ဘောက်ချာ ရှာမတွေ့ပါ။",
+    ),
+    "receiptPrint": MessageLookupByLibrary.simpleMessage("Print"),
+    "receiptPurchaseTitle": MessageLookupByLibrary.simpleMessage(
+      "ဝယ်ယူခြင်း ဘောက်ချာ",
+    ),
+    "receiptSaleTitle": MessageLookupByLibrary.simpleMessage(
+      "ရောင်းချခြင်း ဘောက်ချာ",
+    ),
+    "receiptSaveDone": MessageLookupByLibrary.simpleMessage(
+      "သိမ်းပြီး ပြီးပြီ",
+    ),
+    "receiptSubtitle": m14,
+    "receiptTitle": m15,
+    "receiptTotal": MessageLookupByLibrary.simpleMessage("စုစုပေါင်း"),
     "recentEmptyBody": MessageLookupByLibrary.simpleMessage(
       "ပထမဆုံး ဝယ်ပြီး ဒါမှမဟုတ် ရောင်းပြီးတာနဲ့\nဒီမှာ ပေါ်လာပါမယ်။",
     ),
@@ -311,7 +381,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "လတ်တလော ဝယ်/ရောင်းထားတာများ",
     ),
     "reportsTitle": MessageLookupByLibrary.simpleMessage("စာရင်းချုပ်"),
-    "scaleBluetoothProfile": m11,
+    "scaleBluetoothProfile": m16,
     "scaleConnecting": MessageLookupByLibrary.simpleMessage("ချိတ်နေပါတယ်..."),
     "scaleConnectionLostReconnecting": MessageLookupByLibrary.simpleMessage(
       "ချိတ်ဆက်မှု ပြတ်သွားပါတယ် · ပြန်ချိတ်နေပါတယ်...",
@@ -334,10 +404,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "settingsScaleSection": MessageLookupByLibrary.simpleMessage("ချိန်ခွင်"),
     "settingsShopName": MessageLookupByLibrary.simpleMessage("ဆိုင်နာမည်"),
-    "signalGood": MessageLookupByLibrary.simpleMessage("ကောင်းတယ်"),
-    "signalStrong": MessageLookupByLibrary.simpleMessage("ကောင်းလွန်းတယ်"),
+    "signalGood": MessageLookupByLibrary.simpleMessage("good"),
+    "signalStrong": MessageLookupByLibrary.simpleMessage("strong"),
     "signalUnknown": MessageLookupByLibrary.simpleMessage("မသိရပါ"),
-    "signalWeak": MessageLookupByLibrary.simpleMessage("အားနည်းတယ်"),
+    "signalWeak": MessageLookupByLibrary.simpleMessage("weak"),
     "statusActive": MessageLookupByLibrary.simpleMessage("သုံးနေတယ်"),
     "statusConnected": MessageLookupByLibrary.simpleMessage("ချိတ်ပြီးပါပြီ"),
     "statusConnecting": MessageLookupByLibrary.simpleMessage("ချိတ်နေပါတယ်"),
@@ -383,9 +453,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "transportBluetooth": MessageLookupByLibrary.simpleMessage("ဘလူးတုသ်"),
     "transportUsb": MessageLookupByLibrary.simpleMessage("USB"),
     "transportWifi": MessageLookupByLibrary.simpleMessage("ဝိုင်ဖိုင်"),
-    "unavailableAdapterOff": m12,
-    "unavailablePermission": m13,
-    "unavailableUnsupported": m14,
+    "unavailableAdapterOff": m17,
+    "unavailablePermission": m18,
+    "unavailableUnsupported": m19,
     "unitG": MessageLookupByLibrary.simpleMessage("ဂရမ်"),
     "unitKg": MessageLookupByLibrary.simpleMessage("ကီလို"),
     "unitLb": MessageLookupByLibrary.simpleMessage("ပေါင်"),
@@ -403,7 +473,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "weighingConfirm": MessageLookupByLibrary.simpleMessage(
       "အလေးချိန် အတည်ပြုမယ်",
     ),
-    "weighingDeductionLabel": m15,
+    "weighingDeductionLabel": m20,
     "weighingDeductionNone": MessageLookupByLibrary.simpleMessage("မနှုတ်"),
     "weighingEnterManually": MessageLookupByLibrary.simpleMessage(
       "အလေးချိန် ကိုယ်တိုင်ထည့်မယ်",
@@ -427,11 +497,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "ငြိမ်သည်အထိ စောင့်ပါ။",
     ),
     "weighingFinish": MessageLookupByLibrary.simpleMessage("ပြီးပြီ"),
-    "weighingFinished": m16,
-    "weighingGrossLabel": m17,
+    "weighingFinished": m21,
+    "weighingGrossLabel": m22,
     "weighingItemLabel": MessageLookupByLibrary.simpleMessage("ပစ္စည်း"),
-    "weighingLineGross": m18,
-    "weighingLineRate": m19,
+    "weighingLineGross": m23,
+    "weighingLineRate": m24,
     "weighingLiveWeight": MessageLookupByLibrary.simpleMessage(
       "လက်ရှိ အလေးချိန်",
     ),
@@ -442,7 +512,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "weighingNetLabel": MessageLookupByLibrary.simpleMessage(
       "အသားတင် အလေးချိန်",
     ),
-    "weighingNetShort": m20,
+    "weighingNetShort": m25,
     "weighingNoItemsBody": MessageLookupByLibrary.simpleMessage(
       "မချိန်မီ စျေးနှုန်းစာရင်းထဲ ပစ္စည်းအရင်ထည့်ပါ။",
     ),
@@ -453,9 +523,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "စာကြောင်း မရှိသေးပါ။ အလေးချိန် အတည်ပြုပြီး ထည့်ပါ။",
     ),
     "weighingPickItem": MessageLookupByLibrary.simpleMessage("ပစ္စည်း ရွေးပါ"),
-    "weighingPriceLabel": m21,
-    "weighingReceiptLines": m22,
-    "weighingReceiptSubtitle": m23,
+    "weighingPriceLabel": m26,
+    "weighingReceiptLines": m27,
+    "weighingReceiptSubtitle": m28,
     "weighingRemoveBody": MessageLookupByLibrary.simpleMessage(
       "စုစုပေါင်းငွေကို ပြန်တွက်ပါမည်။",
     ),
@@ -469,7 +539,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "ချိန်ခွင် ပြဿနာရှိလား?",
     ),
     "weighingTitle": MessageLookupByLibrary.simpleMessage("ချိန်ခြင်း"),
-    "weighingTotalLines": m24,
-    "weightKgValue": m25,
+    "weighingTotalLines": m29,
+    "weightKgValue": m30,
   };
 }

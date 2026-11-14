@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../devices/application/scale_session_controller.dart';
+import '../../devices/domain/scale_session.dart';
 import '../../items/application/item_providers.dart';
 import '../../items/domain/item.dart';
 import '../../items/domain/item_enums.dart';
@@ -11,7 +13,6 @@ import '../domain/receipt.dart';
 import '../domain/receipt_enums.dart';
 import '../domain/receipt_line_draft.dart';
 import '../domain/receipt_repository.dart';
-import '../domain/scale_reading.dart';
 import '../domain/weight_units.dart';
 import 'manual_keypad.dart';
 import 'weighing_providers.dart';
@@ -26,17 +27,23 @@ class WeighingController
     extends AutoDisposeFamilyNotifier<WeighingState, ReceiptType> {
   bool _disposed = false;
   bool _armed = true;
-  StreamSubscription<ScaleState>? _scaleSubscription;
 
   @override
   WeighingState build(ReceiptType arg) {
-    ref.onDispose(() {
-      _disposed = true;
-      _scaleSubscription?.cancel();
+    ref.onDispose(() => _disposed = true);
+
+    ref.listen<ScaleSession>(scaleSessionProvider, (_, next) {
+      if (_disposed) return;
+      state = state.copyWith(scale: next);
+      _maybeAutoCapture();
     });
 
     Future.microtask(_init);
-    return WeighingState(type: arg, isLoading: true);
+    return WeighingState(
+      type: arg,
+      isLoading: true,
+      scale: ref.read(scaleSessionProvider),
+    );
   }
 
   Future<void> _init() async {
@@ -48,7 +55,8 @@ class WeighingController
       final itemRepository = ref.read(itemRepositoryProvider);
       final items = await itemRepository.watchAll(activeOnly: true).first;
 
-      final lastItemId = receipt.lines.isEmpty ? null : receipt.lines.last.itemId;
+      final lastItemId =
+      receipt.lines.isEmpty ? null : receipt.lines.last.itemId;
       final lastItem =
       lastItemId == null ? null : await itemRepository.findById(lastItemId);
       final initial = lastItem ?? items.firstOrNull;
@@ -56,7 +64,6 @@ class WeighingController
       if (_disposed) return;
       state = state.copyWith(receipt: receipt, isLoading: false);
       if (initial != null) selectItem(initial);
-      _listenToScale();
     } catch (_) {
       if (_disposed) return;
       state = state.copyWith(
@@ -64,14 +71,6 @@ class WeighingController
         failure: WeighingFailure.loadFailed,
       );
     }
-  }
-
-  void _listenToScale() {
-    _scaleSubscription = ref.read(scaleReaderProvider).watch().listen((scale) {
-      if (_disposed) return;
-      state = state.copyWith(scale: scale);
-      _maybeAutoCapture();
-    });
   }
 
   void selectItem(Item item) {
@@ -118,15 +117,9 @@ class WeighingController
     state = state.copyWith(autoCapture: value);
   }
 
-  Future<void> tare() async {
-    if (!state.scale.isConnected) return;
-    await ref.read(scaleReaderProvider).tare();
-  }
+  Future<void> tare() => ref.read(scaleSessionProvider.notifier).tare();
 
-  Future<void> zero() async {
-    if (!state.scale.isConnected) return;
-    await ref.read(scaleReaderProvider).zero();
-  }
+  Future<void> zero() => ref.read(scaleSessionProvider.notifier).zero();
 
   void _maybeAutoCapture() {
     final current = state;
@@ -166,11 +159,13 @@ class WeighingController
 
   void endManual() {
     _armed = true;
-    state = state.copyWith(isManual: false, manualGross: '', replaceOnType: false);
+    state =
+        state.copyWith(isManual: false, manualGross: '', replaceOnType: false);
   }
 
   void focusManual(ManualField field) {
-    final text = field == ManualField.gross ? state.manualGross : state.deduction;
+    final text =
+    field == ManualField.gross ? state.manualGross : state.deduction;
     state = state.copyWith(
       manualField: field,
       replaceOnType: text.isNotEmpty,
@@ -207,7 +202,8 @@ class WeighingController
       return _fail(WeighingFailure.invalidWeight);
     }
 
-    final added = await _addLine(grossMilli: current.grossMilli, isManual: true);
+    final added =
+    await _addLine(grossMilli: current.grossMilli, isManual: true);
     if (added && !_disposed) {
       state = state.copyWith(manualGross: '', manualField: ManualField.gross);
     }
@@ -250,7 +246,8 @@ class WeighingController
     if (state.isSaving) return;
     state = state.copyWith(isSaving: true, clearFailure: true);
     try {
-      final updated = await ref.read(receiptRepositoryProvider).removeLine(lineId);
+      final updated =
+      await ref.read(receiptRepositoryProvider).removeLine(lineId);
       if (_disposed) return;
       state = state.copyWith(receipt: updated, isSaving: false);
     } catch (error) {

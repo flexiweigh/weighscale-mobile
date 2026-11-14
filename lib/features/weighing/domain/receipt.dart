@@ -1,5 +1,7 @@
+import '../../items/domain/item_enums.dart';
 import 'receipt_enums.dart';
 import 'receipt_line.dart';
+import 'weight_units.dart';
 
 class Receipt {
   const Receipt({
@@ -33,4 +35,20 @@ class Receipt {
   bool get isDraft => status == ReceiptStatus.draft;
 
   bool get hasLines => lines.isNotEmpty;
+
+  bool get hasParty => partyName != null && partyName!.trim().isNotEmpty;
+
+  DateTime get displayTime => completedAt ?? createdAt;
+
+  int get totalWeightKgMilli {
+    var total = 0;
+    for (final line in lines) {
+      total += convertWeightMilli(
+        line.netWeightMilli,
+        line.unit,
+        WeightUnit.kg,
+      );
+    }
+    return total;
+  }
 }

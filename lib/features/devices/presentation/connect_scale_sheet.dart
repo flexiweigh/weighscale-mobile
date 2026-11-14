@@ -11,18 +11,11 @@ import 'device_l10n.dart';
 import 'widgets/device_row.dart';
 import 'widgets/discovery_banner.dart';
 
-class ConnectedScale {
-  const ConnectedScale({required this.deviceName, required this.profileName});
-
-  final String deviceName;
-  final String profileName;
-}
-
-Future<ConnectedScale?> showConnectScaleSheet(
+Future<void> showConnectScaleSheet(
     BuildContext context, {
       VoidCallback? onEnterManually,
     }) {
-  return showModalBottomSheet<ConnectedScale>(
+  return showModalBottomSheet<void>(
     context: context,
     isScrollControlled: true,
     showDragHandle: true,
@@ -127,25 +120,11 @@ class ConnectScaleSheet extends ConsumerWidget {
                             highlighted: index == 0,
                             isConnecting: state.connectingKey == device.key,
                             enabled: state.canConnect,
-                            onConnect: () async {
-                              final ok = await controller.connect(device);
-                              if (!ok || !context.mounted) return;
-                              final latest =
-                              ref.read(connectSheetControllerProvider);
-                              final profile = latest.profiles
-                                  .where(
-                                    (p) => p.id == latest.selectedProfileId,
-                              )
-                                  .firstOrNull;
-                              Navigator.of(context).pop(
-                                ConnectedScale(
-                                  deviceName: device.isNamed
-                                      ? device.name!
-                                      : l10n.deviceUnnamed,
-                                  profileName: profile?.name ?? '',
-                                ),
-                              );
-                            },
+                              onConnect: () async {
+                                final ok = await controller.connect(device);
+                                if (!ok || !context.mounted) return;
+                                Navigator.of(context).pop();
+                              },
                           );
                         },
                       ),

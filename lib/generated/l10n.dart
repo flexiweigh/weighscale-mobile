@@ -1897,6 +1897,285 @@ class S {
     );
   }
 
+  /// `{count, plural, =1{Today · 1 transaction} other{Today · {count} transactions}}`
+  String historySubtitle(int count) {
+    return Intl.plural(
+      count,
+      one: 'Today · 1 transaction',
+      other: 'Today · $count transactions',
+      name: 'historySubtitle',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `Yesterday`
+  String get historyYesterday {
+    return Intl.message(
+      'Yesterday',
+      name: 'historyYesterday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search party or item`
+  String get historySearchHint {
+    return Intl.message(
+      'Search party or item',
+      name: 'historySearchHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `All`
+  String get historyFilterAll {
+    return Intl.message('All', name: 'historyFilterAll', desc: '', args: []);
+  }
+
+  /// `Date range`
+  String get historyRangeTitle {
+    return Intl.message(
+      'Date range',
+      name: 'historyRangeTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `All time`
+  String get historyRangeAll {
+    return Intl.message(
+      'All time',
+      name: 'historyRangeAll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Last 7 days`
+  String get historyRangeLast7 {
+    return Intl.message(
+      'Last 7 days',
+      name: 'historyRangeLast7',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This month`
+  String get historyRangeMonth {
+    return Intl.message(
+      'This month',
+      name: 'historyRangeMonth',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Custom range…`
+  String get historyRangeCustom {
+    return Intl.message(
+      'Custom range…',
+      name: 'historyRangeCustom',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Every purchase and sale you make will be listed here, grouped by day.`
+  String get historyEmptyBody {
+    return Intl.message(
+      'Every purchase and sale you make will be listed here, grouped by day.',
+      name: 'historyEmptyBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No transactions found`
+  String get historyNoResultsTitle {
+    return Intl.message(
+      'No transactions found',
+      name: 'historyNoResultsTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Try a different search or clear the filters.`
+  String get historyNoResultsBody {
+    return Intl.message(
+      'Try a different search or clear the filters.',
+      name: 'historyNoResultsBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Clear filters`
+  String get historyClearFilters {
+    return Intl.message(
+      'Clear filters',
+      name: 'historyClearFilters',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Could not load history.`
+  String get historyLoadError {
+    return Intl.message(
+      'Could not load history.',
+      name: 'historyLoadError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Receipt`
+  String get receiptHeading {
+    return Intl.message('Receipt', name: 'receiptHeading', desc: '', args: []);
+  }
+
+  /// `Receipt #{number}`
+  String receiptTitle(String number) {
+    return Intl.message(
+      'Receipt #$number',
+      name: 'receiptTitle',
+      desc: '',
+      args: [number],
+    );
+  }
+
+  /// `{type} · {date} · {time}`
+  String receiptSubtitle(String type, String date, String time) {
+    return Intl.message(
+      '$type · $date · $time',
+      name: 'receiptSubtitle',
+      desc: '',
+      args: [type, date, time],
+    );
+  }
+
+  /// `Purchase receipt`
+  String get receiptPurchaseTitle {
+    return Intl.message(
+      'Purchase receipt',
+      name: 'receiptPurchaseTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sales receipt`
+  String get receiptSaleTitle {
+    return Intl.message(
+      'Sales receipt',
+      name: 'receiptSaleTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Item`
+  String get receiptColItem {
+    return Intl.message('Item', name: 'receiptColItem', desc: '', args: []);
+  }
+
+  /// `Net {unit}`
+  String receiptColNet(String unit) {
+    return Intl.message(
+      'Net $unit',
+      name: 'receiptColNet',
+      desc: '',
+      args: [unit],
+    );
+  }
+
+  /// `Net`
+  String get receiptColNetPlain {
+    return Intl.message('Net', name: 'receiptColNetPlain', desc: '', args: []);
+  }
+
+  /// `Price`
+  String get receiptColPrice {
+    return Intl.message('Price', name: 'receiptColPrice', desc: '', args: []);
+  }
+
+  /// `Amount`
+  String get receiptColAmount {
+    return Intl.message('Amount', name: 'receiptColAmount', desc: '', args: []);
+  }
+
+  /// `Total`
+  String get receiptTotal {
+    return Intl.message('Total', name: 'receiptTotal', desc: '', args: []);
+  }
+
+  /// `{count, plural, =1{1 line} other{{count} lines}}`
+  String receiptLinesCount(int count) {
+    return Intl.plural(
+      count,
+      one: '1 line',
+      other: '$count lines',
+      name: 'receiptLinesCount',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `MANUAL = weight typed in by hand, not read from the scale.`
+  String get receiptManualLegend {
+    return Intl.message(
+      'MANUAL = weight typed in by hand, not read from the scale.',
+      name: 'receiptManualLegend',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Print`
+  String get receiptPrint {
+    return Intl.message('Print', name: 'receiptPrint', desc: '', args: []);
+  }
+
+  /// `Save & Done`
+  String get receiptSaveDone {
+    return Intl.message(
+      'Save & Done',
+      name: 'receiptSaveDone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Done`
+  String get receiptDone {
+    return Intl.message('Done', name: 'receiptDone', desc: '', args: []);
+  }
+
+  /// `Receipt not found.`
+  String get receiptNotFound {
+    return Intl.message(
+      'Receipt not found.',
+      name: 'receiptNotFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Could not load the receipt.`
+  String get receiptLoadError {
+    return Intl.message(
+      'Could not load the receipt.',
+      name: 'receiptLoadError',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Language`
   String get settingsLanguage {
     return Intl.message(

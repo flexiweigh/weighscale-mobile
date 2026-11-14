@@ -24,6 +24,8 @@ class AppRoutes {
 
   static String transactionDetail(String id) => '$transactionBase/$id';
 
+  static String transactionFresh(String id) => '$transactionBase/$id?fresh=1';
+
   static String itemEditPath(String id) => '/item/$id/edit';
 
   static String itemNewWith({String? name, String? code, String? category}) {

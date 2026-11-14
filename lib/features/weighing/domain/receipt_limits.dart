@@ -1,0 +1,1 @@
+const partyNameMaxLength = 80;

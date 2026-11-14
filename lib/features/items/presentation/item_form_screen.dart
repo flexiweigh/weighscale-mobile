@@ -1,3 +1,4 @@
+import 'package:FlexiWeigh/features/items/presentation/widgets/status_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -119,7 +120,7 @@ class _ItemFormScreenState extends ConsumerState<ItemFormScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text(l10n.commonCancel),
+            child: Text(l10n.commonCancel, overflow: TextOverflow.ellipsis),
           ),
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(true),
@@ -319,14 +320,9 @@ class _ItemFormScreenState extends ConsumerState<ItemFormScreen> {
                         ),
                         const SizedBox(width: 12),
                         Expanded(
-                          child: InputDecorator(
-                            decoration: itemInputDecoration(label: l10n.fieldStatus),
-                            child: ToggleRow(
-                              compact: true,
-                              label: state.isActive ? l10n.statusActive : l10n.statusInactive,
-                              value: state.isActive,
-                              onChanged: form.setActive,
-                            ),
+                          child: StatusField(
+                            value: state.isActive,
+                            onChanged: form.setActive,
                           ),
                         ),
                       ],
@@ -395,7 +391,7 @@ class _BottomBar extends StatelessWidget {
                     side: const BorderSide(color: AppColors.border),
                     shape: shape,
                   ),
-                  child: Text(l10n.commonCancel),
+                  child: Text(l10n.commonCancel, overflow: TextOverflow.ellipsis),
                 ),
               ),
               const SizedBox(width: 12),

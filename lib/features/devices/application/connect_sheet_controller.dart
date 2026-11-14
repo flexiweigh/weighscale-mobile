@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:FlexiWeigh/features/devices/application/scale_session_controller.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../domain/device_scanner.dart';
@@ -57,8 +58,10 @@ class ConnectSheetController extends AutoDisposeNotifier<ConnectSheetState> {
   }
 
   Future<bool> connect(DiscoveredDevice device) async {
-    final profileId = state.selectedProfileId;
-    if (profileId == null || state.isConnecting) return false;
+    final profile = state.profiles
+        .where((p) => p.id == state.selectedProfileId)
+        .firstOrNull;
+    if (profile == null || state.isConnecting) return false;
 
     await _subscription?.cancel();
     _subscription = null;
@@ -71,8 +74,8 @@ class ConnectSheetController extends AutoDisposeNotifier<ConnectSheetState> {
 
     try {
       await ref
-          .read(scaleConnectorProvider)
-          .connect(device: device, profileId: profileId);
+          .read(scaleSessionProvider.notifier)
+          .connect(device: device, profile: profile);
       if (_disposed) return true;
       state = state.copyWith(clearConnecting: true);
       return true;

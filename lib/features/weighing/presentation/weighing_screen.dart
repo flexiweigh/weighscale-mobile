@@ -38,16 +38,10 @@ class WeighingScreen extends ConsumerWidget {
   Future<void> _finish(
       BuildContext context,
       WeighingController controller,
-      AppL10n l10n,
       ) async {
     final receipt = await controller.finish();
     if (receipt == null || !context.mounted) return;
-    ScaffoldMessenger.of(context)
-      ..hideCurrentSnackBar()
-      ..showSnackBar(
-        SnackBar(content: Text(l10n.weighingFinished(receipt.displayNumber))),
-      );
-    context.go(AppRoutes.home);
+    context.pushReplacement(AppRoutes.transactionFresh(receipt.id));
   }
 
   @override
@@ -89,7 +83,7 @@ class WeighingScreen extends ConsumerWidget {
             if (showFooter)
               _Footer(
                 state: state,
-                onFinish: () => _finish(context, controller, l10n),
+                onFinish: () => _finish(context, controller),
               ),
           ],
         ),

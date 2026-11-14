@@ -1,6 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/history/presentation/history_screen.dart';
+import '../../features/history/presentation/receipt_screen.dart';
 import '../../features/home/presentation/home_screen.dart';
 import '../../features/items/application/item_form_request.dart';
 import '../../features/items/presentation/item_form_screen.dart';
@@ -23,81 +25,42 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         builder: (context, state, shell) => AppShell(shell: shell),
         branches: [
           StatefulShellBranch(
-            routes: [
-              GoRoute(
-                path: AppRoutes.home,
-                builder: (context, state) => const HomeScreen(),
-              ),
-            ],
+            routes: [GoRoute(path: AppRoutes.home, builder: (context, state) => const HomeScreen())],
           ),
           StatefulShellBranch(
-            routes: [
-              GoRoute(
-              path: AppRoutes.weigh,
-              builder: (context, state) => const WeighTabScreen(),
-              ),
-            ],
+            routes: [GoRoute(path: AppRoutes.weigh, builder: (context, state) => const WeighTabScreen())],
           ),
           StatefulShellBranch(
-            routes: [
-              GoRoute(
-                path: AppRoutes.history,
-                builder: (context, state) =>
-                    PlaceholderScreen(title: context.l10n.navHistory),
-              ),
-            ],
+            routes: [GoRoute(path: AppRoutes.history, builder: (context, state) => const HistoryScreen())],
           ),
           StatefulShellBranch(
-            routes: [
-              GoRoute(
-                path: AppRoutes.items,
-                builder: (context, state) => const ItemsScreen(),
-              ),
-            ],
+            routes: [GoRoute(path: AppRoutes.items, builder: (context, state) => const ItemsScreen())],
           ),
           StatefulShellBranch(
-            routes: [
-              GoRoute(
-                path: AppRoutes.settings,
-                builder: (context, state) => const SettingsScreen(),
-              ),
-            ],
+            routes: [GoRoute(path: AppRoutes.settings, builder: (context, state) => const SettingsScreen())],
           ),
         ],
       ),
       GoRoute(
         path: AppRoutes.devices,
-        builder: (context, state) => PlaceholderScreen(
-          title: context.l10n.devicesTitle,
-          showBack: true,
-        ),
+        builder: (context, state) => PlaceholderScreen(title: context.l10n.devicesTitle, showBack: true),
       ),
       GoRoute(
         path: AppRoutes.reports,
-        builder: (context, state) => PlaceholderScreen(
-          title: context.l10n.reportsTitle,
-          showBack: true,
-        ),
+        builder: (context, state) => PlaceholderScreen(title: context.l10n.reportsTitle, showBack: true),
       ),
       GoRoute(
         path: AppRoutes.weighing,
-        builder: (context, state) => WeighingScreen(
-          type: receiptTypeFromQuery(state.uri.queryParameters['type']),
-        ),
+        builder: (context, state) => WeighingScreen(type: receiptTypeFromQuery(state.uri.queryParameters['type'])),
       ),
       GoRoute(
         path: AppRoutes.manualEntry,
-        builder: (context, state) => ManualWeightScreen(
-          type: receiptTypeFromQuery(state.uri.queryParameters['type']),
-        ),
+        builder: (context, state) => ManualWeightScreen(type: receiptTypeFromQuery(state.uri.queryParameters['type'])),
       ),
       GoRoute(
         path: AppRoutes.transaction,
-        builder: (context, state) => PlaceholderScreen(
-          title: context.l10n.transactionDetailTitle,
-          detail: '#${state.pathParameters['id']}',
-          showBack: true,
-        ),
+        builder: (context, state) =>
+            ReceiptScreen(receiptId: state.pathParameters['id']!, isFresh: state.uri.queryParameters['fresh'] == '1'),
       ),
       GoRoute(
         path: AppRoutes.itemNew,
@@ -111,9 +74,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: AppRoutes.itemEdit,
-        builder: (context, state) => ItemFormScreen(
-          request: ItemFormRequest.edit(state.pathParameters['id']!),
-        ),
+        builder: (context, state) => ItemFormScreen(request: ItemFormRequest.edit(state.pathParameters['id']!)),
       ),
     ],
   );

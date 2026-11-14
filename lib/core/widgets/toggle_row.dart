@@ -2,19 +2,48 @@ import 'package:flutter/material.dart';
 
 import '../theme/app_colors.dart';
 
+class AppSwitch extends StatelessWidget {
+  const AppSwitch({
+    super.key,
+    required this.value,
+    required this.onChanged,
+    this.compact = false,
+  });
+
+  final bool value;
+  final ValueChanged<bool>? onChanged;
+  final bool compact;
+
+  @override
+  Widget build(BuildContext context) {
+    return Switch(
+      value: value,
+      onChanged: onChanged,
+      materialTapTargetSize: compact
+          ? MaterialTapTargetSize.shrinkWrap
+          : MaterialTapTargetSize.padded,
+      thumbColor: const WidgetStatePropertyAll(Colors.white),
+      trackColor: WidgetStateProperty.resolveWith(
+            (states) => states.contains(WidgetState.selected)
+            ? AppColors.success
+            : AppColors.border,
+      ),
+      trackOutlineColor: const WidgetStatePropertyAll(Colors.transparent),
+    );
+  }
+}
+
 class ToggleRow extends StatelessWidget {
   const ToggleRow({
     super.key,
     required this.label,
     required this.value,
     required this.onChanged,
-    this.compact = false,
   });
 
   final String label;
   final bool value;
   final ValueChanged<bool> onChanged;
-  final bool compact;
 
   @override
   Widget build(BuildContext context) {
@@ -30,20 +59,7 @@ class ToggleRow extends StatelessWidget {
             ),
           ),
         ),
-        Switch(
-          value: value,
-          onChanged: onChanged,
-          materialTapTargetSize: compact
-              ? MaterialTapTargetSize.shrinkWrap
-              : MaterialTapTargetSize.padded,
-          thumbColor: const WidgetStatePropertyAll(Colors.white),
-          trackColor: WidgetStateProperty.resolveWith(
-                (states) => states.contains(WidgetState.selected)
-                ? AppColors.success
-                : AppColors.border,
-          ),
-          trackOutlineColor: const WidgetStatePropertyAll(Colors.transparent),
-        ),
+        AppSwitch(value: value, onChanged: onChanged),
       ],
     );
   }

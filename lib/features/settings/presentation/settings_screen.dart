@@ -6,9 +6,10 @@ import '../../../core/l10n/l10n_extension.dart';
 import '../../../core/l10n/locale_controller.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_tone.dart';
+import '../../devices/application/scale_session_controller.dart';
 import '../../home/presentation/connect_scale_flow.dart';
-import '../../home/presentation/controller/home_controller.dart';
 import '../../home/presentation/state/home_card_states.dart';
+import '../../home/presentation/state/scale_card_mapper.dart';
 import '../application/shop_name_controller.dart';
 import 'language_sheet.dart';
 import 'shop_name_dialog.dart';
@@ -22,7 +23,10 @@ class SettingsScreen extends ConsumerWidget {
     final l10n = context.l10n;
     final locale = ref.watch(localeControllerProvider);
     final shopName = ref.watch(shopNameControllerProvider);
-    final scale = ref.watch(homeControllerProvider.select((s) => s.scale));
+    final scale = scaleCardStateOf(
+      ref.watch(scaleSessionProvider),
+      unnamedLabel: l10n.deviceUnnamed,
+    );
 
     final languageName = locale.languageCode == 'my'
         ? l10n.languageMyanmar

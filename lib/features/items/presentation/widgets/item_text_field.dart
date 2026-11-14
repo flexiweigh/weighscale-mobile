@@ -3,12 +3,19 @@ import 'package:flutter/services.dart';
 
 import '../../../../core/theme/app_colors.dart';
 
+const itemFieldTextStyle = TextStyle(
+  fontSize: 15,
+  fontWeight: FontWeight.w600,
+  color: AppColors.textPrimary,
+);
+
 InputDecoration itemInputDecoration({
   required String label,
   String? hintText,
   String? errorText,
   String? suffixText,
   Widget? suffixIcon,
+  BoxConstraints? suffixIconConstraints,
   Color? accent,
 }) {
   OutlineInputBorder border(Color color, [double width = 1]) {
@@ -19,13 +26,13 @@ InputDecoration itemInputDecoration({
   }
 
   return InputDecoration(
-    constraints: const BoxConstraints(minHeight: 48),
     labelText: label,
     hintText: hintText,
     errorText: errorText,
     errorMaxLines: 2,
     suffixText: suffixText,
     suffixIcon: suffixIcon,
+    suffixIconConstraints: suffixIconConstraints,
     floatingLabelBehavior: FloatingLabelBehavior.always,
     filled: true,
     fillColor: AppColors.surface,
@@ -90,11 +97,7 @@ class ItemTextField extends StatelessWidget {
       textInputAction: textInputAction,
       minLines: minLines,
       maxLines: maxLines,
-      style: const TextStyle(
-        fontSize: 15,
-        fontWeight: FontWeight.w600,
-        color: AppColors.textPrimary,
-      ),
+      style: itemFieldTextStyle,
       decoration: itemInputDecoration(
         label: label,
         hintText: hintText,

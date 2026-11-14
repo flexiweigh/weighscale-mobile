@@ -54,7 +54,7 @@ class _ShopNameDialogState extends State<_ShopNameDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: Text(l10n.commonCancel),
+          child: Text(l10n.commonCancel, overflow: TextOverflow.ellipsis),
         ),
         FilledButton(
           onPressed: _submit,

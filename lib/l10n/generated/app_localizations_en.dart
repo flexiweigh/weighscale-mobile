@@ -730,6 +730,127 @@ class AppL10nEn extends AppL10n {
   String get weighChooseTitle => 'Buy or sell?';
 
   @override
+  String historySubtitle(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Today · $count transactions',
+      one: 'Today · 1 transaction',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get historyYesterday => 'Yesterday';
+
+  @override
+  String get historySearchHint => 'Search party or item';
+
+  @override
+  String get historyFilterAll => 'All';
+
+  @override
+  String get historyRangeTitle => 'Date range';
+
+  @override
+  String get historyRangeAll => 'All time';
+
+  @override
+  String get historyRangeLast7 => 'Last 7 days';
+
+  @override
+  String get historyRangeMonth => 'This month';
+
+  @override
+  String get historyRangeCustom => 'Custom range…';
+
+  @override
+  String get historyEmptyBody =>
+      'Every purchase and sale you make will be listed here, grouped by day.';
+
+  @override
+  String get historyNoResultsTitle => 'No transactions found';
+
+  @override
+  String get historyNoResultsBody =>
+      'Try a different search or clear the filters.';
+
+  @override
+  String get historyClearFilters => 'Clear filters';
+
+  @override
+  String get historyLoadError => 'Could not load history.';
+
+  @override
+  String get receiptHeading => 'Receipt';
+
+  @override
+  String receiptTitle(String number) {
+    return 'Receipt #$number';
+  }
+
+  @override
+  String receiptSubtitle(String type, String date, String time) {
+    return '$type · $date · $time';
+  }
+
+  @override
+  String get receiptPurchaseTitle => 'Purchase receipt';
+
+  @override
+  String get receiptSaleTitle => 'Sales receipt';
+
+  @override
+  String get receiptColItem => 'Item';
+
+  @override
+  String receiptColNet(String unit) {
+    return 'Net $unit';
+  }
+
+  @override
+  String get receiptColNetPlain => 'Net';
+
+  @override
+  String get receiptColPrice => 'Price';
+
+  @override
+  String get receiptColAmount => 'Amount';
+
+  @override
+  String get receiptTotal => 'Total';
+
+  @override
+  String receiptLinesCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count lines',
+      one: '1 line',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get receiptManualLegend =>
+      'MANUAL = weight typed in by hand, not read from the scale.';
+
+  @override
+  String get receiptPrint => 'Print';
+
+  @override
+  String get receiptSaveDone => 'Save & Done';
+
+  @override
+  String get receiptDone => 'Done';
+
+  @override
+  String get receiptNotFound => 'Receipt not found.';
+
+  @override
+  String get receiptLoadError => 'Could not load the receipt.';
+
+  @override
   String get settingsLanguage => 'Language';
 
   @override

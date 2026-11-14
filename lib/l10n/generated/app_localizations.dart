@@ -1392,6 +1392,198 @@ abstract class AppL10n {
   /// **'Buy or sell?'**
   String get weighChooseTitle;
 
+  /// No description provided for @historySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{Today · 1 transaction} other{Today · {count} transactions}}'**
+  String historySubtitle(int count);
+
+  /// No description provided for @historyYesterday.
+  ///
+  /// In en, this message translates to:
+  /// **'Yesterday'**
+  String get historyYesterday;
+
+  /// No description provided for @historySearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search party or item'**
+  String get historySearchHint;
+
+  /// No description provided for @historyFilterAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get historyFilterAll;
+
+  /// No description provided for @historyRangeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Date range'**
+  String get historyRangeTitle;
+
+  /// No description provided for @historyRangeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All time'**
+  String get historyRangeAll;
+
+  /// No description provided for @historyRangeLast7.
+  ///
+  /// In en, this message translates to:
+  /// **'Last 7 days'**
+  String get historyRangeLast7;
+
+  /// No description provided for @historyRangeMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'This month'**
+  String get historyRangeMonth;
+
+  /// No description provided for @historyRangeCustom.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom range…'**
+  String get historyRangeCustom;
+
+  /// No description provided for @historyEmptyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Every purchase and sale you make will be listed here, grouped by day.'**
+  String get historyEmptyBody;
+
+  /// No description provided for @historyNoResultsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No transactions found'**
+  String get historyNoResultsTitle;
+
+  /// No description provided for @historyNoResultsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Try a different search or clear the filters.'**
+  String get historyNoResultsBody;
+
+  /// No description provided for @historyClearFilters.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear filters'**
+  String get historyClearFilters;
+
+  /// No description provided for @historyLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not load history.'**
+  String get historyLoadError;
+
+  /// No description provided for @receiptHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Receipt'**
+  String get receiptHeading;
+
+  /// No description provided for @receiptTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Receipt #{number}'**
+  String receiptTitle(String number);
+
+  /// No description provided for @receiptSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'{type} · {date} · {time}'**
+  String receiptSubtitle(String type, String date, String time);
+
+  /// No description provided for @receiptPurchaseTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Purchase receipt'**
+  String get receiptPurchaseTitle;
+
+  /// No description provided for @receiptSaleTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sales receipt'**
+  String get receiptSaleTitle;
+
+  /// No description provided for @receiptColItem.
+  ///
+  /// In en, this message translates to:
+  /// **'Item'**
+  String get receiptColItem;
+
+  /// No description provided for @receiptColNet.
+  ///
+  /// In en, this message translates to:
+  /// **'Net {unit}'**
+  String receiptColNet(String unit);
+
+  /// No description provided for @receiptColNetPlain.
+  ///
+  /// In en, this message translates to:
+  /// **'Net'**
+  String get receiptColNetPlain;
+
+  /// No description provided for @receiptColPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Price'**
+  String get receiptColPrice;
+
+  /// No description provided for @receiptColAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Amount'**
+  String get receiptColAmount;
+
+  /// No description provided for @receiptTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get receiptTotal;
+
+  /// No description provided for @receiptLinesCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 line} other{{count} lines}}'**
+  String receiptLinesCount(int count);
+
+  /// No description provided for @receiptManualLegend.
+  ///
+  /// In en, this message translates to:
+  /// **'MANUAL = weight typed in by hand, not read from the scale.'**
+  String get receiptManualLegend;
+
+  /// No description provided for @receiptPrint.
+  ///
+  /// In en, this message translates to:
+  /// **'Print'**
+  String get receiptPrint;
+
+  /// No description provided for @receiptSaveDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Save & Done'**
+  String get receiptSaveDone;
+
+  /// No description provided for @receiptDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get receiptDone;
+
+  /// No description provided for @receiptNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Receipt not found.'**
+  String get receiptNotFound;
+
+  /// No description provided for @receiptLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not load the receipt.'**
+  String get receiptLoadError;
+
   /// No description provided for @settingsLanguage.
   ///
   /// In en, this message translates to:

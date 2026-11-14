@@ -347,7 +347,7 @@ class _ActionBar extends StatelessWidget {
                         fontWeight: FontWeight.w700,
                       ),
                     ),
-                    child: Text(l10n.commonCancel),
+                    child: Text(l10n.commonCancel, overflow: TextOverflow.ellipsis),
                   ),
                 ),
               ),

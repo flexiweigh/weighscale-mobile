@@ -33,51 +33,63 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m5(done, total) => "${done} of ${total} done";
 
-  static String m6(buy, sell, unit) => "Buy ${buy} · Sell ${sell} Ks/${unit}";
+  static String m6(count) =>
+      "${Intl.plural(count, one: 'Today · 1 transaction', other: 'Today · ${count} transactions')}";
 
-  static String m7(count) =>
+  static String m7(buy, sell, unit) => "Buy ${buy} · Sell ${sell} Ks/${unit}";
+
+  static String m8(count) =>
       "${Intl.plural(count, one: '1 item', other: '${count} items')}";
 
-  static String m8(query) =>
+  static String m9(query) =>
       "Nothing matches “${query}”. Try a different name or code.";
 
-  static String m9(amount) => "${amount} Ks";
+  static String m10(amount) => "${amount} Ks";
 
-  static String m10(unit) => "Ks/${unit}";
+  static String m11(unit) => "Ks/${unit}";
 
-  static String m11(profile) => "Bluetooth · ${profile}";
+  static String m12(unit) => "Net ${unit}";
 
-  static String m12(transport) =>
+  static String m13(count) =>
+      "${Intl.plural(count, one: '1 line', other: '${count} lines')}";
+
+  static String m14(type, date, time) => "${type} · ${date} · ${time}";
+
+  static String m15(number) => "Receipt #${number}";
+
+  static String m16(profile) => "Bluetooth · ${profile}";
+
+  static String m17(transport) =>
       "${transport} is off. Turn it on to find scales.";
 
-  static String m13(transport) =>
+  static String m18(transport) =>
       "Permission needed to scan with ${transport}.";
 
-  static String m14(transport) =>
+  static String m19(transport) =>
       "${transport} scanning isn\'t supported on this device.";
 
-  static String m15(unit) => "Deduction (${unit})";
+  static String m20(unit) => "Deduction (${unit})";
 
-  static String m16(number) => "Receipt #${number} saved";
+  static String m21(number) => "Receipt #${number} saved";
 
-  static String m17(unit) => "Gross weight (${unit})";
+  static String m22(unit) => "Gross weight (${unit})";
 
-  static String m18(gross, deduction, net, unit) =>
+  static String m23(gross, deduction, net, unit) =>
       "Gross ${gross} − ${deduction} = ${net} ${unit}";
 
-  static String m19(weight, unit, price) => "${weight} ${unit} × ${price}";
+  static String m24(weight, unit, price) => "${weight} ${unit} × ${price}";
 
-  static String m20(unit) => "Net (${unit})";
+  static String m25(unit) => "Net (${unit})";
 
-  static String m21(unit) => "Price (Ks/${unit})";
+  static String m26(unit) => "Price (Ks/${unit})";
 
-  static String m22(count) => "Receipt lines (${count})";
+  static String m27(count) => "Receipt lines (${count})";
 
-  static String m23(type, number) => "${type} · Receipt #${number}";
+  static String m28(type, number) => "${type} · Receipt #${number}";
 
-  static String m24(count) => "Total · ${count} lines";
+  static String m29(count) => "Total · ${count} lines";
 
-  static String m25(weight) => "${weight} kg";
+  static String m30(weight) => "${weight} kg";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -202,6 +214,32 @@ class MessageLookup extends MessageLookupByLibrary {
     "fieldWeighingUnit": MessageLookupByLibrary.simpleMessage("Weighing unit"),
     "getStartedProgress": m5,
     "getStartedTitle": MessageLookupByLibrary.simpleMessage("Get started"),
+    "historyClearFilters": MessageLookupByLibrary.simpleMessage(
+      "Clear filters",
+    ),
+    "historyEmptyBody": MessageLookupByLibrary.simpleMessage(
+      "Every purchase and sale you make will be listed here, grouped by day.",
+    ),
+    "historyFilterAll": MessageLookupByLibrary.simpleMessage("All"),
+    "historyLoadError": MessageLookupByLibrary.simpleMessage(
+      "Could not load history.",
+    ),
+    "historyNoResultsBody": MessageLookupByLibrary.simpleMessage(
+      "Try a different search or clear the filters.",
+    ),
+    "historyNoResultsTitle": MessageLookupByLibrary.simpleMessage(
+      "No transactions found",
+    ),
+    "historyRangeAll": MessageLookupByLibrary.simpleMessage("All time"),
+    "historyRangeCustom": MessageLookupByLibrary.simpleMessage("Custom range…"),
+    "historyRangeLast7": MessageLookupByLibrary.simpleMessage("Last 7 days"),
+    "historyRangeMonth": MessageLookupByLibrary.simpleMessage("This month"),
+    "historyRangeTitle": MessageLookupByLibrary.simpleMessage("Date range"),
+    "historySearchHint": MessageLookupByLibrary.simpleMessage(
+      "Search party or item",
+    ),
+    "historySubtitle": m6,
+    "historyYesterday": MessageLookupByLibrary.simpleMessage("Yesterday"),
     "itemDelete": MessageLookupByLibrary.simpleMessage("Delete"),
     "itemDeleteBody": MessageLookupByLibrary.simpleMessage(
       "It will be removed from your price list. Past transactions keep their records.",
@@ -218,11 +256,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "itemFormSubtitleNew": MessageLookupByLibrary.simpleMessage(
       "Price List · New material",
     ),
-    "itemPriceLine": m6,
+    "itemPriceLine": m7,
     "itemSave": MessageLookupByLibrary.simpleMessage("Save Item"),
     "itemsAddFirst": MessageLookupByLibrary.simpleMessage("Add first item"),
     "itemsAddTooltip": MessageLookupByLibrary.simpleMessage("Add item"),
-    "itemsCount": m7,
+    "itemsCount": m8,
     "itemsEmptyBody": MessageLookupByLibrary.simpleMessage(
       "Add the materials you buy or sell, with a price per kg. You can change prices any time.",
     ),
@@ -230,7 +268,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "itemsLoadError": MessageLookupByLibrary.simpleMessage(
       "Could not load items.",
     ),
-    "itemsNoResultsBody": m8,
+    "itemsNoResultsBody": m9,
     "itemsNoResultsTitle": MessageLookupByLibrary.simpleMessage(
       "No items found",
     ),
@@ -244,7 +282,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "manualWeightTitle": MessageLookupByLibrary.simpleMessage(
       "Enter Weight Manually",
     ),
-    "moneyKs": m9,
+    "moneyKs": m10,
     "navHistory": MessageLookupByLibrary.simpleMessage("History"),
     "navHome": MessageLookupByLibrary.simpleMessage("Home"),
     "navItems": MessageLookupByLibrary.simpleMessage("Items"),
@@ -257,7 +295,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "presetPaper": MessageLookupByLibrary.simpleMessage("Paper"),
     "presetPlastic": MessageLookupByLibrary.simpleMessage("Plastic"),
     "presetRubber": MessageLookupByLibrary.simpleMessage("Rubber"),
-    "priceSuffix": m10,
+    "priceSuffix": m11,
     "quickBuySubtitle": MessageLookupByLibrary.simpleMessage("Weigh & pay"),
     "quickBuyTitle": MessageLookupByLibrary.simpleMessage("Buy"),
     "quickPriceListSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -276,6 +314,32 @@ class MessageLookup extends MessageLookupByLibrary {
     "readingNoSignal": MessageLookupByLibrary.simpleMessage("NO SIGNAL"),
     "readingStable": MessageLookupByLibrary.simpleMessage("STABLE"),
     "readingUnstable": MessageLookupByLibrary.simpleMessage("UNSTABLE"),
+    "receiptColAmount": MessageLookupByLibrary.simpleMessage("Amount"),
+    "receiptColItem": MessageLookupByLibrary.simpleMessage("Item"),
+    "receiptColNet": m12,
+    "receiptColNetPlain": MessageLookupByLibrary.simpleMessage("Net"),
+    "receiptColPrice": MessageLookupByLibrary.simpleMessage("Price"),
+    "receiptDone": MessageLookupByLibrary.simpleMessage("Done"),
+    "receiptHeading": MessageLookupByLibrary.simpleMessage("Receipt"),
+    "receiptLinesCount": m13,
+    "receiptLoadError": MessageLookupByLibrary.simpleMessage(
+      "Could not load the receipt.",
+    ),
+    "receiptManualLegend": MessageLookupByLibrary.simpleMessage(
+      "MANUAL = weight typed in by hand, not read from the scale.",
+    ),
+    "receiptNotFound": MessageLookupByLibrary.simpleMessage(
+      "Receipt not found.",
+    ),
+    "receiptPrint": MessageLookupByLibrary.simpleMessage("Print"),
+    "receiptPurchaseTitle": MessageLookupByLibrary.simpleMessage(
+      "Purchase receipt",
+    ),
+    "receiptSaleTitle": MessageLookupByLibrary.simpleMessage("Sales receipt"),
+    "receiptSaveDone": MessageLookupByLibrary.simpleMessage("Save & Done"),
+    "receiptSubtitle": m14,
+    "receiptTitle": m15,
+    "receiptTotal": MessageLookupByLibrary.simpleMessage("Total"),
     "recentEmptyBody": MessageLookupByLibrary.simpleMessage(
       "Your weighings will appear here after your first\npurchase or sale.",
     ),
@@ -285,7 +349,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "recentSeeAll": MessageLookupByLibrary.simpleMessage("See all"),
     "recentTitle": MessageLookupByLibrary.simpleMessage("Recent transactions"),
     "reportsTitle": MessageLookupByLibrary.simpleMessage("Reports"),
-    "scaleBluetoothProfile": m11,
+    "scaleBluetoothProfile": m16,
     "scaleConnecting": MessageLookupByLibrary.simpleMessage("Connecting..."),
     "scaleConnectionLostReconnecting": MessageLookupByLibrary.simpleMessage(
       "Connection lost · reconnecting...",
@@ -353,9 +417,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "transportBluetooth": MessageLookupByLibrary.simpleMessage("Bluetooth"),
     "transportUsb": MessageLookupByLibrary.simpleMessage("USB"),
     "transportWifi": MessageLookupByLibrary.simpleMessage("Wi-Fi"),
-    "unavailableAdapterOff": m12,
-    "unavailablePermission": m13,
-    "unavailableUnsupported": m14,
+    "unavailableAdapterOff": m17,
+    "unavailablePermission": m18,
+    "unavailableUnsupported": m19,
     "unitG": MessageLookupByLibrary.simpleMessage("g"),
     "unitKg": MessageLookupByLibrary.simpleMessage("kg"),
     "unitLb": MessageLookupByLibrary.simpleMessage("lb"),
@@ -367,7 +431,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "weighingAmountLabel": MessageLookupByLibrary.simpleMessage("Amount"),
     "weighingAutoCapture": MessageLookupByLibrary.simpleMessage("Auto-capture"),
     "weighingConfirm": MessageLookupByLibrary.simpleMessage("Confirm Weight"),
-    "weighingDeductionLabel": m15,
+    "weighingDeductionLabel": m20,
     "weighingDeductionNone": MessageLookupByLibrary.simpleMessage("None"),
     "weighingEnterManually": MessageLookupByLibrary.simpleMessage(
       "Enter weight manually",
@@ -391,18 +455,18 @@ class MessageLookup extends MessageLookupByLibrary {
       "Wait for a stable reading.",
     ),
     "weighingFinish": MessageLookupByLibrary.simpleMessage("Finish"),
-    "weighingFinished": m16,
-    "weighingGrossLabel": m17,
+    "weighingFinished": m21,
+    "weighingGrossLabel": m22,
     "weighingItemLabel": MessageLookupByLibrary.simpleMessage("Item"),
-    "weighingLineGross": m18,
-    "weighingLineRate": m19,
+    "weighingLineGross": m23,
+    "weighingLineRate": m24,
     "weighingLiveWeight": MessageLookupByLibrary.simpleMessage("LIVE WEIGHT"),
     "weighingManualBadge": MessageLookupByLibrary.simpleMessage("MANUAL"),
     "weighingManualNotice": MessageLookupByLibrary.simpleMessage(
       "Manually entered weights are marked MANUAL on the receipt.",
     ),
     "weighingNetLabel": MessageLookupByLibrary.simpleMessage("Net weight"),
-    "weighingNetShort": m20,
+    "weighingNetShort": m25,
     "weighingNoItemsBody": MessageLookupByLibrary.simpleMessage(
       "Add an item to your price list before weighing.",
     ),
@@ -413,9 +477,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "No lines yet. Confirm a weight to add one.",
     ),
     "weighingPickItem": MessageLookupByLibrary.simpleMessage("Choose item"),
-    "weighingPriceLabel": m21,
-    "weighingReceiptLines": m22,
-    "weighingReceiptSubtitle": m23,
+    "weighingPriceLabel": m26,
+    "weighingReceiptLines": m27,
+    "weighingReceiptSubtitle": m28,
     "weighingRemoveBody": MessageLookupByLibrary.simpleMessage(
       "The receipt total will be recalculated.",
     ),
@@ -429,7 +493,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Scale problem?",
     ),
     "weighingTitle": MessageLookupByLibrary.simpleMessage("Weighing"),
-    "weighingTotalLines": m24,
-    "weightKgValue": m25,
+    "weighingTotalLines": m29,
+    "weightKgValue": m30,
   };
 }

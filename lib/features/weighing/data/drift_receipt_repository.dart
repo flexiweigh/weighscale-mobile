@@ -4,6 +4,7 @@ import 'package:uuid/uuid.dart';
 import '../../../core/database/app_database.dart';
 import '../domain/receipt.dart';
 import '../domain/receipt_enums.dart';
+import '../domain/receipt_limits.dart';
 import '../domain/receipt_line_draft.dart';
 import '../domain/receipt_repository.dart';
 import 'receipt_mapper.dart';
@@ -94,11 +95,20 @@ class DriftReceiptRepository implements ReceiptRepository {
   @override
   Future<Receipt> setPartyName(String receiptId, String? partyName) {
     return _db.transaction(() async {
-      await _requireDraft(receiptId);
+      final row = await (_db.select(_db.receipts)
+        ..where((t) => t.id.equals(receiptId)))
+          .getSingleOrNull();
+      if (row == null) throw const ReceiptException(ReceiptFailure.notFound);
+
+      final party = _normalizeParty(partyName);
+      if (party != null && party.length > partyNameMaxLength) {
+        throw const ReceiptException(ReceiptFailure.invalid);
+      }
+
       await (_db.update(_db.receipts)..where((t) => t.id.equals(receiptId)))
           .write(
         ReceiptsCompanion(
-          partyName: Value(_normalizeParty(partyName)),
+          partyName: Value(party),
           updatedAt: Value(_clock()),
         ),
       );

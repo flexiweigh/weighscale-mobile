@@ -29,7 +29,7 @@ class ReceiptLinesSection extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text(l10n.commonCancel),
+            child: Text(l10n.commonCancel, overflow: TextOverflow.ellipsis),
           ),
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(true),

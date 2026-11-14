@@ -20,8 +20,12 @@ final deviceDiscoveryServiceProvider = Provider<DeviceDiscoveryService>(
       (ref) => DeviceDiscoveryService(ref.watch(deviceScannersProvider)),
 );
 
+final fakeScaleConnectorProvider = Provider<FakeScaleConnector>(
+      (ref) => FakeScaleConnector(),
+);
+
 final scaleConnectorProvider = Provider<ScaleConnector>(
-      (ref) => const FakeScaleConnector(),
+      (ref) => ref.watch(fakeScaleConnectorProvider),
 );
 
 final scaleProfileRepositoryProvider = Provider<ScaleProfileRepository>(

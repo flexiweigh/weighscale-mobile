@@ -260,13 +260,13 @@ class AppL10nMy extends AppL10n {
   }
 
   @override
-  String get signalStrong => 'ကောင်းလွန်းတယ်';
+  String get signalStrong => 'strong';
 
   @override
-  String get signalGood => 'ကောင်းတယ်';
+  String get signalGood => 'good';
 
   @override
-  String get signalWeak => 'အားနည်းတယ်';
+  String get signalWeak => 'weak';
 
   @override
   String get signalUnknown => 'မသိရပါ';
@@ -486,11 +486,11 @@ class AppL10nMy extends AppL10n {
   String get fieldSellPrice => 'ရောင်းစျေး';
 
   @override
-  String get desiredWeightTitle => 'လိုချင်တဲ့ အလေးချိန် · OK စစ်ရန်';
+  String get desiredWeightTitle => 'လိုချင်တဲ့ အလေးချိန် စစ်ရန်';
 
   @override
   String get desiredWeightHint =>
-      'ချိန်နေတုန်း ဒီပစ္စည်းအတွက် OK၊ လိုနေ၊ ပိုနေ ဆိုပြီး ပြပေးပါတယ်။';
+      'ချိန်နေတုန်း ဒီပစ္စည်းအတွက် လိုနေ၊ ပိုနေ ဆိုပြီး ပြပေးပါတယ်။';
 
   @override
   String get fieldTargetWeight => 'လိုချင်တဲ့ အလေးချိန်';
@@ -731,6 +731,125 @@ class AppL10nMy extends AppL10n {
 
   @override
   String get weighChooseTitle => 'ဝယ်မလား ရောင်းမလား?';
+
+  @override
+  String historySubtitle(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'ယနေ့ · ရောင်းဝယ်မှု $count ခု',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get historyYesterday => 'မနေ့က';
+
+  @override
+  String get historySearchHint => 'အမည် (သို့) ပစ္စည်း ရှာရန်';
+
+  @override
+  String get historyFilterAll => 'အားလုံး';
+
+  @override
+  String get historyRangeTitle => 'ရက်စွဲ ရွေးရန်';
+
+  @override
+  String get historyRangeAll => 'အချိန်အားလုံး';
+
+  @override
+  String get historyRangeLast7 => 'လွန်ခဲ့သော ၇ ရက်';
+
+  @override
+  String get historyRangeMonth => 'ဤလ';
+
+  @override
+  String get historyRangeCustom => 'ကိုယ်တိုင်ရွေးမယ်…';
+
+  @override
+  String get historyEmptyBody =>
+      'ဝယ်သမျှ၊ ရောင်းသမျှ ဤနေရာတွင် ရက်အလိုက် ပေါ်ပါမည်။';
+
+  @override
+  String get historyNoResultsTitle => 'ရှာမတွေ့ပါ';
+
+  @override
+  String get historyNoResultsBody =>
+      'ရှာဖွေမှုကို ပြောင်းကြည့်ပါ (သို့) စစ်ထုတ်မှုများကို ရှင်းပါ။';
+
+  @override
+  String get historyClearFilters => 'စစ်ထုတ်မှု ရှင်းမယ်';
+
+  @override
+  String get historyLoadError => 'မှတ်တမ်း ဖွင့်မရပါ။';
+
+  @override
+  String get receiptHeading => 'ဘောက်ချာ';
+
+  @override
+  String receiptTitle(String number) {
+    return 'ဘောက်ချာ #$number';
+  }
+
+  @override
+  String receiptSubtitle(String type, String date, String time) {
+    return '$type · $date · $time';
+  }
+
+  @override
+  String get receiptPurchaseTitle => 'ဝယ်ယူခြင်း ဘောက်ချာ';
+
+  @override
+  String get receiptSaleTitle => 'ရောင်းချခြင်း ဘောက်ချာ';
+
+  @override
+  String get receiptColItem => 'ပစ္စည်း';
+
+  @override
+  String receiptColNet(String unit) {
+    return 'အသားတင် $unit';
+  }
+
+  @override
+  String get receiptColNetPlain => 'အသားတင်';
+
+  @override
+  String get receiptColPrice => 'စျေး';
+
+  @override
+  String get receiptColAmount => 'ကျသင့်ငွေ';
+
+  @override
+  String get receiptTotal => 'စုစုပေါင်း';
+
+  @override
+  String receiptLinesCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ကြောင်း',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get receiptManualLegend =>
+      'ကိုယ်တိုင် = ချိန်ခွင်မှ မဖတ်ဘဲ လက်ဖြင့်ရိုက်ထည့်သော အလေးချိန်။';
+
+  @override
+  String get receiptPrint => 'Print';
+
+  @override
+  String get receiptSaveDone => 'သိမ်းပြီး ပြီးပြီ';
+
+  @override
+  String get receiptDone => 'ပြီးပြီ';
+
+  @override
+  String get receiptNotFound => 'ဘောက်ချာ ရှာမတွေ့ပါ။';
+
+  @override
+  String get receiptLoadError => 'ဘောက်ချာ ဖွင့်မရပါ။';
 
   @override
   String get settingsLanguage => 'ဘာသာစကား';

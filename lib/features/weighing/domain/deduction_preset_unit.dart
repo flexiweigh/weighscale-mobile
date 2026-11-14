@@ -4,7 +4,10 @@ import 'weight_units.dart';
 
 extension DeductionPresetUnit on DeductionPreset {
   int weightMilliIn(WeightUnit unit) {
-    return convertWeightMilli(weightMilli, WeightUnit.kg, unit);
+    final converted = convertWeightMilli(weightMilli, WeightUnit.kg, unit);
+    return parseWeightMilli(
+      formatWeightMilli(converted, decimals: unit.displayDecimals),
+    );
   }
 }
 

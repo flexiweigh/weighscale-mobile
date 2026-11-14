@@ -1,11 +1,11 @@
 import 'dart:math' as math;
 
+import '../../devices/domain/scale_session.dart';
 import '../../items/domain/item.dart';
 import '../../items/domain/item_enums.dart';
 import '../domain/receipt.dart';
 import '../domain/receipt_enums.dart';
 import '../domain/receipt_line_draft.dart';
-import '../domain/scale_reading.dart';
 import '../domain/weight_units.dart';
 
 enum WeighingFailure {
@@ -26,7 +26,7 @@ class WeighingState {
     this.item,
     this.price = '',
     this.deduction = '',
-    this.scale = const ScaleState.disconnected(),
+    this.scale = const ScaleSession(),
     this.autoCapture = false,
     this.isManual = false,
     this.manualGross = '',
@@ -43,7 +43,7 @@ class WeighingState {
   final Item? item;
   final String price;
   final String deduction;
-  final ScaleState scale;
+  final ScaleSession scale;
   final bool autoCapture;
   final bool isManual;
   final String manualGross;
@@ -73,7 +73,8 @@ class WeighingState {
 
   bool get isStable => scale.isConnected && scale.reading?.isStable == true;
 
-  int get grossMilli => isManual ? parseWeightMilli(manualGross) : liveGrossMilli;
+  int get grossMilli =>
+      isManual ? parseWeightMilli(manualGross) : liveGrossMilli;
 
   int get netMilli => math.max(0, grossMilli - deductionMilli);
 
@@ -102,7 +103,7 @@ class WeighingState {
     Item? item,
     String? price,
     String? deduction,
-    ScaleState? scale,
+    ScaleSession? scale,
     bool? autoCapture,
     bool? isManual,
     String? manualGross,
