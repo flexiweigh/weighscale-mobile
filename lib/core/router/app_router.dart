@@ -6,6 +6,10 @@ import '../../features/items/application/item_form_request.dart';
 import '../../features/items/presentation/item_form_screen.dart';
 import '../../features/items/presentation/items_screen.dart';
 import '../../features/settings/presentation/settings_screen.dart';
+import '../../features/weighing/presentation/manual_weight_screen.dart';
+import '../../features/weighing/presentation/weigh_tab_screen.dart';
+import '../../features/weighing/presentation/weighing_navigation.dart';
+import '../../features/weighing/presentation/weighing_screen.dart';
 import '../l10n/l10n_extension.dart';
 import '../widgets/placeholder_screen.dart';
 import 'app_routes.dart';
@@ -29,11 +33,8 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: AppRoutes.weigh,
-                builder: (context, state) => PlaceholderScreen(
-                  title: context.l10n.navWeigh,
-                  detail: state.uri.queryParameters['type'],
-                ),
+              path: AppRoutes.weigh,
+              builder: (context, state) => const WeighTabScreen(),
               ),
             ],
           ),
@@ -79,10 +80,15 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         ),
       ),
       GoRoute(
+        path: AppRoutes.weighing,
+        builder: (context, state) => WeighingScreen(
+          type: receiptTypeFromQuery(state.uri.queryParameters['type']),
+        ),
+      ),
+      GoRoute(
         path: AppRoutes.manualEntry,
-        builder: (context, state) => PlaceholderScreen(
-          title: context.l10n.manualEntryTitle,
-          showBack: true,
+        builder: (context, state) => ManualWeightScreen(
+          type: receiptTypeFromQuery(state.uri.queryParameters['type']),
         ),
       ),
       GoRoute(

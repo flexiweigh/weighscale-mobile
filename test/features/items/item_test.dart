@@ -1,5 +1,5 @@
+import 'package:FlexiWeigh/features/items/domain/category.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mobile/features/items/domain/category.dart';
 
 import '../../../lib/features/items/domain/item.dart';
 import '../../../lib/features/items/domain/item_draft.dart';

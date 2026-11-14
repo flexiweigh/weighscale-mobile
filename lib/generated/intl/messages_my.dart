@@ -56,7 +56,28 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m14(transport) => "ဒီဖုန်းမှာ ${transport} နဲ့ ရှာလို့ မရပါ။";
 
-  static String m15(weight) => "${weight} ကီလို";
+  static String m15(unit) => "နှုတ် (${unit})";
+
+  static String m16(number) => "ဘောက်ချာ #${number} သိမ်းပြီးပါပြီ";
+
+  static String m17(unit) => "စုစုပေါင်း အလေးချိန် (${unit})";
+
+  static String m18(gross, deduction, net, unit) =>
+      "စုစုပေါင်း ${gross} − ${deduction} = ${net} ${unit}";
+
+  static String m19(weight, unit, price) => "${weight} ${unit} × ${price}";
+
+  static String m20(unit) => "အသားတင် (${unit})";
+
+  static String m21(unit) => "စျေးနှုန်း (ကျပ်/${unit})";
+
+  static String m22(count) => "ဘောက်ချာ စာကြောင်းများ (${count})";
+
+  static String m23(type, number) => "${type} · ဘောက်ချာ #${number}";
+
+  static String m24(count) => "စုစုပေါင်း · ${count} ကြောင်း";
+
+  static String m25(weight) => "${weight} ကီလို";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -87,6 +108,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "checkUnder": MessageLookupByLibrary.simpleMessage("လိုနေ"),
     "commonCancel": MessageLookupByLibrary.simpleMessage("မလုပ်တော့ဘူး"),
     "commonComingSoon": MessageLookupByLibrary.simpleMessage("မကြာခင် လာပါမယ်"),
+    "commonRemove": MessageLookupByLibrary.simpleMessage("ဖယ်မယ်"),
     "commonRetry": MessageLookupByLibrary.simpleMessage("ထပ်ကြိုးစားမယ်"),
     "commonSave": MessageLookupByLibrary.simpleMessage("သိမ်းမယ်"),
     "connectCantFind": MessageLookupByLibrary.simpleMessage(
@@ -125,6 +147,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "connectionLostTitle": MessageLookupByLibrary.simpleMessage(
       "ချိန်ခွင် ချိတ်ဆက်မှု ပြတ်သွားပါတယ်",
     ),
+    "deductionBasket": MessageLookupByLibrary.simpleMessage("ခြင်း"),
+    "deductionCrate": MessageLookupByLibrary.simpleMessage("သေတ္တာ"),
+    "deductionSack": MessageLookupByLibrary.simpleMessage("အိတ်"),
     "desiredWeightHint": MessageLookupByLibrary.simpleMessage(
       "ချိန်နေတုန်း ဒီပစ္စည်းအတွက် OK၊ လိုနေ၊ ပိုနေ ဆိုပြီး ပြပေးပါတယ်။",
     ),
@@ -231,6 +256,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "languageMyanmar": MessageLookupByLibrary.simpleMessage("မြန်မာ"),
     "manualEntryTitle": MessageLookupByLibrary.simpleMessage(
       "ကိုယ်တိုင်ရိုက်ထည့်ရန်",
+    ),
+    "manualWeightTitle": MessageLookupByLibrary.simpleMessage(
+      "အလေးချိန် ကိုယ်တိုင်ထည့်မယ်",
     ),
     "moneyKs": m9,
     "navHistory": MessageLookupByLibrary.simpleMessage("မှတ်တမ်း"),
@@ -362,6 +390,86 @@ class MessageLookup extends MessageLookupByLibrary {
     "unitKg": MessageLookupByLibrary.simpleMessage("ကီလို"),
     "unitLb": MessageLookupByLibrary.simpleMessage("ပေါင်"),
     "unitViss": MessageLookupByLibrary.simpleMessage("ပိဿာ"),
-    "weightKgValue": m15,
+    "weighChooseTitle": MessageLookupByLibrary.simpleMessage(
+      "ဝယ်မလား ရောင်းမလား?",
+    ),
+    "weighingAddToReceipt": MessageLookupByLibrary.simpleMessage(
+      "ဘောက်ချာထဲ ထည့်မယ်",
+    ),
+    "weighingAmountLabel": MessageLookupByLibrary.simpleMessage("ကျသင့်ငွေ"),
+    "weighingAutoCapture": MessageLookupByLibrary.simpleMessage(
+      "အလိုအလျောက်ယူ",
+    ),
+    "weighingConfirm": MessageLookupByLibrary.simpleMessage(
+      "အလေးချိန် အတည်ပြုမယ်",
+    ),
+    "weighingDeductionLabel": m15,
+    "weighingDeductionNone": MessageLookupByLibrary.simpleMessage("မနှုတ်"),
+    "weighingEnterManually": MessageLookupByLibrary.simpleMessage(
+      "အလေးချိန် ကိုယ်တိုင်ထည့်မယ်",
+    ),
+    "weighingErrEmpty": MessageLookupByLibrary.simpleMessage(
+      "စာကြောင်း အနည်းဆုံး တစ်ကြောင်း ထည့်ပါ။",
+    ),
+    "weighingErrInvalidWeight": MessageLookupByLibrary.simpleMessage(
+      "အလေးချိန်သည် နှုတ်ချိန်ထက် များရပါမည်။",
+    ),
+    "weighingErrLoad": MessageLookupByLibrary.simpleMessage(
+      "ဘောက်ချာ မစနိုင်ပါ။",
+    ),
+    "weighingErrNoItem": MessageLookupByLibrary.simpleMessage(
+      "ပစ္စည်း အရင်ရွေးပါ။",
+    ),
+    "weighingErrSave": MessageLookupByLibrary.simpleMessage(
+      "မသိမ်းနိုင်ပါ။ ထပ်ကြိုးစားပါ။",
+    ),
+    "weighingErrScaleNotReady": MessageLookupByLibrary.simpleMessage(
+      "ငြိမ်သည်အထိ စောင့်ပါ။",
+    ),
+    "weighingFinish": MessageLookupByLibrary.simpleMessage("ပြီးပြီ"),
+    "weighingFinished": m16,
+    "weighingGrossLabel": m17,
+    "weighingItemLabel": MessageLookupByLibrary.simpleMessage("ပစ္စည်း"),
+    "weighingLineGross": m18,
+    "weighingLineRate": m19,
+    "weighingLiveWeight": MessageLookupByLibrary.simpleMessage(
+      "လက်ရှိ အလေးချိန်",
+    ),
+    "weighingManualBadge": MessageLookupByLibrary.simpleMessage("ကိုယ်တိုင်"),
+    "weighingManualNotice": MessageLookupByLibrary.simpleMessage(
+      "ကိုယ်တိုင်ထည့်ထားသော အလေးချိန်ကို ဘောက်ချာတွင် “ကိုယ်တိုင်” ဟု မှတ်ပါမည်။",
+    ),
+    "weighingNetLabel": MessageLookupByLibrary.simpleMessage(
+      "အသားတင် အလေးချိန်",
+    ),
+    "weighingNetShort": m20,
+    "weighingNoItemsBody": MessageLookupByLibrary.simpleMessage(
+      "မချိန်မီ စျေးနှုန်းစာရင်းထဲ ပစ္စည်းအရင်ထည့်ပါ။",
+    ),
+    "weighingNoItemsTitle": MessageLookupByLibrary.simpleMessage(
+      "ပစ္စည်း မရှိသေးပါ",
+    ),
+    "weighingNoLines": MessageLookupByLibrary.simpleMessage(
+      "စာကြောင်း မရှိသေးပါ။ အလေးချိန် အတည်ပြုပြီး ထည့်ပါ။",
+    ),
+    "weighingPickItem": MessageLookupByLibrary.simpleMessage("ပစ္စည်း ရွေးပါ"),
+    "weighingPriceLabel": m21,
+    "weighingReceiptLines": m22,
+    "weighingReceiptSubtitle": m23,
+    "weighingRemoveBody": MessageLookupByLibrary.simpleMessage(
+      "စုစုပေါင်းငွေကို ပြန်တွက်ပါမည်။",
+    ),
+    "weighingRemoveTitle": MessageLookupByLibrary.simpleMessage(
+      "ဤစာကြောင်းကို ဖယ်မလား?",
+    ),
+    "weighingScaleNotConnected": MessageLookupByLibrary.simpleMessage(
+      "ချိန်ခွင် မချိတ်ရသေးပါ",
+    ),
+    "weighingScaleProblem": MessageLookupByLibrary.simpleMessage(
+      "ချိန်ခွင် ပြဿနာရှိလား?",
+    ),
+    "weighingTitle": MessageLookupByLibrary.simpleMessage("ချိန်ခြင်း"),
+    "weighingTotalLines": m24,
+    "weightKgValue": m25,
   };
 }

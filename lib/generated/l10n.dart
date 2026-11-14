@@ -1497,6 +1497,406 @@ class S {
     return Intl.message('Delete', name: 'itemDelete', desc: '', args: []);
   }
 
+  /// `Weighing`
+  String get weighingTitle {
+    return Intl.message('Weighing', name: 'weighingTitle', desc: '', args: []);
+  }
+
+  /// `Enter Weight Manually`
+  String get manualWeightTitle {
+    return Intl.message(
+      'Enter Weight Manually',
+      name: 'manualWeightTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{type} · Receipt #{number}`
+  String weighingReceiptSubtitle(String type, String number) {
+    return Intl.message(
+      '$type · Receipt #$number',
+      name: 'weighingReceiptSubtitle',
+      desc: '',
+      args: [type, number],
+    );
+  }
+
+  /// `Scale not connected`
+  String get weighingScaleNotConnected {
+    return Intl.message(
+      'Scale not connected',
+      name: 'weighingScaleNotConnected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Item`
+  String get weighingItemLabel {
+    return Intl.message('Item', name: 'weighingItemLabel', desc: '', args: []);
+  }
+
+  /// `LIVE WEIGHT`
+  String get weighingLiveWeight {
+    return Intl.message(
+      'LIVE WEIGHT',
+      name: 'weighingLiveWeight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Auto-capture`
+  String get weighingAutoCapture {
+    return Intl.message(
+      'Auto-capture',
+      name: 'weighingAutoCapture',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Deduction ({unit})`
+  String weighingDeductionLabel(String unit) {
+    return Intl.message(
+      'Deduction ($unit)',
+      name: 'weighingDeductionLabel',
+      desc: '',
+      args: [unit],
+    );
+  }
+
+  /// `Price (Ks/{unit})`
+  String weighingPriceLabel(String unit) {
+    return Intl.message(
+      'Price (Ks/$unit)',
+      name: 'weighingPriceLabel',
+      desc: '',
+      args: [unit],
+    );
+  }
+
+  /// `Gross weight ({unit})`
+  String weighingGrossLabel(String unit) {
+    return Intl.message(
+      'Gross weight ($unit)',
+      name: 'weighingGrossLabel',
+      desc: '',
+      args: [unit],
+    );
+  }
+
+  /// `Net weight`
+  String get weighingNetLabel {
+    return Intl.message(
+      'Net weight',
+      name: 'weighingNetLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Net ({unit})`
+  String weighingNetShort(String unit) {
+    return Intl.message(
+      'Net ($unit)',
+      name: 'weighingNetShort',
+      desc: '',
+      args: [unit],
+    );
+  }
+
+  /// `Amount`
+  String get weighingAmountLabel {
+    return Intl.message(
+      'Amount',
+      name: 'weighingAmountLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Weight`
+  String get weighingConfirm {
+    return Intl.message(
+      'Confirm Weight',
+      name: 'weighingConfirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Scale problem?`
+  String get weighingScaleProblem {
+    return Intl.message(
+      'Scale problem?',
+      name: 'weighingScaleProblem',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter weight manually`
+  String get weighingEnterManually {
+    return Intl.message(
+      'Enter weight manually',
+      name: 'weighingEnterManually',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Receipt lines ({count})`
+  String weighingReceiptLines(int count) {
+    return Intl.message(
+      'Receipt lines ($count)',
+      name: 'weighingReceiptLines',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `No lines yet. Confirm a weight to add one.`
+  String get weighingNoLines {
+    return Intl.message(
+      'No lines yet. Confirm a weight to add one.',
+      name: 'weighingNoLines',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total · {count} lines`
+  String weighingTotalLines(int count) {
+    return Intl.message(
+      'Total · $count lines',
+      name: 'weighingTotalLines',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `Finish`
+  String get weighingFinish {
+    return Intl.message('Finish', name: 'weighingFinish', desc: '', args: []);
+  }
+
+  /// `MANUAL`
+  String get weighingManualBadge {
+    return Intl.message(
+      'MANUAL',
+      name: 'weighingManualBadge',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gross {gross} − {deduction} = {net} {unit}`
+  String weighingLineGross(
+    String gross,
+    String deduction,
+    String net,
+    String unit,
+  ) {
+    return Intl.message(
+      'Gross $gross − $deduction = $net $unit',
+      name: 'weighingLineGross',
+      desc: '',
+      args: [gross, deduction, net, unit],
+    );
+  }
+
+  /// `{weight} {unit} × {price}`
+  String weighingLineRate(String weight, String unit, String price) {
+    return Intl.message(
+      '$weight $unit × $price',
+      name: 'weighingLineRate',
+      desc: '',
+      args: [weight, unit, price],
+    );
+  }
+
+  /// `Manually entered weights are marked MANUAL on the receipt.`
+  String get weighingManualNotice {
+    return Intl.message(
+      'Manually entered weights are marked MANUAL on the receipt.',
+      name: 'weighingManualNotice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add to Receipt`
+  String get weighingAddToReceipt {
+    return Intl.message(
+      'Add to Receipt',
+      name: 'weighingAddToReceipt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `None`
+  String get weighingDeductionNone {
+    return Intl.message(
+      'None',
+      name: 'weighingDeductionNone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sack`
+  String get deductionSack {
+    return Intl.message('Sack', name: 'deductionSack', desc: '', args: []);
+  }
+
+  /// `Basket`
+  String get deductionBasket {
+    return Intl.message('Basket', name: 'deductionBasket', desc: '', args: []);
+  }
+
+  /// `Crate`
+  String get deductionCrate {
+    return Intl.message('Crate', name: 'deductionCrate', desc: '', args: []);
+  }
+
+  /// `Choose item`
+  String get weighingPickItem {
+    return Intl.message(
+      'Choose item',
+      name: 'weighingPickItem',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No items yet`
+  String get weighingNoItemsTitle {
+    return Intl.message(
+      'No items yet',
+      name: 'weighingNoItemsTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add an item to your price list before weighing.`
+  String get weighingNoItemsBody {
+    return Intl.message(
+      'Add an item to your price list before weighing.',
+      name: 'weighingNoItemsBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remove this line?`
+  String get weighingRemoveTitle {
+    return Intl.message(
+      'Remove this line?',
+      name: 'weighingRemoveTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The receipt total will be recalculated.`
+  String get weighingRemoveBody {
+    return Intl.message(
+      'The receipt total will be recalculated.',
+      name: 'weighingRemoveBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remove`
+  String get commonRemove {
+    return Intl.message('Remove', name: 'commonRemove', desc: '', args: []);
+  }
+
+  /// `Receipt #{number} saved`
+  String weighingFinished(String number) {
+    return Intl.message(
+      'Receipt #$number saved',
+      name: 'weighingFinished',
+      desc: '',
+      args: [number],
+    );
+  }
+
+  /// `Couldn't start the receipt.`
+  String get weighingErrLoad {
+    return Intl.message(
+      'Couldn\'t start the receipt.',
+      name: 'weighingErrLoad',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose an item first.`
+  String get weighingErrNoItem {
+    return Intl.message(
+      'Choose an item first.',
+      name: 'weighingErrNoItem',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wait for a stable reading.`
+  String get weighingErrScaleNotReady {
+    return Intl.message(
+      'Wait for a stable reading.',
+      name: 'weighingErrScaleNotReady',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Weight must be more than the deduction.`
+  String get weighingErrInvalidWeight {
+    return Intl.message(
+      'Weight must be more than the deduction.',
+      name: 'weighingErrInvalidWeight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Couldn't save. Try again.`
+  String get weighingErrSave {
+    return Intl.message(
+      'Couldn\'t save. Try again.',
+      name: 'weighingErrSave',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add at least one line first.`
+  String get weighingErrEmpty {
+    return Intl.message(
+      'Add at least one line first.',
+      name: 'weighingErrEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Buy or sell?`
+  String get weighChooseTitle {
+    return Intl.message(
+      'Buy or sell?',
+      name: 'weighChooseTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Language`
   String get settingsLanguage {
     return Intl.message(

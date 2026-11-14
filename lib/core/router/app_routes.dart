@@ -16,7 +16,11 @@ class AppRoutes {
   static const itemNew = '/item/new';
   static const itemEdit = '/item/:id/edit';
 
-  static String weighWith(String type) => '$weigh?type=$type';
+  static const weighing = '/weighing';
+
+  static String weighWith(String type) => '$weighing?type=$type';
+
+  static String manualEntryWith(String type) => '$manualEntry?type=$type';
 
   static String transactionDetail(String id) => '$transactionBase/$id';
 

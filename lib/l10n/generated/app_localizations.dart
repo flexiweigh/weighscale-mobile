@@ -1129,6 +1129,269 @@ abstract class AppL10n {
   /// **'Delete'**
   String get itemDelete;
 
+  /// No description provided for @weighingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Weighing'**
+  String get weighingTitle;
+
+  /// No description provided for @manualWeightTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Weight Manually'**
+  String get manualWeightTitle;
+
+  /// No description provided for @weighingReceiptSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'{type} · Receipt #{number}'**
+  String weighingReceiptSubtitle(String type, String number);
+
+  /// No description provided for @weighingScaleNotConnected.
+  ///
+  /// In en, this message translates to:
+  /// **'Scale not connected'**
+  String get weighingScaleNotConnected;
+
+  /// No description provided for @weighingItemLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Item'**
+  String get weighingItemLabel;
+
+  /// No description provided for @weighingLiveWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'LIVE WEIGHT'**
+  String get weighingLiveWeight;
+
+  /// No description provided for @weighingAutoCapture.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto-capture'**
+  String get weighingAutoCapture;
+
+  /// No description provided for @weighingDeductionLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Deduction ({unit})'**
+  String weighingDeductionLabel(String unit);
+
+  /// No description provided for @weighingPriceLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Price (Ks/{unit})'**
+  String weighingPriceLabel(String unit);
+
+  /// No description provided for @weighingGrossLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Gross weight ({unit})'**
+  String weighingGrossLabel(String unit);
+
+  /// No description provided for @weighingNetLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Net weight'**
+  String get weighingNetLabel;
+
+  /// No description provided for @weighingNetShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Net ({unit})'**
+  String weighingNetShort(String unit);
+
+  /// No description provided for @weighingAmountLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Amount'**
+  String get weighingAmountLabel;
+
+  /// No description provided for @weighingConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Weight'**
+  String get weighingConfirm;
+
+  /// No description provided for @weighingScaleProblem.
+  ///
+  /// In en, this message translates to:
+  /// **'Scale problem?'**
+  String get weighingScaleProblem;
+
+  /// No description provided for @weighingEnterManually.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter weight manually'**
+  String get weighingEnterManually;
+
+  /// No description provided for @weighingReceiptLines.
+  ///
+  /// In en, this message translates to:
+  /// **'Receipt lines ({count})'**
+  String weighingReceiptLines(int count);
+
+  /// No description provided for @weighingNoLines.
+  ///
+  /// In en, this message translates to:
+  /// **'No lines yet. Confirm a weight to add one.'**
+  String get weighingNoLines;
+
+  /// No description provided for @weighingTotalLines.
+  ///
+  /// In en, this message translates to:
+  /// **'Total · {count} lines'**
+  String weighingTotalLines(int count);
+
+  /// No description provided for @weighingFinish.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish'**
+  String get weighingFinish;
+
+  /// No description provided for @weighingManualBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'MANUAL'**
+  String get weighingManualBadge;
+
+  /// No description provided for @weighingLineGross.
+  ///
+  /// In en, this message translates to:
+  /// **'Gross {gross} − {deduction} = {net} {unit}'**
+  String weighingLineGross(
+    String gross,
+    String deduction,
+    String net,
+    String unit,
+  );
+
+  /// No description provided for @weighingLineRate.
+  ///
+  /// In en, this message translates to:
+  /// **'{weight} {unit} × {price}'**
+  String weighingLineRate(String weight, String unit, String price);
+
+  /// No description provided for @weighingManualNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'Manually entered weights are marked MANUAL on the receipt.'**
+  String get weighingManualNotice;
+
+  /// No description provided for @weighingAddToReceipt.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to Receipt'**
+  String get weighingAddToReceipt;
+
+  /// No description provided for @weighingDeductionNone.
+  ///
+  /// In en, this message translates to:
+  /// **'None'**
+  String get weighingDeductionNone;
+
+  /// No description provided for @deductionSack.
+  ///
+  /// In en, this message translates to:
+  /// **'Sack'**
+  String get deductionSack;
+
+  /// No description provided for @deductionBasket.
+  ///
+  /// In en, this message translates to:
+  /// **'Basket'**
+  String get deductionBasket;
+
+  /// No description provided for @deductionCrate.
+  ///
+  /// In en, this message translates to:
+  /// **'Crate'**
+  String get deductionCrate;
+
+  /// No description provided for @weighingPickItem.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose item'**
+  String get weighingPickItem;
+
+  /// No description provided for @weighingNoItemsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No items yet'**
+  String get weighingNoItemsTitle;
+
+  /// No description provided for @weighingNoItemsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Add an item to your price list before weighing.'**
+  String get weighingNoItemsBody;
+
+  /// No description provided for @weighingRemoveTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove this line?'**
+  String get weighingRemoveTitle;
+
+  /// No description provided for @weighingRemoveBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The receipt total will be recalculated.'**
+  String get weighingRemoveBody;
+
+  /// No description provided for @commonRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get commonRemove;
+
+  /// No description provided for @weighingFinished.
+  ///
+  /// In en, this message translates to:
+  /// **'Receipt #{number} saved'**
+  String weighingFinished(String number);
+
+  /// No description provided for @weighingErrLoad.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t start the receipt.'**
+  String get weighingErrLoad;
+
+  /// No description provided for @weighingErrNoItem.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose an item first.'**
+  String get weighingErrNoItem;
+
+  /// No description provided for @weighingErrScaleNotReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Wait for a stable reading.'**
+  String get weighingErrScaleNotReady;
+
+  /// No description provided for @weighingErrInvalidWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight must be more than the deduction.'**
+  String get weighingErrInvalidWeight;
+
+  /// No description provided for @weighingErrSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t save. Try again.'**
+  String get weighingErrSave;
+
+  /// No description provided for @weighingErrEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Add at least one line first.'**
+  String get weighingErrEmpty;
+
+  /// No description provided for @weighChooseTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Buy or sell?'**
+  String get weighChooseTitle;
+
   /// No description provided for @settingsLanguage.
   ///
   /// In en, this message translates to:

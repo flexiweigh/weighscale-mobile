@@ -56,7 +56,28 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m14(transport) =>
       "${transport} scanning isn\'t supported on this device.";
 
-  static String m15(weight) => "${weight} kg";
+  static String m15(unit) => "Deduction (${unit})";
+
+  static String m16(number) => "Receipt #${number} saved";
+
+  static String m17(unit) => "Gross weight (${unit})";
+
+  static String m18(gross, deduction, net, unit) =>
+      "Gross ${gross} − ${deduction} = ${net} ${unit}";
+
+  static String m19(weight, unit, price) => "${weight} ${unit} × ${price}";
+
+  static String m20(unit) => "Net (${unit})";
+
+  static String m21(unit) => "Price (Ks/${unit})";
+
+  static String m22(count) => "Receipt lines (${count})";
+
+  static String m23(type, number) => "${type} · Receipt #${number}";
+
+  static String m24(count) => "Total · ${count} lines";
+
+  static String m25(weight) => "${weight} kg";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -83,6 +104,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "checkUnder": MessageLookupByLibrary.simpleMessage("Under"),
     "commonCancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "commonComingSoon": MessageLookupByLibrary.simpleMessage("Coming soon"),
+    "commonRemove": MessageLookupByLibrary.simpleMessage("Remove"),
     "commonRetry": MessageLookupByLibrary.simpleMessage("Try again"),
     "commonSave": MessageLookupByLibrary.simpleMessage("Save"),
     "connectCantFind": MessageLookupByLibrary.simpleMessage(
@@ -123,6 +145,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "connectionLostTitle": MessageLookupByLibrary.simpleMessage(
       "Scale connection lost",
     ),
+    "deductionBasket": MessageLookupByLibrary.simpleMessage("Basket"),
+    "deductionCrate": MessageLookupByLibrary.simpleMessage("Crate"),
+    "deductionSack": MessageLookupByLibrary.simpleMessage("Sack"),
     "desiredWeightHint": MessageLookupByLibrary.simpleMessage(
       "Live Weighing shows OK, Under or Over for this item.",
     ),
@@ -216,6 +241,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "languageEnglish": MessageLookupByLibrary.simpleMessage("English"),
     "languageMyanmar": MessageLookupByLibrary.simpleMessage("မြန်မာ"),
     "manualEntryTitle": MessageLookupByLibrary.simpleMessage("Manual entry"),
+    "manualWeightTitle": MessageLookupByLibrary.simpleMessage(
+      "Enter Weight Manually",
+    ),
     "moneyKs": m9,
     "navHistory": MessageLookupByLibrary.simpleMessage("History"),
     "navHome": MessageLookupByLibrary.simpleMessage("Home"),
@@ -332,6 +360,76 @@ class MessageLookup extends MessageLookupByLibrary {
     "unitKg": MessageLookupByLibrary.simpleMessage("kg"),
     "unitLb": MessageLookupByLibrary.simpleMessage("lb"),
     "unitViss": MessageLookupByLibrary.simpleMessage("viss"),
-    "weightKgValue": m15,
+    "weighChooseTitle": MessageLookupByLibrary.simpleMessage("Buy or sell?"),
+    "weighingAddToReceipt": MessageLookupByLibrary.simpleMessage(
+      "Add to Receipt",
+    ),
+    "weighingAmountLabel": MessageLookupByLibrary.simpleMessage("Amount"),
+    "weighingAutoCapture": MessageLookupByLibrary.simpleMessage("Auto-capture"),
+    "weighingConfirm": MessageLookupByLibrary.simpleMessage("Confirm Weight"),
+    "weighingDeductionLabel": m15,
+    "weighingDeductionNone": MessageLookupByLibrary.simpleMessage("None"),
+    "weighingEnterManually": MessageLookupByLibrary.simpleMessage(
+      "Enter weight manually",
+    ),
+    "weighingErrEmpty": MessageLookupByLibrary.simpleMessage(
+      "Add at least one line first.",
+    ),
+    "weighingErrInvalidWeight": MessageLookupByLibrary.simpleMessage(
+      "Weight must be more than the deduction.",
+    ),
+    "weighingErrLoad": MessageLookupByLibrary.simpleMessage(
+      "Couldn\'t start the receipt.",
+    ),
+    "weighingErrNoItem": MessageLookupByLibrary.simpleMessage(
+      "Choose an item first.",
+    ),
+    "weighingErrSave": MessageLookupByLibrary.simpleMessage(
+      "Couldn\'t save. Try again.",
+    ),
+    "weighingErrScaleNotReady": MessageLookupByLibrary.simpleMessage(
+      "Wait for a stable reading.",
+    ),
+    "weighingFinish": MessageLookupByLibrary.simpleMessage("Finish"),
+    "weighingFinished": m16,
+    "weighingGrossLabel": m17,
+    "weighingItemLabel": MessageLookupByLibrary.simpleMessage("Item"),
+    "weighingLineGross": m18,
+    "weighingLineRate": m19,
+    "weighingLiveWeight": MessageLookupByLibrary.simpleMessage("LIVE WEIGHT"),
+    "weighingManualBadge": MessageLookupByLibrary.simpleMessage("MANUAL"),
+    "weighingManualNotice": MessageLookupByLibrary.simpleMessage(
+      "Manually entered weights are marked MANUAL on the receipt.",
+    ),
+    "weighingNetLabel": MessageLookupByLibrary.simpleMessage("Net weight"),
+    "weighingNetShort": m20,
+    "weighingNoItemsBody": MessageLookupByLibrary.simpleMessage(
+      "Add an item to your price list before weighing.",
+    ),
+    "weighingNoItemsTitle": MessageLookupByLibrary.simpleMessage(
+      "No items yet",
+    ),
+    "weighingNoLines": MessageLookupByLibrary.simpleMessage(
+      "No lines yet. Confirm a weight to add one.",
+    ),
+    "weighingPickItem": MessageLookupByLibrary.simpleMessage("Choose item"),
+    "weighingPriceLabel": m21,
+    "weighingReceiptLines": m22,
+    "weighingReceiptSubtitle": m23,
+    "weighingRemoveBody": MessageLookupByLibrary.simpleMessage(
+      "The receipt total will be recalculated.",
+    ),
+    "weighingRemoveTitle": MessageLookupByLibrary.simpleMessage(
+      "Remove this line?",
+    ),
+    "weighingScaleNotConnected": MessageLookupByLibrary.simpleMessage(
+      "Scale not connected",
+    ),
+    "weighingScaleProblem": MessageLookupByLibrary.simpleMessage(
+      "Scale problem?",
+    ),
+    "weighingTitle": MessageLookupByLibrary.simpleMessage("Weighing"),
+    "weighingTotalLines": m24,
+    "weightKgValue": m25,
   };
 }

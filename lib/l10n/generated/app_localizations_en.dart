@@ -573,6 +573,163 @@ class AppL10nEn extends AppL10n {
   String get itemDelete => 'Delete';
 
   @override
+  String get weighingTitle => 'Weighing';
+
+  @override
+  String get manualWeightTitle => 'Enter Weight Manually';
+
+  @override
+  String weighingReceiptSubtitle(String type, String number) {
+    return '$type · Receipt #$number';
+  }
+
+  @override
+  String get weighingScaleNotConnected => 'Scale not connected';
+
+  @override
+  String get weighingItemLabel => 'Item';
+
+  @override
+  String get weighingLiveWeight => 'LIVE WEIGHT';
+
+  @override
+  String get weighingAutoCapture => 'Auto-capture';
+
+  @override
+  String weighingDeductionLabel(String unit) {
+    return 'Deduction ($unit)';
+  }
+
+  @override
+  String weighingPriceLabel(String unit) {
+    return 'Price (Ks/$unit)';
+  }
+
+  @override
+  String weighingGrossLabel(String unit) {
+    return 'Gross weight ($unit)';
+  }
+
+  @override
+  String get weighingNetLabel => 'Net weight';
+
+  @override
+  String weighingNetShort(String unit) {
+    return 'Net ($unit)';
+  }
+
+  @override
+  String get weighingAmountLabel => 'Amount';
+
+  @override
+  String get weighingConfirm => 'Confirm Weight';
+
+  @override
+  String get weighingScaleProblem => 'Scale problem?';
+
+  @override
+  String get weighingEnterManually => 'Enter weight manually';
+
+  @override
+  String weighingReceiptLines(int count) {
+    return 'Receipt lines ($count)';
+  }
+
+  @override
+  String get weighingNoLines => 'No lines yet. Confirm a weight to add one.';
+
+  @override
+  String weighingTotalLines(int count) {
+    return 'Total · $count lines';
+  }
+
+  @override
+  String get weighingFinish => 'Finish';
+
+  @override
+  String get weighingManualBadge => 'MANUAL';
+
+  @override
+  String weighingLineGross(
+    String gross,
+    String deduction,
+    String net,
+    String unit,
+  ) {
+    return 'Gross $gross − $deduction = $net $unit';
+  }
+
+  @override
+  String weighingLineRate(String weight, String unit, String price) {
+    return '$weight $unit × $price';
+  }
+
+  @override
+  String get weighingManualNotice =>
+      'Manually entered weights are marked MANUAL on the receipt.';
+
+  @override
+  String get weighingAddToReceipt => 'Add to Receipt';
+
+  @override
+  String get weighingDeductionNone => 'None';
+
+  @override
+  String get deductionSack => 'Sack';
+
+  @override
+  String get deductionBasket => 'Basket';
+
+  @override
+  String get deductionCrate => 'Crate';
+
+  @override
+  String get weighingPickItem => 'Choose item';
+
+  @override
+  String get weighingNoItemsTitle => 'No items yet';
+
+  @override
+  String get weighingNoItemsBody =>
+      'Add an item to your price list before weighing.';
+
+  @override
+  String get weighingRemoveTitle => 'Remove this line?';
+
+  @override
+  String get weighingRemoveBody => 'The receipt total will be recalculated.';
+
+  @override
+  String get commonRemove => 'Remove';
+
+  @override
+  String weighingFinished(String number) {
+    return 'Receipt #$number saved';
+  }
+
+  @override
+  String get weighingErrLoad => 'Couldn\'t start the receipt.';
+
+  @override
+  String get weighingErrNoItem => 'Choose an item first.';
+
+  @override
+  String get weighingErrScaleNotReady => 'Wait for a stable reading.';
+
+  @override
+  String get weighingErrInvalidWeight =>
+      'Weight must be more than the deduction.';
+
+  @override
+  String get weighingErrSave => 'Couldn\'t save. Try again.';
+
+  @override
+  String get weighingErrEmpty => 'Add at least one line first.';
+
+  @override
+  String get weighChooseTitle => 'Buy or sell?';
+
+  @override
   String get settingsLanguage => 'Language';
 
   @override

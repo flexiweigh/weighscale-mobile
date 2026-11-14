@@ -575,6 +575,164 @@ class AppL10nMy extends AppL10n {
   String get itemDelete => 'ဖျက်မယ်';
 
   @override
+  String get weighingTitle => 'ချိန်ခြင်း';
+
+  @override
+  String get manualWeightTitle => 'အလေးချိန် ကိုယ်တိုင်ထည့်မယ်';
+
+  @override
+  String weighingReceiptSubtitle(String type, String number) {
+    return '$type · ဘောက်ချာ #$number';
+  }
+
+  @override
+  String get weighingScaleNotConnected => 'ချိန်ခွင် မချိတ်ရသေးပါ';
+
+  @override
+  String get weighingItemLabel => 'ပစ္စည်း';
+
+  @override
+  String get weighingLiveWeight => 'လက်ရှိ အလေးချိန်';
+
+  @override
+  String get weighingAutoCapture => 'အလိုအလျောက်ယူ';
+
+  @override
+  String weighingDeductionLabel(String unit) {
+    return 'နှုတ် ($unit)';
+  }
+
+  @override
+  String weighingPriceLabel(String unit) {
+    return 'စျေးနှုန်း (ကျပ်/$unit)';
+  }
+
+  @override
+  String weighingGrossLabel(String unit) {
+    return 'စုစုပေါင်း အလေးချိန် ($unit)';
+  }
+
+  @override
+  String get weighingNetLabel => 'အသားတင် အလေးချိန်';
+
+  @override
+  String weighingNetShort(String unit) {
+    return 'အသားတင် ($unit)';
+  }
+
+  @override
+  String get weighingAmountLabel => 'ကျသင့်ငွေ';
+
+  @override
+  String get weighingConfirm => 'အလေးချိန် အတည်ပြုမယ်';
+
+  @override
+  String get weighingScaleProblem => 'ချိန်ခွင် ပြဿနာရှိလား?';
+
+  @override
+  String get weighingEnterManually => 'အလေးချိန် ကိုယ်တိုင်ထည့်မယ်';
+
+  @override
+  String weighingReceiptLines(int count) {
+    return 'ဘောက်ချာ စာကြောင်းများ ($count)';
+  }
+
+  @override
+  String get weighingNoLines =>
+      'စာကြောင်း မရှိသေးပါ။ အလေးချိန် အတည်ပြုပြီး ထည့်ပါ။';
+
+  @override
+  String weighingTotalLines(int count) {
+    return 'စုစုပေါင်း · $count ကြောင်း';
+  }
+
+  @override
+  String get weighingFinish => 'ပြီးပြီ';
+
+  @override
+  String get weighingManualBadge => 'ကိုယ်တိုင်';
+
+  @override
+  String weighingLineGross(
+    String gross,
+    String deduction,
+    String net,
+    String unit,
+  ) {
+    return 'စုစုပေါင်း $gross − $deduction = $net $unit';
+  }
+
+  @override
+  String weighingLineRate(String weight, String unit, String price) {
+    return '$weight $unit × $price';
+  }
+
+  @override
+  String get weighingManualNotice =>
+      'ကိုယ်တိုင်ထည့်ထားသော အလေးချိန်ကို ဘောက်ချာတွင် “ကိုယ်တိုင်” ဟု မှတ်ပါမည်။';
+
+  @override
+  String get weighingAddToReceipt => 'ဘောက်ချာထဲ ထည့်မယ်';
+
+  @override
+  String get weighingDeductionNone => 'မနှုတ်';
+
+  @override
+  String get deductionSack => 'အိတ်';
+
+  @override
+  String get deductionBasket => 'ခြင်း';
+
+  @override
+  String get deductionCrate => 'သေတ္တာ';
+
+  @override
+  String get weighingPickItem => 'ပစ္စည်း ရွေးပါ';
+
+  @override
+  String get weighingNoItemsTitle => 'ပစ္စည်း မရှိသေးပါ';
+
+  @override
+  String get weighingNoItemsBody =>
+      'မချိန်မီ စျေးနှုန်းစာရင်းထဲ ပစ္စည်းအရင်ထည့်ပါ။';
+
+  @override
+  String get weighingRemoveTitle => 'ဤစာကြောင်းကို ဖယ်မလား?';
+
+  @override
+  String get weighingRemoveBody => 'စုစုပေါင်းငွေကို ပြန်တွက်ပါမည်။';
+
+  @override
+  String get commonRemove => 'ဖယ်မယ်';
+
+  @override
+  String weighingFinished(String number) {
+    return 'ဘောက်ချာ #$number သိမ်းပြီးပါပြီ';
+  }
+
+  @override
+  String get weighingErrLoad => 'ဘောက်ချာ မစနိုင်ပါ။';
+
+  @override
+  String get weighingErrNoItem => 'ပစ္စည်း အရင်ရွေးပါ။';
+
+  @override
+  String get weighingErrScaleNotReady => 'ငြိမ်သည်အထိ စောင့်ပါ။';
+
+  @override
+  String get weighingErrInvalidWeight =>
+      'အလေးချိန်သည် နှုတ်ချိန်ထက် များရပါမည်။';
+
+  @override
+  String get weighingErrSave => 'မသိမ်းနိုင်ပါ။ ထပ်ကြိုးစားပါ။';
+
+  @override
+  String get weighingErrEmpty => 'စာကြောင်း အနည်းဆုံး တစ်ကြောင်း ထည့်ပါ။';
+
+  @override
+  String get weighChooseTitle => 'ဝယ်မလား ရောင်းမလား?';
+
+  @override
   String get settingsLanguage => 'ဘာသာစကား';
 
   @override
