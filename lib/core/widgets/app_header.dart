@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../theme/app_colors.dart';
+import '../theme/app_dimens.dart';
+import '../theme/app_text.dart';
 
 class AppHeader extends StatelessWidget {
   const AppHeader({
@@ -8,12 +10,14 @@ class AppHeader extends StatelessWidget {
     required this.title,
     this.subtitle,
     this.onBack,
+    this.onTitleLongPress,
     this.actions = const [],
   });
 
   final String title;
   final String? subtitle;
   final VoidCallback? onBack;
+  final VoidCallback? onTitleLongPress;
   final List<Widget> actions;
 
   @override
@@ -22,48 +26,41 @@ class AppHeader extends StatelessWidget {
     return Container(
       width: double.infinity,
       color: AppColors.primary,
-      padding: EdgeInsets.fromLTRB(16, topInset + 16, 16, 16),
+      padding: EdgeInsets.fromLTRB(16, topInset + 12, 16, 12),
       child: Row(
         children: [
           if (onBack != null) ...[
-            HeaderIconButton(
-              icon: Icons.chevron_left,
-              size: 26,
-              onPressed: onBack,
-            ),
-            const SizedBox(width: 12),
+            HeaderIconButton(icon: Icons.chevron_left, size: 24, onPressed: onBack),
+            const SizedBox(width: 10),
           ],
           Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white,
-                  ),
-                ),
-                if (subtitle != null) ...[
-                  const SizedBox(height: 2),
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onLongPress: onTitleLongPress,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
                   Text(
-                    subtitle!,
+                    title,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.white.withValues(alpha: 0.8),
-                    ),
+                    style: AppText.headerTitle,
                   ),
+                  if (subtitle != null) ...[
+                    const SizedBox(height: 2),
+                    Text(
+                      subtitle!,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: AppText.headerSubtitle,
+                    ),
+                  ],
                 ],
-              ],
+              ),
             ),
           ),
           for (final action in actions) ...[
-            const SizedBox(width: 8),
+            const SizedBox(width: AppSpacing.sm),
             action,
           ],
         ],
@@ -89,14 +86,14 @@ class HeaderIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final button = Material(
-      color: Colors.white.withValues(alpha: 0.18),
-      borderRadius: BorderRadius.circular(10),
+      color: AppColors.headerChip,
+      borderRadius: AppRadius.control,
       child: InkWell(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: AppRadius.control,
         onTap: onPressed,
         child: SizedBox(
-          width: 38,
-          height: 38,
+          width: 34,
+          height: 34,
           child: Icon(icon, size: size, color: Colors.white),
         ),
       ),

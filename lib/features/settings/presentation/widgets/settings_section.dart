@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_tone.dart';
-import '../../../home/presentation/widgets/app_card.dart';
+import '../../../../core/widgets/app_card.dart';
 
 class SettingsSection extends StatelessWidget {
   const SettingsSection({super.key, required this.title, required this.tiles});

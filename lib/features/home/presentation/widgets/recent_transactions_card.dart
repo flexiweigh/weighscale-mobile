@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_tone.dart';
+import '../../../../core/widgets/app_card.dart';
 import '../../../../core/widgets/dashed_border.dart';
 import '../../../history/domain/receipt_summary.dart';
 import '../../../history/presentation/widgets/receipt_tile.dart';
-import 'app_card.dart';
 
 class RecentTransactionsCard extends StatelessWidget {
   const RecentTransactionsCard({

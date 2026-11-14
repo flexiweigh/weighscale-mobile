@@ -33,7 +33,7 @@ class LiveWeightCard extends StatelessWidget {
     final Color statusColor;
     final String statusLabel;
     if (!connected) {
-      statusColor = const Color(0xFF6B7587);
+      statusColor = AppColors.textSecondary;
       statusLabel = l10n.readingNoSignal;
     } else if (state.isStable) {
       statusColor = AppColors.success;
@@ -150,7 +150,7 @@ class LiveWeightCard extends StatelessWidget {
                   trackColor: WidgetStateProperty.resolveWith(
                         (states) => states.contains(WidgetState.selected)
                         ? AppColors.success
-                        : const Color(0xFF2D4A78),
+                        : AppColors.darkPanelBorder,
                   ),
                 ),
               ),
@@ -209,7 +209,7 @@ class _DarkButton extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
             decoration: BoxDecoration(
               borderRadius: radius,
-              border: Border.all(color: const Color(0xFF2D4A78)),
+              border: Border.all(color: AppColors.darkPanelBorder),
             ),
             child: Text(
               label,

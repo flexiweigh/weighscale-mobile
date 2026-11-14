@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/utils/number_format.dart';
-import '../../../home/presentation/widgets/app_card.dart';
+import '../../../../core/widgets/app_card.dart';
 import '../../application/history_list.dart';
 import '../../domain/receipt_summary.dart';
 import 'receipt_tile.dart';

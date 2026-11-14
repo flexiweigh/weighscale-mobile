@@ -64,7 +64,7 @@ class _Key extends StatelessWidget {
     final radius = BorderRadius.circular(10);
     final isBackspace = label == '<';
     return Material(
-      color: isBackspace ? const Color(0xFFE6ECF5) : AppColors.surface,
+      color: isBackspace ? AppColors.keyAction : AppColors.surface,
       borderRadius: radius,
       child: InkWell(
         borderRadius: radius,

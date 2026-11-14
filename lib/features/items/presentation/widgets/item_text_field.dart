@@ -39,7 +39,7 @@ InputDecoration itemInputDecoration({
     isDense: true,
     contentPadding: const EdgeInsets.fromLTRB(12, 14, 12, 12),
     labelStyle: const TextStyle(fontSize: 14, color: AppColors.textSecondary),
-    hintStyle: const TextStyle(fontSize: 14, color: Color(0xFFA3ACBD)),
+    hintStyle: const TextStyle(fontSize: 14, color: AppColors.hint),
     suffixStyle: const TextStyle(fontSize: 12, color: AppColors.textSecondary),
     border: border(AppColors.border),
     enabledBorder: border(accent ?? AppColors.border),

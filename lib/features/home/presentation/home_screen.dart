@@ -8,6 +8,7 @@ import '../../../core/l10n/l10n_extension.dart';
 import '../../../core/router/app_routes.dart';
 import '../../../core/theme/app_tone.dart';
 import '../../../core/utils/date_format.dart';
+import '../../../core/widgets/app_header.dart';
 import '../../devices/application/scale_session_controller.dart';
 import '../../devices/domain/scale_session.dart';
 import '../../history/application/history_providers.dart';
@@ -18,7 +19,6 @@ import 'state/home_card_states.dart';
 import 'state/scale_card_mapper.dart';
 import 'widgets/connection_lost_banner.dart';
 import 'widgets/get_started_card.dart';
-import 'widgets/home_header.dart';
 import 'widgets/home_preview_sheet.dart';
 import 'widgets/quick_action_card.dart';
 import 'widgets/recent_transactions_card.dart';
@@ -130,14 +130,18 @@ class HomeScreen extends ConsumerWidget {
       child: Scaffold(
         body: Column(
           children: [
-            HomeHeader(
+            AppHeader(
               title: 'FlexiWeigh',
-              subtitle:
-              '${formatHeaderDate(DateTime.now(), languageCode)} · $shopName',
-              onNotifications: () {},
-              onSettings: () => context.go(AppRoutes.settings),
+              subtitle: '${formatHeaderDate(DateTime.now(), languageCode)} · $shopName',
               onTitleLongPress:
               kDebugMode ? () => showHomePreviewSheet(context, ref) : null,
+              actions: [
+                HeaderIconButton(icon: Icons.notifications_none, onPressed: () {}),
+                HeaderIconButton(
+                  icon: Icons.tune,
+                  onPressed: () => context.go(AppRoutes.settings),
+                ),
+              ],
             ),
             Expanded(
               child: ListView.separated(

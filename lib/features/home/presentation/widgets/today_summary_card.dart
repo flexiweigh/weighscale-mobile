@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_tone.dart';
 import '../../../../core/utils/number_format.dart';
+import '../../../../core/widgets/app_card.dart';
 import '../state/home_card_states.dart';
-import 'app_card.dart';
 
 class TodaySummaryCard extends StatelessWidget {
   const TodaySummaryCard({
@@ -42,7 +43,7 @@ class TodaySummaryCard extends StatelessWidget {
                 _Cell(
                   label: l10n.todayWeightKg,
                   value: formatThousands(state.weight, decimals: 1),
-                  color: const Color(0xFF128A9B),
+                  color: AppTone.teal.colors.foreground,
                 ),
                 const VerticalDivider(width: 1, color: AppColors.border),
                 _Cell(

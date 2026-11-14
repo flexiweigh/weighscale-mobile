@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_tone.dart';
+import '../../../../core/widgets/app_card.dart';
 import '../../../../l10n/generated/app_localizations.dart';
 import '../state/home_card_states.dart';
-import 'app_card.dart';
 
 (String, String) _stepText(AppL10n l10n, GetStartedStepId id) {
   return switch (id) {

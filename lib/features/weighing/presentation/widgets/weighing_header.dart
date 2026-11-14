@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/l10n/l10n_extension.dart';
+import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_dimens.dart';
 import '../../../../core/widgets/app_header.dart';
 import '../../application/weighing_state.dart';
 import '../weighing_l10n.dart';
@@ -52,10 +54,10 @@ class _ScaleChip extends StatelessWidget {
     final l10n = context.l10n;
     final connected = state.scale.isConnected;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-      decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.18),
-        borderRadius: BorderRadius.circular(10),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+      decoration: const BoxDecoration(
+        color: AppColors.headerChip,
+        borderRadius: AppRadius.control,
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -65,9 +67,7 @@ class _ScaleChip extends StatelessWidget {
             height: 8,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: connected
-                  ? const Color(0xFF5BE38F)
-                  : Colors.white.withValues(alpha: 0.5),
+              color: connected ? AppColors.online : Colors.white54,
             ),
           ),
           const SizedBox(width: 6),

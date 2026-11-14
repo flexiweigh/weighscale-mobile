@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_tone.dart';
+import '../../../../core/widgets/app_card.dart';
 import '../state/home_card_states.dart';
-import 'app_card.dart';
 
 class ScaleCard extends StatelessWidget {
   const ScaleCard({

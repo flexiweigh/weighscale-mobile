@@ -6,8 +6,8 @@ import 'package:go_router/go_router.dart';
 import '../../../core/l10n/l10n_extension.dart';
 import '../../../core/router/app_routes.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/widgets/app_card.dart';
 import '../../../core/widgets/app_header.dart';
-import '../../home/presentation/widgets/app_card.dart';
 import '../application/category_labeler.dart';
 import '../application/items_list_providers.dart';
 import '../domain/item.dart';
@@ -16,6 +16,7 @@ import 'widgets/item_list_tile.dart';
 import 'widgets/item_search_field.dart';
 import 'widgets/items_empty_state.dart';
 import 'widgets/quick_add_chips.dart';
+import '../../../core/widgets/state_views.dart';
 
 class ItemsScreen extends ConsumerWidget {
   const ItemsScreen({super.key});
@@ -52,14 +53,21 @@ class ItemsScreen extends ConsumerWidget {
     final sections = <Widget>[const ItemSearchField()];
     if (total == null || items == null) {
       sections.add(
-        hasError ? _LoadError(onRetry: retry) : const _Loading(),
+        hasError
+            ? ErrorView(message: l10n.itemsLoadError, onRetry: retry)
+            : const LoadingView(),
       );
     } else if (total == 0) {
       sections
         ..add(ItemsEmptyState(onAddFirst: addItem))
         ..add(QuickAddChips(onSelected: addPreset));
     } else if (items.isEmpty) {
-      sections.add(_NoResults(query: query));
+      sections.add(
+        NoResultsView(
+          title: l10n.itemsNoResultsTitle,
+          body: l10n.itemsNoResultsBody(query),
+        ),
+      );
     } else {
       sections.add(
         _ItemsCard(
@@ -134,87 +142,6 @@ class _ItemsCard extends StatelessWidget {
             ],
           ],
         ),
-      ),
-    );
-  }
-}
-
-class _NoResults extends StatelessWidget {
-  const _NoResults({required this.query});
-
-  final String query;
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = context.l10n;
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 32),
-      child: Column(
-        children: [
-          const Icon(
-            Icons.search_off,
-            size: 36,
-            color: AppColors.textSecondary,
-          ),
-          const SizedBox(height: 8),
-          Text(
-            l10n.itemsNoResultsTitle,
-            style: const TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.w700,
-              color: AppColors.textPrimary,
-            ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            l10n.itemsNoResultsBody(query),
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 12,
-              height: 1.5,
-              color: AppColors.textSecondary,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _Loading extends StatelessWidget {
-  const _Loading();
-
-  @override
-  Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(vertical: 48),
-      child: Center(child: CircularProgressIndicator()),
-    );
-  }
-}
-
-class _LoadError extends StatelessWidget {
-  const _LoadError({required this.onRetry});
-
-  final VoidCallback onRetry;
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = context.l10n;
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 32),
-      child: Column(
-        children: [
-          Text(
-            l10n.itemsLoadError,
-            style: const TextStyle(
-              fontSize: 14,
-              color: AppColors.textSecondary,
-            ),
-          ),
-          const SizedBox(height: 12),
-          OutlinedButton(onPressed: onRetry, child: Text(l10n.commonRetry)),
-        ],
       ),
     );
   }

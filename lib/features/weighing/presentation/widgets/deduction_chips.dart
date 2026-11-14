@@ -83,7 +83,7 @@ class _Chip extends StatelessWidget {
   Widget build(BuildContext context) {
     final radius = BorderRadius.circular(10);
     return Material(
-      color: selected ? const Color(0xFFE6EEFC) : AppColors.surface,
+      color: selected ? AppColors.selectedTint : AppColors.surface,
       borderRadius: radius,
       child: InkWell(
         borderRadius: radius,

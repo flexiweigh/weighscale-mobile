@@ -45,7 +45,7 @@ class DeviceRow extends StatelessWidget {
             decoration: BoxDecoration(
               color: highlighted
                   ? iconColors.foreground
-                  : const Color(0xFF8A94A6),
+                  : AppColors.mutedIcon,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Icon(device.transport.icon, size: 18, color: Colors.white),

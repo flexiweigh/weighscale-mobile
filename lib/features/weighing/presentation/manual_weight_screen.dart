@@ -147,7 +147,7 @@ class _ManualWeightScreenState extends ConsumerState<ManualWeightScreen> {
                     l10n.weighingManualNotice,
                     style: const TextStyle(
                       fontSize: 12,
-                      color: Color(0xFF9A5B00),
+                      color: AppColors.warningText,
                     ),
                   ),
                 ),

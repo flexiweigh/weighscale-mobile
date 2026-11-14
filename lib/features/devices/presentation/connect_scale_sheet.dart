@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/l10n/l10n_extension.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/widgets/app_card.dart';
 import '../../../core/widgets/app_resume_listener.dart';
-import '../../home/presentation/widgets/app_card.dart';
 import '../application/connect_sheet_controller.dart';
 import '../domain/discovery_state.dart';
 import 'device_l10n.dart';

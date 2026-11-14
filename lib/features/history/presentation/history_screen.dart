@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/l10n/l10n_extension.dart';
 import '../../../core/router/app_routes.dart';
-import '../../../core/theme/app_colors.dart';
 import '../../../core/widgets/app_header.dart';
 import '../application/history_filter_controller.dart';
 import '../application/history_providers.dart';
@@ -14,6 +13,7 @@ import 'widgets/history_day_section.dart';
 import 'widgets/history_empty_state.dart';
 import 'widgets/history_filter_bar.dart';
 import 'widgets/history_search_field.dart';
+import '../../../core/widgets/state_views.dart';
 
 class HistoryScreen extends ConsumerWidget {
   const HistoryScreen({super.key});
@@ -49,14 +49,23 @@ class HistoryScreen extends ConsumerWidget {
     ];
 
     if (overall == null || data == null) {
-      sections.add(hasError ? _LoadError(onRetry: retry) : const _Loading());
+      sections.add(
+        hasError
+            ? ErrorView(message: l10n.historyLoadError, onRetry: retry)
+            : const LoadingView(),
+      );
     } else if (overall == 0) {
       sections.add(
         HistoryEmptyState(onStart: () => context.go(AppRoutes.weigh)),
       );
     } else if (data.isEmpty) {
       sections.add(
-        _NoResults(onClear: ref.read(historyFilterProvider.notifier).resetFilters),
+        NoResultsView(
+          title: l10n.historyNoResultsTitle,
+          body: l10n.historyNoResultsBody,
+          actionLabel: l10n.historyClearFilters,
+          onAction: ref.read(historyFilterProvider.notifier).resetFilters,
+        ),
       );
     } else {
       for (final group in data.groups) {
@@ -83,98 +92,12 @@ class HistoryScreen extends ConsumerWidget {
                 keyboardDismissBehavior:
                 ScrollViewKeyboardDismissBehavior.onDrag,
                 itemCount: sections.length,
-                separatorBuilder: (_, __) => const SizedBox(height: 14),
+                separatorBuilder: (_, _) => const SizedBox(height: 14),
                 itemBuilder: (_, index) => sections[index],
               ),
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class _NoResults extends StatelessWidget {
-  const _NoResults({required this.onClear});
-
-  final VoidCallback onClear;
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = context.l10n;
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 32),
-      child: Column(
-        children: [
-          const Icon(
-            Icons.search_off,
-            size: 36,
-            color: AppColors.textSecondary,
-          ),
-          const SizedBox(height: 8),
-          Text(
-            l10n.historyNoResultsTitle,
-            style: const TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.w700,
-              color: AppColors.textPrimary,
-            ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            l10n.historyNoResultsBody,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 12,
-              height: 1.5,
-              color: AppColors.textSecondary,
-            ),
-          ),
-          const SizedBox(height: 12),
-          OutlinedButton(
-            onPressed: onClear,
-            child: Text(l10n.historyClearFilters),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _Loading extends StatelessWidget {
-  const _Loading();
-
-  @override
-  Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(vertical: 48),
-      child: Center(child: CircularProgressIndicator()),
-    );
-  }
-}
-
-class _LoadError extends StatelessWidget {
-  const _LoadError({required this.onRetry});
-
-  final VoidCallback onRetry;
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = context.l10n;
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 32),
-      child: Column(
-        children: [
-          Text(
-            l10n.historyLoadError,
-            style: const TextStyle(
-              fontSize: 14,
-              color: AppColors.textSecondary,
-            ),
-          ),
-          const SizedBox(height: 12),
-          OutlinedButton(onPressed: onRetry, child: Text(l10n.commonRetry)),
-        ],
       ),
     );
   }
