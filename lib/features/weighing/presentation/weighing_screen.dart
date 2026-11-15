@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../../core/l10n/l10n_extension.dart';
 import '../../../core/router/app_routes.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_text.dart';
 import '../../items/presentation/item_l10n.dart';
 import '../application/weighing_controller.dart';
 import '../application/weighing_providers.dart';
@@ -22,6 +23,9 @@ import 'widgets/receipt_lines_section.dart';
 import 'widgets/results_card.dart';
 import 'widgets/synced_value_field.dart';
 import 'widgets/weighing_header.dart';
+import '../../../core/widgets/app_snackbar.dart';
+import '../../../core/widgets/bottom_action_bar.dart';
+import '../../../core/widgets/state_views.dart';
 
 class WeighingScreen extends ConsumerWidget {
   const WeighingScreen({super.key, required this.type});
@@ -53,9 +57,7 @@ class WeighingScreen extends ConsumerWidget {
 
     ref.listen(provider.select((s) => s.failure), (_, failure) {
       if (failure == null) return;
-      ScaffoldMessenger.of(context)
-        ..hideCurrentSnackBar()
-        ..showSnackBar(SnackBar(content: Text(failure.message(l10n))));
+      showAppSnackBar(context, failure.message(l10n));
       controller.clearFailure();
     });
 
@@ -103,7 +105,7 @@ class WeighingScreen extends ConsumerWidget {
     }
 
     if (state.receipt == null) {
-      return _Message(
+      return CenteredMessage(
         icon: Icons.error_outline,
         title: l10n.weighingErrLoad,
         actionLabel: l10n.commonRetry,
@@ -113,7 +115,7 @@ class WeighingScreen extends ConsumerWidget {
 
     final item = state.item;
     if (item == null) {
-      return _Message(
+      return CenteredMessage(
         icon: Icons.inventory_2_outlined,
         title: l10n.weighingNoItemsTitle,
         body: l10n.weighingNoItemsBody,
@@ -249,110 +251,42 @@ class _Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
-    return Container(
-      decoration: const BoxDecoration(
-        color: AppColors.surface,
-        border: Border(top: BorderSide(color: AppColors.border)),
-      ),
-      child: SafeArea(
-        top: false,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
-          child: Row(
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      l10n.weighingTotalLines(state.lineCount),
-                      style: const TextStyle(
-                        fontSize: 12,
-                        color: AppColors.textSecondary,
-                      ),
-                    ),
-                    FittedBox(
-                      fit: BoxFit.scaleDown,
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        l10n.moneyKs(formatMoney(state.totalAmount)),
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700,
-                          color: AppColors.textPrimary,
-                        ),
-                      ),
-                    ),
-                  ],
+    return BottomActionBar(
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  l10n.weighingTotalLines(state.lineCount),
+                  style: AppText.caption,
                 ),
-              ),
-              const SizedBox(width: 12),
-              PrimaryActionButton(
-                label: l10n.weighingFinish,
-                color: AppColors.success,
-                height: 46,
-                width: 110,
-                isBusy: state.isSaving,
-                onPressed: state.canFinish ? onFinish : null,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _Message extends StatelessWidget {
-  const _Message({
-    required this.icon,
-    required this.title,
-    required this.actionLabel,
-    required this.onAction,
-    this.body,
-  });
-
-  final IconData icon;
-  final String title;
-  final String? body;
-  final String actionLabel;
-  final VoidCallback onAction;
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(32),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(icon, size: 36, color: AppColors.textSecondary),
-            const SizedBox(height: 12),
-            Text(
-              title,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w700,
-                color: AppColors.textPrimary,
-              ),
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    l10n.moneyKs(formatMoney(state.totalAmount)),
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      color: AppColors.textPrimary,
+                    ),
+                  ),
+                ),
+              ],
             ),
-            if (body != null) ...[
-              const SizedBox(height: 6),
-              Text(
-                body!,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 12,
-                  color: AppColors.textSecondary,
-                ),
-              ),
-            ],
-            const SizedBox(height: 16),
-            FilledButton(onPressed: onAction, child: Text(actionLabel)),
-          ],
-        ),
+          ),
+          const SizedBox(width: 12),
+          PrimaryActionButton(
+            label: l10n.weighingFinish,
+            color: AppColors.success,
+            width: 110,
+            isBusy: state.isSaving,
+            onPressed: state.canFinish ? onFinish : null,
+          ),
+        ],
       ),
     );
   }

@@ -6,6 +6,7 @@ import '../../domain/device_scanner.dart';
 import '../../domain/discovered_device.dart';
 import '../../domain/discovery_state.dart';
 import '../device_l10n.dart';
+import '../../../../core/theme/app_dimens.dart';
 
 class DiscoveryBanner extends StatelessWidget {
   const DiscoveryBanner({
@@ -45,7 +46,7 @@ class DiscoveryBanner extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(12, 8, 8, 8),
         decoration: BoxDecoration(
           color: colors.background,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: AppRadius.control,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -65,7 +66,7 @@ class DiscoveryBanner extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
           decoration: BoxDecoration(
             color: colors.background,
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: AppRadius.control,
           ),
           child: Row(
             children: [

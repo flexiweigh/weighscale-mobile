@@ -6,6 +6,7 @@ import '../../../items/domain/item_enums.dart';
 import '../../../items/presentation/item_l10n.dart';
 import '../../application/weighing_state.dart';
 import '../../domain/weight_units.dart';
+import '../../../../core/theme/app_dimens.dart';
 
 class LiveWeightCard extends StatelessWidget {
   const LiveWeightCard({
@@ -52,7 +53,7 @@ class LiveWeightCard extends StatelessWidget {
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: AppColors.display,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: AppRadius.control,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -174,7 +175,7 @@ class _Pill extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
       decoration: BoxDecoration(
         color: color,
-        borderRadius: BorderRadius.circular(6),
+        borderRadius: AppRadius.control,
       ),
       child: Text(
         label,
@@ -196,7 +197,7 @@ class _DarkButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final radius = BorderRadius.circular(10);
+    final radius = AppRadius.control;
     return Opacity(
       opacity: onTap == null ? 0.4 : 1,
       child: Material(

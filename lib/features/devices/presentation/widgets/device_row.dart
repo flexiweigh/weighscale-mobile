@@ -5,6 +5,7 @@ import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_tone.dart';
 import '../../domain/discovered_device.dart';
 import '../device_l10n.dart';
+import '../../../../core/theme/app_dimens.dart';
 
 class DeviceRow extends StatelessWidget {
   const DeviceRow({
@@ -46,7 +47,7 @@ class DeviceRow extends StatelessWidget {
               color: highlighted
                   ? iconColors.foreground
                   : AppColors.mutedIcon,
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: AppRadius.control,
             ),
             child: Icon(device.transport.icon, size: 18, color: Colors.white),
           ),
@@ -104,7 +105,7 @@ class _ConnectButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
-    final shape = RoundedRectangleBorder(borderRadius: BorderRadius.circular(8));
+    final shape = RoundedRectangleBorder(borderRadius: AppRadius.control);
     const size = Size(88, 40);
 
     final child = isConnecting

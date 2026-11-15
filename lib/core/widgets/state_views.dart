@@ -82,3 +82,51 @@ class NoResultsView extends StatelessWidget {
     );
   }
 }
+
+class CenteredMessage extends StatelessWidget {
+  const CenteredMessage({
+    super.key,
+    required this.title,
+    this.icon,
+    this.body,
+    this.actionLabel,
+    this.onAction,
+  });
+
+  final String title;
+  final IconData? icon;
+  final String? body;
+  final String? actionLabel;
+  final VoidCallback? onAction;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(32),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (icon != null) ...[
+              Icon(icon, size: 36, color: AppColors.textSecondary),
+              const SizedBox(height: 12),
+            ],
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              style: AppText.sectionTitle,
+            ),
+            if (body != null) ...[
+              const SizedBox(height: 6),
+              Text(body!, textAlign: TextAlign.center, style: AppText.caption),
+            ],
+            if (actionLabel != null && onAction != null) ...[
+              const SizedBox(height: 16),
+              FilledButton(onPressed: onAction, child: Text(actionLabel!)),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}

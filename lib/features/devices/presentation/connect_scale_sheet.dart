@@ -10,6 +10,7 @@ import '../domain/discovery_state.dart';
 import 'device_l10n.dart';
 import 'widgets/device_row.dart';
 import 'widgets/discovery_banner.dart';
+import '../../../core/theme/app_dimens.dart';
 
 Future<void> showConnectScaleSheet(
     BuildContext context, {
@@ -104,7 +105,7 @@ class ConnectScaleSheet extends ConsumerWidget {
                 AppCard(
                   padding: EdgeInsets.zero,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(13),
+                    borderRadius: AppRadius.control,
                     child: ConstrainedBox(
                       constraints: const BoxConstraints(maxHeight: 260),
                       child: ListView.separated(
@@ -147,11 +148,11 @@ class ConnectScaleSheet extends ConsumerWidget {
                     vertical: 4,
                   ),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: AppRadius.control,
                     borderSide: const BorderSide(color: AppColors.border),
                   ),
                   enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: AppRadius.control,
                     borderSide: const BorderSide(color: AppColors.border),
                   ),
                 ),

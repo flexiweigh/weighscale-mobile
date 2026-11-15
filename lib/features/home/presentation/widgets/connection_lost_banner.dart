@@ -4,6 +4,7 @@ import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_tone.dart';
 import '../state/home_card_states.dart';
+import '../../../../core/theme/app_dimens.dart';
 
 class ConnectionLostBanner extends StatelessWidget {
   const ConnectionLostBanner({
@@ -23,7 +24,7 @@ class ConnectionLostBanner extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: colors.background,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: AppRadius.control,
         border: Border.all(color: colors.border),
       ),
       child: Row(
@@ -62,7 +63,7 @@ class ConnectionLostBanner extends StatelessWidget {
               foregroundColor: AppColors.textPrimary,
               side: BorderSide(color: colors.border),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: AppRadius.control,
               ),
             ),
             child: Text(l10n.actionManualEntry),

@@ -17,6 +17,7 @@ import 'widgets/item_search_field.dart';
 import 'widgets/items_empty_state.dart';
 import 'widgets/quick_add_chips.dart';
 import '../../../core/widgets/state_views.dart';
+import '../../../core/theme/app_dimens.dart';
 
 class ItemsScreen extends ConsumerWidget {
   const ItemsScreen({super.key});
@@ -129,7 +130,7 @@ class _ItemsCard extends StatelessWidget {
     return AppCard(
       padding: EdgeInsets.zero,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(13),
+        borderRadius: AppRadius.control,
         child: Column(
           children: [
             for (var i = 0; i < items.length; i++) ...[

@@ -7,6 +7,7 @@ import '../../../../core/utils/number_format.dart';
 import '../../../weighing/domain/receipt_enums.dart';
 import '../../domain/receipt_summary.dart';
 import '../history_l10n.dart';
+import '../../../../core/theme/app_dimens.dart';
 
 class ReceiptTile extends StatelessWidget {
   const ReceiptTile({super.key, required this.receipt, this.onTap});
@@ -43,7 +44,7 @@ class ReceiptTile extends StatelessWidget {
               height: 40,
               decoration: BoxDecoration(
                 color: colors.background,
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: AppRadius.control,
               ),
               child: Icon(
                 isBuy ? Icons.south_west : Icons.north_east,

@@ -10,6 +10,7 @@ import '../../../weighing/domain/receipt_enums.dart';
 import '../../../weighing/domain/receipt_line.dart';
 import '../../../weighing/domain/weight_units.dart';
 import '../../application/receipt_view.dart';
+import '../../../../core/theme/app_dimens.dart';
 
 const _netWidth = 72.0;
 const _priceWidth = 64.0;
@@ -246,7 +247,7 @@ class _ManualBadge extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
       decoration: BoxDecoration(
         color: colors.background,
-        borderRadius: BorderRadius.circular(6),
+        borderRadius: AppRadius.control,
       ),
       child: Text(
         label,

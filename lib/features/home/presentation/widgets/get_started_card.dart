@@ -6,6 +6,7 @@ import '../../../../core/theme/app_tone.dart';
 import '../../../../core/widgets/app_card.dart';
 import '../../../../l10n/generated/app_localizations.dart';
 import '../state/home_card_states.dart';
+import '../../../../core/theme/app_dimens.dart';
 
 (String, String) _stepText(AppL10n l10n, GetStartedStepId id) {
   return switch (id) {
@@ -52,7 +53,7 @@ class GetStartedCard extends StatelessWidget {
         AppCard(
           padding: EdgeInsets.zero,
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(13),
+            borderRadius: AppRadius.control,
             child: Column(
               children: [
                 for (var i = 0; i < state.steps.length; i++) ...[

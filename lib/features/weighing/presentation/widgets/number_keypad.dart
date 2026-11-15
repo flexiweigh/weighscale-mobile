@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_dimens.dart';
 
 class NumberKeypad extends StatelessWidget {
   const NumberKeypad({
@@ -61,7 +62,7 @@ class _Key extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final radius = BorderRadius.circular(10);
+    final radius = AppRadius.control;
     final isBackspace = label == '<';
     return Material(
       color: isBackspace ? AppColors.keyAction : AppColors.surface,

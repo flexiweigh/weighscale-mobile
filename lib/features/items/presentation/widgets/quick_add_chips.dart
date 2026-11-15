@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../item_presets.dart';
+import '../../../../core/theme/app_dimens.dart';
 
 class QuickAddChips extends StatelessWidget {
   const QuickAddChips({super.key, required this.onSelected});
@@ -50,14 +51,14 @@ class _PresetChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: AppColors.surface,
-      borderRadius: BorderRadius.circular(8),
+      borderRadius: AppRadius.control,
       child: InkWell(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: AppRadius.control,
         onTap: onTap,
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: AppRadius.control,
             border: Border.all(color: AppColors.border),
           ),
           child: Row(

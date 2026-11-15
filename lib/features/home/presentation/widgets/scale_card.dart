@@ -5,6 +5,7 @@ import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_tone.dart';
 import '../../../../core/widgets/app_card.dart';
 import '../state/home_card_states.dart';
+import '../../../../core/theme/app_dimens.dart';
 
 class ScaleCard extends StatelessWidget {
   const ScaleCard({
@@ -111,7 +112,7 @@ class _Header extends StatelessWidget {
           height: 32,
           decoration: BoxDecoration(
             color: solid ? iconColors.foreground : iconColors.background,
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: AppRadius.control,
           ),
           child: Icon(
             Icons.bluetooth,
@@ -170,7 +171,7 @@ class _WeightDisplay extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
         color: AppColors.display,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: AppRadius.control,
       ),
       child: Row(
         children: [
@@ -245,7 +246,7 @@ class _QualityBadge extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
         color: background,
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: AppRadius.badge,
       ),
       child: Text(
         label,
@@ -275,7 +276,7 @@ class _SecondaryButton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 14),
         foregroundColor: AppColors.textPrimary,
         side: const BorderSide(color: AppColors.border),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        shape: RoundedRectangleBorder(borderRadius: AppRadius.control),
       ),
       child: Text(label),
     );
@@ -321,7 +322,7 @@ class _PrimaryButton extends StatelessWidget {
       style: FilledButton.styleFrom(
         minimumSize: const Size(0, 44),
         backgroundColor: AppColors.primary,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        shape: RoundedRectangleBorder(borderRadius: AppRadius.control),
       ),
     );
   }

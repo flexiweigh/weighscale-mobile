@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_dimens.dart';
 
 class ResultCell {
   const ResultCell({
@@ -25,7 +26,7 @@ class ResultsCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: AppColors.surface,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: AppRadius.control,
         border: Border.all(color: AppColors.border),
       ),
       child: IntrinsicHeight(

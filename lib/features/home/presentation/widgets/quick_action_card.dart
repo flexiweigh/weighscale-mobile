@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_tone.dart';
+import '../../../../core/theme/app_dimens.dart';
 
 class QuickActionItem {
   const QuickActionItem({
@@ -33,14 +34,14 @@ class QuickActionCard extends StatelessWidget {
       opacity: item.enabled ? 1 : 0.5,
       child: Material(
         color: colors.background,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: AppRadius.control,
         child: InkWell(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: AppRadius.control,
           onTap: item.enabled ? item.onTap : null,
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: AppRadius.control,
               border: Border.all(color: colors.border),
             ),
             child: Row(
@@ -50,7 +51,7 @@ class QuickActionCard extends StatelessWidget {
                   height: 36,
                   decoration: BoxDecoration(
                     color: colors.foreground,
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: AppRadius.control,
                   ),
                   child: Icon(item.icon, color: Colors.white, size: 20),
                 ),

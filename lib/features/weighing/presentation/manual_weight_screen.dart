@@ -19,6 +19,10 @@ import 'widgets/number_keypad.dart';
 import 'widgets/primary_action_button.dart';
 import 'widgets/results_card.dart';
 import 'widgets/weighing_header.dart';
+import '../../../core/widgets/app_snackbar.dart';
+import '../../../core/widgets/bottom_action_bar.dart';
+import '../../../core/widgets/secondary_action_button.dart';
+import '../../../core/theme/app_dimens.dart';
 
 class ManualWeightScreen extends ConsumerStatefulWidget {
   const ManualWeightScreen({super.key, required this.type});
@@ -62,9 +66,7 @@ class _ManualWeightScreenState extends ConsumerState<ManualWeightScreen> {
 
     ref.listen(provider.select((s) => s.failure), (_, failure) {
       if (failure == null) return;
-      ScaffoldMessenger.of(context)
-        ..hideCurrentSnackBar()
-        ..showSnackBar(SnackBar(content: Text(failure.message(l10n))));
+      showAppSnackBar(context, failure.message(l10n));
       _controller.clearFailure();
     });
 
@@ -135,7 +137,7 @@ class _ManualWeightScreenState extends ConsumerState<ManualWeightScreen> {
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: warning.background,
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: AppRadius.control,
               border: Border.all(color: warning.border),
             ),
             child: Row(
@@ -240,7 +242,7 @@ class _KeypadValueField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final radius = BorderRadius.circular(12);
+    final radius = AppRadius.control;
     final empty = text.isEmpty;
     return Material(
       color: AppColors.surface,
@@ -319,51 +321,27 @@ class _ActionBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
-    return Container(
-      decoration: const BoxDecoration(
-        color: AppColors.surface,
-        border: Border(top: BorderSide(color: AppColors.border)),
-      ),
-      child: SafeArea(
-        top: false,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
-          child: Row(
-            children: [
-              Expanded(
-                flex: 2,
-                child: SizedBox(
-                  height: 46,
-                  child: OutlinedButton(
-                    onPressed: onCancel,
-                    style: OutlinedButton.styleFrom(
-                      foregroundColor: AppColors.textPrimary,
-                      side: const BorderSide(color: AppColors.border),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      textStyle: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    child: Text(l10n.commonCancel, overflow: TextOverflow.ellipsis),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                flex: 5,
-                child: PrimaryActionButton(
-                  label: l10n.weighingAddToReceipt,
-                  icon: Icons.add,
-                  isBusy: state.isSaving,
-                  onPressed: state.canAddManual ? onAdd : null,
-                ),
-              ),
-            ],
+    return BottomActionBar(
+      child: Row(
+        children: [
+          Expanded(
+            flex: 2,
+            child: SecondaryActionButton(
+              label: l10n.commonCancel,
+              onPressed: onCancel,
+            ),
           ),
-        ),
+          const SizedBox(width: 8),
+          Expanded(
+            flex: 5,
+            child: PrimaryActionButton(
+              label: l10n.weighingAddToReceipt,
+              icon: Icons.add,
+              isBusy: state.isSaving,
+              onPressed: state.canAddManual ? onAdd : null,
+            ),
+          ),
+        ],
       ),
     );
   }

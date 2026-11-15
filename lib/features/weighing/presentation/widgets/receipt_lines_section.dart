@@ -8,6 +8,7 @@ import '../../../items/presentation/item_l10n.dart';
 import '../../domain/receipt.dart';
 import '../../domain/receipt_line.dart';
 import '../../domain/weight_units.dart';
+import '../../../../core/theme/app_dimens.dart';
 
 class ReceiptLinesSection extends StatelessWidget {
   const ReceiptLinesSection({
@@ -73,7 +74,7 @@ class ReceiptLinesSection extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               color: AppColors.surface,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: AppRadius.control,
               border: Border.all(color: AppColors.border),
             ),
             clipBehavior: Clip.antiAlias,

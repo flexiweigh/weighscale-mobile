@@ -7,6 +7,7 @@ import '../../../../core/utils/number_format.dart';
 import '../../../../core/widgets/app_card.dart';
 import '../../domain/item.dart';
 import '../item_l10n.dart';
+import '../../../../core/theme/app_dimens.dart';
 
 class ItemListTile extends StatelessWidget {
   const ItemListTile({
@@ -45,7 +46,7 @@ class ItemListTile extends StatelessWidget {
               height: 40,
               decoration: BoxDecoration(
                 color: colors.background,
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: AppRadius.control,
               ),
               child: Icon(
                 Icons.inventory_2_outlined,

@@ -7,6 +7,7 @@ import '../../../../core/widgets/app_card.dart';
 import '../../../../core/widgets/dashed_border.dart';
 import '../../../history/domain/receipt_summary.dart';
 import '../../../history/presentation/widgets/receipt_tile.dart';
+import '../../../../core/theme/app_dimens.dart';
 
 class RecentTransactionsCard extends StatelessWidget {
   const RecentTransactionsCard({
@@ -38,7 +39,7 @@ class RecentTransactionsCard extends StatelessWidget {
           AppCard(
             padding: EdgeInsets.zero,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(13),
+              borderRadius: AppRadius.control,
               child: Column(
                 children: [
                   for (var i = 0; i < receipts.length; i++) ...[
@@ -76,7 +77,7 @@ class _EmptyTransactions extends StatelessWidget {
               height: 44,
               decoration: BoxDecoration(
                 color: AppTone.grey.colors.background,
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: AppRadius.control,
               ),
               child: const Icon(
                 Icons.receipt_long_outlined,

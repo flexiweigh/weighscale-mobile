@@ -7,6 +7,7 @@ import '../../../../core/widgets/app_card.dart';
 import '../../application/history_list.dart';
 import '../../domain/receipt_summary.dart';
 import 'receipt_tile.dart';
+import '../../../../core/theme/app_dimens.dart';
 
 class HistoryDaySection extends StatelessWidget {
   const HistoryDaySection({
@@ -35,7 +36,7 @@ class HistoryDaySection extends StatelessWidget {
         AppCard(
           padding: EdgeInsets.zero,
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(13),
+            borderRadius: AppRadius.control,
             child: Column(
               children: [
                 for (var i = 0; i < receipts.length; i++) ...[

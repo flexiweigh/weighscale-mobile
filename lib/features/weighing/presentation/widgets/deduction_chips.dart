@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/l10n/l10n_extension.dart';
-import '../../../../core/theme/app_colors.dart';
+import '../../../../core/widgets/selectable_chip.dart';
 import '../../../items/domain/item_enums.dart';
 import '../../domain/deduction_preset.dart';
 import '../../domain/deduction_preset_unit.dart';
@@ -28,19 +28,25 @@ class DeductionChips extends StatelessWidget {
     final l10n = context.l10n;
     final selectedId = matchingPresetId(presets, deductionMilli, unit);
 
+    Widget chip(String label, bool selected, VoidCallback onTap) {
+      return SelectableChip(
+        label: label,
+        selected: selected,
+        onTap: onTap,
+        variant: ChipVariant.tinted,
+        center: true,
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      );
+    }
+
     final chips = <Widget>[
       for (final preset in presets)
-        _Chip(
-          label:
+        chip(
           '${deductionPresetLabel(l10n, preset)} ${compactWeightMilli(preset.weightMilliIn(unit))}',
-          selected: preset.id == selectedId,
-          onTap: () => onPreset(preset),
+          preset.id == selectedId,
+              () => onPreset(preset),
         ),
-      _Chip(
-        label: l10n.weighingDeductionNone,
-        selected: deductionMilli <= 0,
-        onTap: onNone,
-      ),
+      chip(l10n.weighingDeductionNone, deductionMilli <= 0, onNone),
     ];
 
     if (chips.length <= 4) {
@@ -63,52 +69,6 @@ class DeductionChips extends StatelessWidget {
             chips[i],
           ],
         ],
-      ),
-    );
-  }
-}
-
-class _Chip extends StatelessWidget {
-  const _Chip({
-    required this.label,
-    required this.selected,
-    required this.onTap,
-  });
-
-  final String label;
-  final bool selected;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final radius = BorderRadius.circular(10);
-    return Material(
-      color: selected ? AppColors.selectedTint : AppColors.surface,
-      borderRadius: radius,
-      child: InkWell(
-        borderRadius: radius,
-        onTap: onTap,
-        child: Container(
-          alignment: Alignment.center,
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          decoration: BoxDecoration(
-            borderRadius: radius,
-            border: Border.all(
-              color: selected ? AppColors.primary : AppColors.border,
-              width: selected ? 1.5 : 1,
-            ),
-          ),
-          child: Text(
-            label,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w500,
-              color: selected ? AppColors.primary : AppColors.textPrimary,
-            ),
-          ),
-        ),
       ),
     );
   }

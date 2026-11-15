@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_dimens.dart';
 
 class SyncedValueField extends StatefulWidget {
   const SyncedValueField({
@@ -53,7 +54,7 @@ class _SyncedValueFieldState extends State<SyncedValueField> {
       padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
       decoration: BoxDecoration(
         color: AppColors.surface,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: AppRadius.control,
         border: Border.all(color: AppColors.border),
       ),
       child: Column(

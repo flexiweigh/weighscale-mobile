@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_tone.dart';
 import '../../../../core/widgets/app_card.dart';
+import '../../../../core/theme/app_dimens.dart';
 
 class SettingsSection extends StatelessWidget {
   const SettingsSection({super.key, required this.title, required this.tiles});
@@ -20,7 +21,7 @@ class SettingsSection extends StatelessWidget {
         AppCard(
           padding: EdgeInsets.zero,
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(13),
+            borderRadius: AppRadius.control,
             child: Column(
               children: [
                 for (var i = 0; i < tiles.length; i++) ...[
@@ -75,7 +76,7 @@ class SettingsTile extends StatelessWidget {
                 height: 36,
                 decoration: BoxDecoration(
                   color: colors.background,
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: AppRadius.control,
                 ),
                 child: Icon(icon, size: 20, color: colors.foreground),
               ),

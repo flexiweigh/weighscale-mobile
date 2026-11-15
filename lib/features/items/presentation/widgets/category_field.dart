@@ -8,6 +8,7 @@ import '../../application/category_labeler.dart';
 import '../../application/item_providers.dart';
 import '../../domain/category.dart';
 import 'item_text_field.dart';
+import '../../../../core/theme/app_dimens.dart';
 
 class CategoryField extends ConsumerWidget {
   const CategoryField({
@@ -89,7 +90,7 @@ class CategoryField extends ConsumerWidget {
                 child: Material(
                   elevation: 4,
                   color: AppColors.surface,
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: AppRadius.control,
                   child: ConstrainedBox(
                     constraints: BoxConstraints(
                       maxHeight: 220,

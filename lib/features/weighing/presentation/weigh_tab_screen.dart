@@ -6,6 +6,7 @@ import '../../../core/router/app_routes.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_tone.dart';
 import '../../../core/widgets/app_header.dart';
+import '../../../core/theme/app_dimens.dart';
 
 class WeighTabScreen extends StatelessWidget {
   const WeighTabScreen({super.key});
@@ -63,7 +64,7 @@ class _ChoiceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = tone.colors;
-    final radius = BorderRadius.circular(16);
+    final radius = AppRadius.control;
     return Material(
       color: AppColors.surface,
       borderRadius: radius,
@@ -83,7 +84,7 @@ class _ChoiceCard extends StatelessWidget {
                 height: 44,
                 decoration: BoxDecoration(
                   color: colors.background,
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: AppRadius.control,
                 ),
                 child: Icon(icon, color: colors.foreground, size: 24),
               ),

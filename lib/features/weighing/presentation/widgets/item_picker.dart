@@ -7,6 +7,7 @@ import '../../../items/domain/item.dart';
 import '../../application/weighing_providers.dart';
 import '../../domain/receipt_enums.dart';
 import '../weighing_l10n.dart';
+import '../../../../core/theme/app_dimens.dart';
 
 class ItemPickerField extends StatelessWidget {
   const ItemPickerField({
@@ -32,7 +33,7 @@ class ItemPickerField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
-    final radius = BorderRadius.circular(12);
+    final radius = AppRadius.control;
     return Material(
       color: AppColors.surface,
       borderRadius: radius,

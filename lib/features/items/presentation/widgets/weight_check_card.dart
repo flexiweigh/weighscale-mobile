@@ -8,6 +8,7 @@ import '../../../../core/utils/milli.dart';
 import '../../../../core/widgets/toggle_row.dart';
 import '../../application/item_form_state.dart';
 import 'item_text_field.dart';
+import '../../../../core/theme/app_dimens.dart';
 
 class WeightCheckCard extends StatelessWidget {
   const WeightCheckCard({
@@ -48,7 +49,7 @@ class WeightCheckCard extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: green.background.withValues(alpha: 0.45),
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: AppRadius.control,
         border: Border.all(color: green.border),
       ),
       child: Column(
@@ -147,7 +148,7 @@ class _PreviewStrip extends StatelessWidget {
     ];
 
     return ClipRRect(
-      borderRadius: BorderRadius.circular(8),
+      borderRadius: AppRadius.control,
       child: Row(
         children: [
           for (final cell in cells)

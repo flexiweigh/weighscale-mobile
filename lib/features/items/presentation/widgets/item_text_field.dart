@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_dimens.dart';
 
 const itemFieldTextStyle = TextStyle(
   fontSize: 15,
@@ -20,7 +21,7 @@ InputDecoration itemInputDecoration({
 }) {
   OutlineInputBorder border(Color color, [double width = 1]) {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: AppRadius.control,
       borderSide: BorderSide(color: color, width: width),
     );
   }

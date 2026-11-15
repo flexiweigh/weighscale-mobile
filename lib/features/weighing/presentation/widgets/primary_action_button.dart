@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_dimens.dart';
 
 class PrimaryActionButton extends StatelessWidget {
   const PrimaryActionButton({
@@ -34,9 +35,7 @@ class PrimaryActionButton extends StatelessWidget {
           foregroundColor: Colors.white,
           disabledBackgroundColor: AppColors.border,
           disabledForegroundColor: AppColors.textSecondary,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
+          shape: const RoundedRectangleBorder(borderRadius: AppRadius.control),
           textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
         ),
         child: isBusy

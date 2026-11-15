@@ -17,6 +17,8 @@ import 'widgets/form_section_label.dart';
 import 'widgets/item_text_field.dart';
 import 'widgets/unit_selector.dart';
 import 'widgets/weight_check_card.dart';
+import '../../../core/widgets/app_snackbar.dart';
+import '../../../core/theme/app_dimens.dart';
 
 class ItemFormScreen extends ConsumerStatefulWidget {
   const ItemFormScreen({super.key, required this.request});
@@ -76,9 +78,7 @@ class _ItemFormScreenState extends ConsumerState<ItemFormScreen> {
   }
 
   void _showMessage(String message) {
-    ScaffoldMessenger.of(context)
-      ..hideCurrentSnackBar()
-      ..showSnackBar(SnackBar(content: Text(message)));
+    showAppSnackBar(context, message);
   }
 
   Future<void> _save() async {
@@ -369,7 +369,7 @@ class _BottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
-    final shape = RoundedRectangleBorder(borderRadius: BorderRadius.circular(8));
+    final shape = RoundedRectangleBorder(borderRadius: AppRadius.control);
     return Container(
       decoration: const BoxDecoration(
         color: AppColors.surface,
