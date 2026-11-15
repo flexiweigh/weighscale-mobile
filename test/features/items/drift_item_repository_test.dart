@@ -1,12 +1,12 @@
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:FlexiWeigh/core/database/app_database.dart';
-import 'package:FlexiWeigh/features/items/data/drift_category_repository.dart';
-import 'package:FlexiWeigh/features/items/data/drift_item_repository.dart';
-import 'package:FlexiWeigh/features/items/domain/category.dart';
-import 'package:FlexiWeigh/features/items/domain/item_draft.dart';
-import 'package:FlexiWeigh/features/items/domain/item_repository.dart';
+import 'package:flexi_weigh/core/database/app_database.dart';
+import 'package:flexi_weigh/features/items/data/drift_category_repository.dart';
+import 'package:flexi_weigh/features/items/data/drift_item_repository.dart';
+import 'package:flexi_weigh/features/items/domain/category.dart';
+import 'package:flexi_weigh/features/items/domain/item_draft.dart';
+import 'package:flexi_weigh/features/items/domain/item_repository.dart';
 
 void main() {
   late AppDatabase db;

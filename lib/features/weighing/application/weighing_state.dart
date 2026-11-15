@@ -5,6 +5,7 @@ import '../../items/domain/item.dart';
 import '../../items/domain/item_enums.dart';
 import '../domain/receipt.dart';
 import '../domain/receipt_enums.dart';
+import '../domain/receipt_line.dart';
 import '../domain/receipt_line_draft.dart';
 import '../domain/weight_units.dart';
 
@@ -36,6 +37,7 @@ class WeighingState {
     this.isSaving = false,
     this.isFinished = false,
     this.failure,
+    this.lastAdded,
   });
 
   final ReceiptType type;
@@ -53,6 +55,7 @@ class WeighingState {
   final bool isSaving;
   final bool isFinished;
   final WeighingFailure? failure;
+  final ReceiptLine? lastAdded;
 
   WeightUnit get unit => item?.unit ?? WeightUnit.kg;
 
@@ -114,6 +117,8 @@ class WeighingState {
     bool? isFinished,
     WeighingFailure? failure,
     bool clearFailure = false,
+    ReceiptLine? lastAdded,
+    bool clearLastAdded = false,
   }) {
     return WeighingState(
       type: type,
@@ -131,6 +136,7 @@ class WeighingState {
       isSaving: isSaving ?? this.isSaving,
       isFinished: isFinished ?? this.isFinished,
       failure: clearFailure ? null : (failure ?? this.failure),
+      lastAdded: clearLastAdded ? null : (lastAdded ?? this.lastAdded),
     );
   }
 }

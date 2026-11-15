@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_dimens.dart';
 import '../../../items/domain/item_enums.dart';
 import '../../../items/presentation/item_l10n.dart';
 import '../../application/weighing_state.dart';
 import '../../domain/weight_units.dart';
-import '../../../../core/theme/app_dimens.dart';
 
 class LiveWeightCard extends StatelessWidget {
   const LiveWeightCard({
@@ -22,13 +22,21 @@ class LiveWeightCard extends StatelessWidget {
   final VoidCallback onZero;
   final ValueChanged<bool> onAutoCapture;
 
+  static Color _checkColor(WeightCheckResult check) => switch (check) {
+    WeightCheckResult.ok => AppColors.success,
+    WeightCheckResult.under => AppColors.warning,
+    WeightCheckResult.over => AppColors.danger,
+  };
+
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     final connected = state.scale.isConnected;
     final unit = state.unit;
+    final decimals = unit.displayDecimals;
+    final item = state.item;
     final weightText = connected
-        ? formatWeightMilli(state.liveGrossMilli, decimals: unit.displayDecimals)
+        ? formatWeightMilli(state.liveGrossMilli, decimals: decimals)
         : '--';
 
     final Color statusColor;
@@ -44,7 +52,7 @@ class LiveWeightCard extends StatelessWidget {
       statusLabel = l10n.readingUnstable;
     }
 
-    final check = connected && state.item?.showWeightCheck == true
+    final check = connected && item?.showWeightCheck == true
         ? state.weightCheck
         : null;
 
@@ -54,6 +62,9 @@ class LiveWeightCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.display,
         borderRadius: AppRadius.control,
+        border: check == null
+            ? null
+            : Border.all(color: _checkColor(check), width: 2),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,21 +82,6 @@ class LiveWeightCard extends StatelessWidget {
                   ),
                 ),
               ),
-              if (check != null) ...[
-                _Pill(
-                  label: switch (check) {
-                    WeightCheckResult.under => l10n.checkUnder,
-                    WeightCheckResult.ok => l10n.checkOk,
-                    WeightCheckResult.over => l10n.checkOver,
-                  },
-                  color: switch (check) {
-                    WeightCheckResult.ok => AppColors.success,
-                    WeightCheckResult.under => AppColors.warning,
-                    WeightCheckResult.over => AppColors.danger,
-                  },
-                ),
-                const SizedBox(width: 6),
-              ],
               _Pill(label: statusLabel, color: statusColor),
             ],
           ),
@@ -119,6 +115,22 @@ class LiveWeightCard extends StatelessWidget {
               ],
             ),
           ),
+          if (check != null && item != null) ...[
+            const SizedBox(height: 8),
+            _TargetStrip(
+              text: l10n.weighingTargetRange(
+                formatWeightMilli(item.targetWeightMilli ?? 0, decimals: decimals),
+                formatWeightMilli(item.toleranceMilli, decimals: decimals),
+                unit.label(l10n),
+              ),
+              label: switch (check) {
+                WeightCheckResult.under => l10n.checkUnder,
+                WeightCheckResult.ok => l10n.checkOk,
+                WeightCheckResult.over => l10n.checkOver,
+              },
+              color: _checkColor(check),
+            ),
+          ],
           const SizedBox(height: 10),
           Row(
             children: [
@@ -163,6 +175,48 @@ class LiveWeightCard extends StatelessWidget {
   }
 }
 
+class _TargetStrip extends StatelessWidget {
+  const _TargetStrip({
+    required this.text,
+    required this.label,
+    required this.color,
+  });
+
+  final String text;
+  final String label;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(10, 6, 6, 6),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.08),
+        borderRadius: AppRadius.control,
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: Text(
+              text,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w500,
+                color: Colors.white.withValues(alpha: 0.75),
+              ),
+            ),
+          ),
+          const SizedBox(width: 8),
+          _Pill(label: label, color: color),
+        ],
+      ),
+    );
+  }
+}
+
 class _Pill extends StatelessWidget {
   const _Pill({required this.label, required this.color});
 
@@ -197,19 +251,18 @@ class _DarkButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final radius = AppRadius.control;
     return Opacity(
       opacity: onTap == null ? 0.4 : 1,
       child: Material(
-        color: const Color(0xFF1B3358),
-        borderRadius: radius,
+        color: AppColors.darkPanelButton,
+        borderRadius: AppRadius.control,
         child: InkWell(
-          borderRadius: radius,
+          borderRadius: AppRadius.control,
           onTap: onTap,
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
             decoration: BoxDecoration(
-              borderRadius: radius,
+              borderRadius: AppRadius.control,
               border: Border.all(color: AppColors.darkPanelBorder),
             ),
             child: Text(

@@ -673,6 +673,66 @@ abstract class AppL10n {
   /// **'Scale connection'**
   String get settingsScaleConnection;
 
+  /// No description provided for @settingsShopSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Shop'**
+  String get settingsShopSection;
+
+  /// No description provided for @settingsPrinterSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Printer'**
+  String get settingsPrinterSection;
+
+  /// No description provided for @settingsDataSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Data'**
+  String get settingsDataSection;
+
+  /// No description provided for @settingsCurrency.
+  ///
+  /// In en, this message translates to:
+  /// **'Currency'**
+  String get settingsCurrency;
+
+  /// No description provided for @currencyKyat.
+  ///
+  /// In en, this message translates to:
+  /// **'Kyat (Ks)'**
+  String get currencyKyat;
+
+  /// No description provided for @settingsReceiptFooter.
+  ///
+  /// In en, this message translates to:
+  /// **'Receipt footer'**
+  String get settingsReceiptFooter;
+
+  /// No description provided for @settingsPrinter.
+  ///
+  /// In en, this message translates to:
+  /// **'Bluetooth printer'**
+  String get settingsPrinter;
+
+  /// No description provided for @settingsPaperWidth.
+  ///
+  /// In en, this message translates to:
+  /// **'Paper width'**
+  String get settingsPaperWidth;
+
+  /// No description provided for @settingsBackupExport.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup & export'**
+  String get settingsBackupExport;
+
+  /// No description provided for @settingsAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'About FlexiWeigh'**
+  String get settingsAbout;
+
   /// No description provided for @commonSave.
   ///
   /// In en, this message translates to:
@@ -1212,6 +1272,42 @@ abstract class AppL10n {
   /// In en, this message translates to:
   /// **'Confirm Weight'**
   String get weighingConfirm;
+
+  /// No description provided for @weighingConfirmAnyway.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm anyway'**
+  String get weighingConfirmAnyway;
+
+  /// No description provided for @weighingWaitingStable.
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting for stable weight…'**
+  String get weighingWaitingStable;
+
+  /// No description provided for @weighingTargetRange.
+  ///
+  /// In en, this message translates to:
+  /// **'Target {target} ± {tolerance} {unit}'**
+  String weighingTargetRange(String target, String tolerance, String unit);
+
+  /// No description provided for @weighingLineAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'{item} {weight} {unit} added to receipt'**
+  String weighingLineAdded(String item, String weight, String unit);
+
+  /// No description provided for @weighingRemoveLineTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove line'**
+  String get weighingRemoveLineTooltip;
+
+  /// No description provided for @commonUndo.
+  ///
+  /// In en, this message translates to:
+  /// **'Undo'**
+  String get commonUndo;
 
   /// No description provided for @weighingScaleProblem.
   ///

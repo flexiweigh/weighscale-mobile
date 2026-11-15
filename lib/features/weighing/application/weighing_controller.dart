@@ -232,7 +232,14 @@ class WeighingController
         ),
       );
       if (_disposed) return true;
-      state = state.copyWith(receipt: updated, isSaving: false);
+      final knownIds = receipt.lines.map((line) => line.id).toSet();
+      final added =
+          updated.lines.where((line) => !knownIds.contains(line.id)).firstOrNull;
+      state = state.copyWith(
+        receipt: updated,
+        isSaving: false,
+        lastAdded: added,
+      );
       return true;
     } catch (error) {
       if (!_disposed) {
@@ -295,6 +302,8 @@ class WeighingController
   }
 
   void clearFailure() => state = state.copyWith(clearFailure: true);
+
+  void clearLastAdded() => state = state.copyWith(clearLastAdded: true);
 
   bool _fail(WeighingFailure failure) {
     state = state.copyWith(failure: failure);

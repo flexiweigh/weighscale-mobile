@@ -160,6 +160,18 @@
   "settingsScaleSection": "Scale",
   "settingsShopName": "Shop name",
   "settingsScaleConnection": "Scale connection",
+
+  "settingsShopSection": "Shop",
+  "settingsPrinterSection": "Printer",
+  "settingsDataSection": "Data",
+  "settingsCurrency": "Currency",
+  "currencyKyat": "Kyat (Ks)",
+  "settingsReceiptFooter": "Receipt footer",
+  "settingsPrinter": "Bluetooth printer",
+  "settingsPaperWidth": "Paper width",
+  "settingsBackupExport": "Backup & export",
+  "settingsAbout": "About FlexiWeigh",
+
   "commonSave": "Save",
   "commonCancel": "Cancel",
 
@@ -276,6 +288,28 @@
   "@weighingNetShort": { "placeholders": { "unit": { "type": "String" } } },
   "weighingAmountLabel": "Amount",
   "weighingConfirm": "Confirm Weight",
+
+  "weighingConfirmAnyway": "Confirm anyway",
+  "weighingWaitingStable": "Waiting for stable weight…",
+  "weighingTargetRange": "Target {target} ± {tolerance} {unit}",
+  "@weighingTargetRange": {
+    "placeholders": {
+      "target": { "type": "String" },
+      "tolerance": { "type": "String" },
+      "unit": { "type": "String" }
+    }
+  },
+  "weighingLineAdded": "{item} {weight} {unit} added to receipt",
+  "@weighingLineAdded": {
+    "placeholders": {
+      "item": { "type": "String" },
+      "weight": { "type": "String" },
+      "unit": { "type": "String" }
+    }
+  },
+  "weighingRemoveLineTooltip": "Remove line",
+  "commonUndo": "Undo",
+
   "weighingScaleProblem": "Scale problem?",
   "weighingEnterManually": "Enter weight manually",
   "weighingReceiptLines": "Receipt lines ({count})",

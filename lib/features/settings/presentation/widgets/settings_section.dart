@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/theme/app_colors.dart';
-import '../../../../core/theme/app_tone.dart';
+import '../../../../core/theme/app_text.dart';
 import '../../../../core/widgets/app_card.dart';
-import '../../../../core/theme/app_dimens.dart';
 
 class SettingsSection extends StatelessWidget {
   const SettingsSection({super.key, required this.title, required this.tiles});
@@ -17,24 +16,17 @@ class SettingsSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SectionHeader(title: title),
-        const SizedBox(height: 8),
+        const SizedBox(height: 6),
         AppCard(
           padding: EdgeInsets.zero,
-          child: ClipRRect(
-            borderRadius: AppRadius.control,
-            child: Column(
-              children: [
-                for (var i = 0; i < tiles.length; i++) ...[
-                  if (i > 0)
-                    const Divider(
-                      height: 1,
-                      indent: 60,
-                      color: AppColors.border,
-                    ),
-                  tiles[i],
-                ],
+          clip: true,
+          child: Column(
+            children: [
+              for (var i = 0; i < tiles.length; i++) ...[
+                if (i > 0) const Divider(height: 1, color: AppColors.border),
+                tiles[i],
               ],
-            ),
+            ],
           ),
         ),
       ],
@@ -45,23 +37,22 @@ class SettingsSection extends StatelessWidget {
 class SettingsTile extends StatelessWidget {
   const SettingsTile({
     super.key,
-    required this.icon,
-    required this.tone,
     required this.title,
     this.value,
+    this.chip,
+    this.trailing,
     this.onTap,
   });
 
-  final IconData icon;
-  final AppTone tone;
   final String title;
   final String? value;
+  final Widget? chip;
+  final Widget? trailing;
   final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    final colors = tone.colors;
-    final maxValueWidth = MediaQuery.sizeOf(context).width * 0.4;
+    final maxValueWidth = MediaQuery.sizeOf(context).width * 0.45;
 
     return Material(
       color: Colors.transparent,
@@ -71,24 +62,10 @@ class SettingsTile extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
           child: Row(
             children: [
-              Container(
-                width: 36,
-                height: 36,
-                decoration: BoxDecoration(
-                  color: colors.background,
-                  borderRadius: AppRadius.control,
-                ),
-                child: Icon(icon, size: 20, color: colors.foreground),
-              ),
-              const SizedBox(width: 12),
               Expanded(
                 child: Text(
                   title,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.textPrimary,
-                  ),
+                  style: AppText.body.copyWith(fontWeight: FontWeight.w500),
                 ),
               ),
               if (value != null) ...[
@@ -100,18 +77,22 @@ class SettingsTile extends StatelessWidget {
                     maxLines: 1,
                     textAlign: TextAlign.end,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontSize: 13,
+                    style: AppText.body.copyWith(
                       color: AppColors.textSecondary,
                     ),
                   ),
                 ),
               ],
-              const SizedBox(width: 4),
-              const Icon(
-                Icons.chevron_right,
-                color: AppColors.textSecondary,
-              ),
+              if (chip != null) ...[const SizedBox(width: 8), chip!],
+              if (trailing != null) ...[const SizedBox(width: 8), trailing!],
+              if (onTap != null) ...[
+                const SizedBox(width: 4),
+                const Icon(
+                  Icons.chevron_right,
+                  size: 18,
+                  color: AppColors.mutedIcon,
+                ),
+              ],
             ],
           ),
         ),

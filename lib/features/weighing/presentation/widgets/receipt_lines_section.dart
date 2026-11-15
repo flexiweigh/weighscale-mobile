@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_dimens.dart';
 import '../../../../core/theme/app_tone.dart';
 import '../../../../core/widgets/app_card.dart';
 import '../../../items/presentation/item_l10n.dart';
 import '../../domain/receipt.dart';
 import '../../domain/receipt_line.dart';
 import '../../domain/weight_units.dart';
-import '../../../../core/theme/app_dimens.dart';
 
 class ReceiptLinesSection extends StatelessWidget {
   const ReceiptLinesSection({
@@ -82,23 +82,11 @@ class ReceiptLinesSection extends StatelessWidget {
               children: [
                 for (var i = 0; i < lines.length; i++) ...[
                   if (i > 0) const Divider(height: 1, color: AppColors.border),
-                  Dismissible(
-                    key: ValueKey(lines[i].id),
-                    direction: DismissDirection.endToStart,
-                    confirmDismiss: (_) async {
+                  _LineRow(
+                    line: lines[i],
+                    onRemove: () async {
                       if (await _confirmRemove(context)) onRemove(lines[i]);
-                      return false;
                     },
-                    background: Container(
-                      color: AppColors.danger,
-                      alignment: Alignment.centerRight,
-                      padding: const EdgeInsets.only(right: 20),
-                      child: const Icon(
-                        Icons.delete_outline,
-                        color: Colors.white,
-                      ),
-                    ),
-                    child: _LineRow(line: lines[i]),
                   ),
                 ],
               ],
@@ -110,9 +98,10 @@ class ReceiptLinesSection extends StatelessWidget {
 }
 
 class _LineRow extends StatelessWidget {
-  const _LineRow({required this.line});
+  const _LineRow({required this.line, required this.onRemove});
 
   final ReceiptLine line;
+  final VoidCallback onRemove;
 
   @override
   Widget build(BuildContext context) {
@@ -134,7 +123,7 @@ class _LineRow extends StatelessWidget {
 
     return Container(
       color: AppColors.surface,
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+      padding: const EdgeInsets.fromLTRB(14, 6, 4, 6),
       child: Row(
         children: [
           Expanded(
@@ -175,7 +164,7 @@ class _LineRow extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(width: 12),
+          const SizedBox(width: 8),
           Text(
             l10n.moneyKs(formatMoney(line.amount)),
             style: const TextStyle(
@@ -183,6 +172,16 @@ class _LineRow extends StatelessWidget {
               fontWeight: FontWeight.w700,
               color: AppColors.textPrimary,
             ),
+          ),
+          IconButton(
+            tooltip: l10n.weighingRemoveLineTooltip,
+            visualDensity: VisualDensity.compact,
+            icon: const Icon(
+              Icons.delete_outline,
+              size: 20,
+              color: AppColors.mutedIcon,
+            ),
+            onPressed: onRemove,
           ),
         ],
       ),

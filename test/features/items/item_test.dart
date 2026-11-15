@@ -1,9 +1,9 @@
-import 'package:FlexiWeigh/features/items/domain/category.dart';
+import 'package:flexi_weigh/features/items/domain/category.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:FlexiWeigh/features/items/domain/item.dart';
-import 'package:FlexiWeigh/features/items/domain/item_draft.dart';
-import 'package:FlexiWeigh/features/items/domain/item_enums.dart';
+import 'package:flexi_weigh/features/items/domain/item.dart';
+import 'package:flexi_weigh/features/items/domain/item_draft.dart';
+import 'package:flexi_weigh/features/items/domain/item_enums.dart';
 
 Item buildItem({int? target = 25000, int tolerance = 500}) {
   final now = DateTime(2026, 11, 10);

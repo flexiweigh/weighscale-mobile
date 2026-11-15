@@ -112,6 +112,18 @@
   "settingsScaleSection": "ချိန်ခွင်",
   "settingsShopName": "ဆိုင်နာမည်",
   "settingsScaleConnection": "ချိန်ခွင် ချိတ်ဆက်မှု",
+
+  "settingsShopSection": "ဆိုင်",
+  "settingsPrinterSection": "ပရင်တာ",
+  "settingsDataSection": "ဒေတာ",
+  "settingsCurrency": "ငွေကြေး",
+  "currencyKyat": "ကျပ် (Ks)",
+  "settingsReceiptFooter": "ပြေစာ အောက်ခြေစာသား",
+  "settingsPrinter": "ဘလူးတုသ် ပရင်တာ",
+  "settingsPaperWidth": "စက္ကူအကျယ်",
+  "settingsBackupExport": "ဒေတာ သိမ်း / ထုတ်ယူ",
+  "settingsAbout": "FlexiWeigh အကြောင်း",
+
   "commonSave": "သိမ်းမယ်",
   "commonCancel": "မလုပ်တော့ဘူး",
 
@@ -212,6 +224,28 @@
   "@weighingNetShort": { "placeholders": { "unit": { "type": "String" } } },
   "weighingAmountLabel": "ကျသင့်ငွေ",
   "weighingConfirm": "အလေးချိန် အတည်ပြုမယ်",
+
+  "@weighingTargetRange": {
+    "placeholders": {
+      "target": { "type": "String" },
+      "tolerance": { "type": "String" },
+      "unit": { "type": "String" }
+    }
+  },
+  "@weighingLineAdded": {
+    "placeholders": {
+      "item": { "type": "String" },
+      "weight": { "type": "String" },
+      "unit": { "type": "String" }
+    }
+  },
+  "weighingConfirmAnyway": "ဘာပဲဖြစ်ဖြစ် အတည်ပြုမယ်",
+  "weighingWaitingStable": "အလေးချိန် ငြိမ်လာအောင် စောင့်နေသည်…",
+  "weighingTargetRange": "ပစ်မှတ် {target} ± {tolerance} {unit}",
+  "weighingLineAdded": "{item} {weight} {unit} ကို ပြေစာထဲ ထည့်ပြီးပါပြီ",
+  "weighingRemoveLineTooltip": "စာကြောင်း ဖယ်မယ်",
+  "commonUndo": "ပြန်ဖျက်မယ်",
+
   "weighingScaleProblem": "ချိန်ခွင် ပြဿနာရှိလား?",
   "weighingEnterManually": "အလေးချိန် ကိုယ်တိုင်ထည့်မယ်",
   "weighingReceiptLines": "ဘောက်ချာ စာကြောင်းများ ({count})",

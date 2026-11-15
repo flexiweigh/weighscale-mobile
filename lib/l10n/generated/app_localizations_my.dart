@@ -331,6 +331,36 @@ class AppL10nMy extends AppL10n {
   String get settingsScaleConnection => 'ချိန်ခွင် ချိတ်ဆက်မှု';
 
   @override
+  String get settingsShopSection => 'ဆိုင်';
+
+  @override
+  String get settingsPrinterSection => 'ပရင်တာ';
+
+  @override
+  String get settingsDataSection => 'ဒေတာ';
+
+  @override
+  String get settingsCurrency => 'ငွေကြေး';
+
+  @override
+  String get currencyKyat => 'ကျပ် (Ks)';
+
+  @override
+  String get settingsReceiptFooter => 'ပြေစာ အောက်ခြေစာသား';
+
+  @override
+  String get settingsPrinter => 'ဘလူးတုသ် ပရင်တာ';
+
+  @override
+  String get settingsPaperWidth => 'စက္ကူအကျယ်';
+
+  @override
+  String get settingsBackupExport => 'ဒေတာ သိမ်း / ထုတ်ယူ';
+
+  @override
+  String get settingsAbout => 'FlexiWeigh အကြောင်း';
+
+  @override
   String get commonSave => 'သိမ်းမယ်';
 
   @override
@@ -625,6 +655,28 @@ class AppL10nMy extends AppL10n {
 
   @override
   String get weighingConfirm => 'အလေးချိန် အတည်ပြုမယ်';
+
+  @override
+  String get weighingConfirmAnyway => 'ဘာပဲဖြစ်ဖြစ် အတည်ပြုမယ်';
+
+  @override
+  String get weighingWaitingStable => 'အလေးချိန် ငြိမ်လာအောင် စောင့်နေသည်…';
+
+  @override
+  String weighingTargetRange(String target, String tolerance, String unit) {
+    return 'ပစ်မှတ် $target ± $tolerance $unit';
+  }
+
+  @override
+  String weighingLineAdded(String item, String weight, String unit) {
+    return '$item $weight $unit ကို ပြေစာထဲ ထည့်ပြီးပါပြီ';
+  }
+
+  @override
+  String get weighingRemoveLineTooltip => 'စာကြောင်း ဖယ်မယ်';
+
+  @override
+  String get commonUndo => 'ပြန်ဖျက်မယ်';
 
   @override
   String get weighingScaleProblem => 'ချိန်ခွင် ပြဿနာရှိလား?';

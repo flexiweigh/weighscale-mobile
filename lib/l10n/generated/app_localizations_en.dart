@@ -328,6 +328,36 @@ class AppL10nEn extends AppL10n {
   String get settingsScaleConnection => 'Scale connection';
 
   @override
+  String get settingsShopSection => 'Shop';
+
+  @override
+  String get settingsPrinterSection => 'Printer';
+
+  @override
+  String get settingsDataSection => 'Data';
+
+  @override
+  String get settingsCurrency => 'Currency';
+
+  @override
+  String get currencyKyat => 'Kyat (Ks)';
+
+  @override
+  String get settingsReceiptFooter => 'Receipt footer';
+
+  @override
+  String get settingsPrinter => 'Bluetooth printer';
+
+  @override
+  String get settingsPaperWidth => 'Paper width';
+
+  @override
+  String get settingsBackupExport => 'Backup & export';
+
+  @override
+  String get settingsAbout => 'About FlexiWeigh';
+
+  @override
   String get commonSave => 'Save';
 
   @override
@@ -623,6 +653,28 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get weighingConfirm => 'Confirm Weight';
+
+  @override
+  String get weighingConfirmAnyway => 'Confirm anyway';
+
+  @override
+  String get weighingWaitingStable => 'Waiting for stable weight…';
+
+  @override
+  String weighingTargetRange(String target, String tolerance, String unit) {
+    return 'Target $target ± $tolerance $unit';
+  }
+
+  @override
+  String weighingLineAdded(String item, String weight, String unit) {
+    return '$item $weight $unit added to receipt';
+  }
+
+  @override
+  String get weighingRemoveLineTooltip => 'Remove line';
+
+  @override
+  String get commonUndo => 'Undo';
 
   @override
   String get weighingScaleProblem => 'Scale problem?';

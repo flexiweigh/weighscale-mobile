@@ -2,23 +2,42 @@ import 'package:flutter/material.dart';
 
 import '../../../core/l10n/l10n_extension.dart';
 
-Future<String?> showShopNameDialog(BuildContext context, String current) {
+Future<String?> showTextInputDialog(
+    BuildContext context, {
+      required String title,
+      required String initial,
+      int maxLength = 40,
+      bool allowEmpty = false,
+    }) {
   return showDialog<String>(
     context: context,
-    builder: (_) => _ShopNameDialog(initial: current),
+    builder: (_) => _TextInputDialog(
+      title: title,
+      initial: initial,
+      maxLength: maxLength,
+      allowEmpty: allowEmpty,
+    ),
   );
 }
 
-class _ShopNameDialog extends StatefulWidget {
-  const _ShopNameDialog({required this.initial});
+class _TextInputDialog extends StatefulWidget {
+  const _TextInputDialog({
+    required this.title,
+    required this.initial,
+    required this.maxLength,
+    required this.allowEmpty,
+  });
 
+  final String title;
   final String initial;
+  final int maxLength;
+  final bool allowEmpty;
 
   @override
-  State<_ShopNameDialog> createState() => _ShopNameDialogState();
+  State<_TextInputDialog> createState() => _TextInputDialogState();
 }
 
-class _ShopNameDialogState extends State<_ShopNameDialog> {
+class _TextInputDialogState extends State<_TextInputDialog> {
   late final TextEditingController _controller;
 
   @override
@@ -35,18 +54,22 @@ class _ShopNameDialogState extends State<_ShopNameDialog> {
 
   void _submit() {
     final value = _controller.text.trim();
-    Navigator.of(context).pop(value.isEmpty ? null : value);
+    if (value.isEmpty && !widget.allowEmpty) {
+      Navigator.of(context).pop();
+      return;
+    }
+    Navigator.of(context).pop(value);
   }
 
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     return AlertDialog(
-      title: Text(l10n.settingsShopName),
+      title: Text(widget.title),
       content: TextField(
         controller: _controller,
         autofocus: true,
-        maxLength: 40,
+        maxLength: widget.maxLength,
         textInputAction: TextInputAction.done,
         onSubmitted: (_) => _submit(),
         decoration: const InputDecoration(border: OutlineInputBorder()),
@@ -56,10 +79,7 @@ class _ShopNameDialogState extends State<_ShopNameDialog> {
           onPressed: () => Navigator.of(context).pop(),
           child: Text(l10n.commonCancel, overflow: TextOverflow.ellipsis),
         ),
-        FilledButton(
-          onPressed: _submit,
-          child: Text(l10n.commonSave),
-        ),
+        FilledButton(onPressed: _submit, child: Text(l10n.commonSave)),
       ],
     );
   }

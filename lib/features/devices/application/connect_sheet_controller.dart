@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:FlexiWeigh/features/devices/application/scale_session_controller.dart';
+import 'package:flexi_weigh/features/devices/application/scale_session_controller.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../domain/device_scanner.dart';

@@ -1,4 +1,3 @@
-import 'package:FlexiWeigh/features/weighing/presentation/weighing_l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -26,6 +25,7 @@ import 'widgets/weighing_header.dart';
 import '../../../core/widgets/app_snackbar.dart';
 import '../../../core/widgets/bottom_action_bar.dart';
 import '../../../core/widgets/state_views.dart';
+import 'widgets/confirm_weight_button.dart';
 
 class WeighingScreen extends ConsumerWidget {
   const WeighingScreen({super.key, required this.type});
@@ -37,10 +37,7 @@ class WeighingScreen extends ConsumerWidget {
     if (context.mounted) leaveWeighing(context);
   }
 
-  Future<void> _finish(
-      BuildContext context,
-      WeighingController controller,
-      ) async {
+  Future<void> _finish(BuildContext context, WeighingController controller) async {
     final receipt = await controller.finish();
     if (receipt == null || !context.mounted) return;
     context.pushReplacement(AppRoutes.transactionFresh(receipt.id));
@@ -52,17 +49,21 @@ class WeighingScreen extends ConsumerWidget {
     final state = ref.watch(provider);
     final controller = ref.read(provider.notifier);
     final l10n = context.l10n;
-    final presets = ref.watch(deductionPresetsProvider).valueOrNull ??
-        const <DeductionPreset>[];
+    final presets = ref.watch(deductionPresetsProvider).valueOrNull ?? const <DeductionPreset>[];
 
-    ref.listen(provider.select((s) => s.failure), (_, failure) {
-      if (failure == null) return;
-      showAppSnackBar(context, failure.message(l10n));
-      controller.clearFailure();
+    ref.listen(provider.select((s) => s.lastAdded), (_, line) {
+      if (line == null) return;
+      final decimals = line.unit.displayDecimals;
+      showAppSnackBar(
+        context,
+        l10n.weighingLineAdded(line.itemName, formatWeightMilli(line.netWeightMilli, decimals: decimals), line.unit.label(l10n)),
+        actionLabel: l10n.commonUndo,
+        onAction: () => controller.removeLine(line.id),
+      );
+      controller.clearLastAdded();
     });
 
-    final showFooter =
-        !state.isLoading && state.receipt != null && state.item != null;
+    final showFooter = !state.isLoading && state.receipt != null && state.item != null;
 
     return PopScope(
       canPop: false,
@@ -70,21 +71,11 @@ class WeighingScreen extends ConsumerWidget {
         if (!didPop) _back(context, controller);
       },
       child: Scaffold(
+        bottomNavigationBar: showFooter ? _Footer(state: state, onFinish: () => _finish(context, controller)) : null,
         body: Column(
           children: [
-            WeighingHeader(
-              title: l10n.weighingTitle,
-              state: state,
-              onBack: () => _back(context, controller),
-            ),
-            Expanded(
-              child: _body(context, ref, state, controller, presets),
-            ),
-            if (showFooter)
-              _Footer(
-                state: state,
-                onFinish: () => _finish(context, controller),
-              ),
+            WeighingHeader(title: l10n.weighingTitle, state: state, onBack: () => _back(context, controller)),
+            Expanded(child: _body(context, ref, state, controller, presets)),
           ],
         ),
       ),
@@ -92,12 +83,12 @@ class WeighingScreen extends ConsumerWidget {
   }
 
   Widget _body(
-      BuildContext context,
-      WidgetRef ref,
-      WeighingState state,
-      WeighingController controller,
-      List<DeductionPreset> presets,
-      ) {
+    BuildContext context,
+    WidgetRef ref,
+    WeighingState state,
+    WeighingController controller,
+    List<DeductionPreset> presets,
+  ) {
     final l10n = context.l10n;
 
     if (state.isLoading) {
@@ -136,18 +127,9 @@ class WeighingScreen extends ConsumerWidget {
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
-        ItemPickerField(
-          item: item,
-          type: type,
-          onSelected: controller.selectItem,
-        ),
+        ItemPickerField(item: item, type: type, onSelected: controller.selectItem),
         const SizedBox(height: 12),
-        LiveWeightCard(
-          state: state,
-          onTare: controller.tare,
-          onZero: controller.zero,
-          onAutoCapture: controller.setAutoCapture,
-        ),
+        LiveWeightCard(state: state, onTare: controller.tare, onZero: controller.zero, onAutoCapture: controller.setAutoCapture),
         const SizedBox(height: 12),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -183,36 +165,20 @@ class WeighingScreen extends ConsumerWidget {
           cells: [
             ResultCell(
               label: l10n.weighingNetLabel,
-              value:
-              '${formatWeightMilli(state.netMilli, decimals: decimals)} $unitLabel',
+              value: '${formatWeightMilli(state.netMilli, decimals: decimals)} $unitLabel',
               color: AppColors.primary,
             ),
-            ResultCell(
-              label: l10n.weighingAmountLabel,
-              value: l10n.moneyKs(formatMoney(state.amount)),
-              color: AppColors.success,
-            ),
+            ResultCell(label: l10n.weighingAmountLabel, value: l10n.moneyKs(formatMoney(state.amount)), color: AppColors.success),
           ],
         ),
         const SizedBox(height: 12),
-        PrimaryActionButton(
-          label: l10n.weighingConfirm,
-          icon: Icons.check,
-          isBusy: state.isSaving,
-          onPressed: state.canConfirm ? controller.confirmWeight : null,
-        ),
+        ConfirmWeightButton(state: state, onConfirm: controller.confirmWeight),
         const SizedBox(height: 10),
         Center(
           child: Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
             children: [
-              Text(
-                '${l10n.weighingScaleProblem} ',
-                style: const TextStyle(
-                  fontSize: 13,
-                  color: AppColors.textSecondary,
-                ),
-              ),
+              Text('${l10n.weighingScaleProblem} ', style: const TextStyle(fontSize: 13, color: AppColors.textSecondary)),
               GestureDetector(
                 behavior: HitTestBehavior.opaque,
                 onTap: () => context.push(AppRoutes.manualEntryWith(type.name)),
@@ -220,11 +186,7 @@ class WeighingScreen extends ConsumerWidget {
                   padding: const EdgeInsets.symmetric(vertical: 6),
                   child: Text(
                     l10n.weighingEnterManually,
-                    style: const TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.primary,
-                    ),
+                    style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: AppColors.primary),
                   ),
                 ),
               ),
@@ -233,10 +195,7 @@ class WeighingScreen extends ConsumerWidget {
         ),
         const SizedBox(height: 8),
         if (state.receipt != null)
-          ReceiptLinesSection(
-            receipt: state.receipt!,
-            onRemove: (line) => controller.removeLine(line.id),
-          ),
+          ReceiptLinesSection(receipt: state.receipt!, onRemove: (line) => controller.removeLine(line.id)),
       ],
     );
   }
@@ -259,20 +218,13 @@ class _Footer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
-                  l10n.weighingTotalLines(state.lineCount),
-                  style: AppText.caption,
-                ),
+                Text(l10n.weighingTotalLines(state.lineCount), style: AppText.caption),
                 FittedBox(
                   fit: BoxFit.scaleDown,
                   alignment: Alignment.centerLeft,
                   child: Text(
                     l10n.moneyKs(formatMoney(state.totalAmount)),
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                      color: AppColors.textPrimary,
-                    ),
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: AppColors.textPrimary),
                   ),
                 ),
               ],
